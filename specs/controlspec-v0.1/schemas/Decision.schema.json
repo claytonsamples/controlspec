@@ -1,0 +1,850 @@
+{
+  "$defs": {
+    "ActorRef": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "actor_id",
+        "version"
+      ],
+      "title": "ActorRef",
+      "type": "object"
+    },
+    "ApprovalRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "failure": {
+          "$ref": "#/$defs/FailureEffect"
+        },
+        "minimum_count": {
+          "exclusiveMinimum": 0,
+          "title": "Minimum Count",
+          "type": "integer"
+        },
+        "requirement_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Requirement Id",
+          "type": "string"
+        },
+        "requirement_type": {
+          "const": "approval",
+          "default": "approval",
+          "title": "Requirement Type",
+          "type": "string"
+        },
+        "role": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Role",
+          "type": "string"
+        },
+        "scope": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Scope",
+          "type": "object"
+        },
+        "separate_from_actor": {
+          "title": "Separate From Actor",
+          "type": "boolean"
+        },
+        "separate_from_roles": {
+          "$ref": "#/$defs/CanonicalSet_Annotated_str__StringConstraints__"
+        },
+        "validity_seconds": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Validity Seconds"
+        }
+      },
+      "required": [
+        "requirement_id",
+        "failure",
+        "role",
+        "scope",
+        "minimum_count",
+        "validity_seconds",
+        "separate_from_actor",
+        "separate_from_roles"
+      ],
+      "title": "ApprovalRequirement",
+      "type": "object"
+    },
+    "CanonicalAction": {
+      "enum": [
+        "observe",
+        "infer",
+        "communicate",
+        "modify",
+        "commit",
+        "transfer",
+        "delegate"
+      ],
+      "title": "CanonicalAction",
+      "type": "string"
+    },
+    "CanonicalSet_Annotated_str__StringConstraints__": {
+      "items": {
+        "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "CanonicalSet_Annotated_str__StringConstraints___MinLen_min_length_1_": {
+      "items": {
+        "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "CanonicalSet_ApprovalRequirement_": {
+      "items": {
+        "$ref": "#/$defs/ApprovalRequirement"
+      },
+      "type": "array"
+    },
+    "CanonicalSet_ConditionResult_": {
+      "items": {
+        "$ref": "#/$defs/ConditionResult"
+      },
+      "type": "array"
+    },
+    "CanonicalSet_ControlRef_": {
+      "items": {
+        "$ref": "#/$defs/ControlRef"
+      },
+      "type": "array"
+    },
+    "CanonicalSet_EvidenceRequirement_": {
+      "items": {
+        "$ref": "#/$defs/EvidenceRequirement"
+      },
+      "type": "array"
+    },
+    "CanonicalizerBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "RFC8785-INTEGER-AUTHORITY",
+          "default": "RFC8785-INTEGER-AUTHORITY",
+          "title": "Name",
+          "type": "string"
+        },
+        "version": {
+          "const": "1",
+          "default": "1",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "title": "CanonicalizerBinding",
+      "type": "object"
+    },
+    "ConditionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Code",
+          "type": "string"
+        },
+        "condition_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "satisfied",
+            "outstanding",
+            "failed",
+            "unknown"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "condition_id",
+        "status",
+        "code"
+      ],
+      "title": "ConditionResult",
+      "type": "object"
+    },
+    "ControlRef": {
+      "additionalProperties": false,
+      "properties": {
+        "control_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Control Id",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "semantic_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Semantic Digest",
+          "type": "string"
+        },
+        "version": {
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "control_id",
+        "version",
+        "semantic_digest"
+      ],
+      "title": "ControlRef",
+      "type": "object"
+    },
+    "CoreRouteKind": {
+      "enum": [
+        "continue",
+        "ask_user",
+        "human_review",
+        "specialist_agent",
+        "different_model",
+        "redact_then_continue",
+        "narrow_action",
+        "block",
+        "record_only"
+      ],
+      "title": "CoreRouteKind",
+      "type": "string"
+    },
+    "DecisionBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "action_type": {
+          "$ref": "#/$defs/CanonicalAction"
+        },
+        "actor_ref": {
+          "$ref": "#/$defs/ActorRef"
+        },
+        "canonicalizer": {
+          "$ref": "#/$defs/CanonicalizerBinding",
+          "default": {
+            "name": "RFC8785-INTEGER-AUTHORITY",
+            "version": "1"
+          }
+        },
+        "context_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Context Digest",
+          "type": "string"
+        },
+        "control_set_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Control Set Digest",
+          "type": "string"
+        },
+        "domain_action": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Domain Action",
+          "type": "string"
+        },
+        "evaluator": {
+          "$ref": "#/$defs/EvaluatorBinding"
+        },
+        "intent_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Intent Digest",
+          "type": "string"
+        },
+        "resource_ref": {
+          "$ref": "#/$defs/ResourceRef"
+        }
+      },
+      "required": [
+        "actor_ref",
+        "action_type",
+        "domain_action",
+        "resource_ref",
+        "context_digest",
+        "intent_digest",
+        "control_set_digest",
+        "evaluator"
+      ],
+      "title": "DecisionBinding",
+      "type": "object"
+    },
+    "DecisionRef": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "semantic_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Semantic Digest",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "decision_id",
+        "semantic_digest"
+      ],
+      "title": "DecisionRef",
+      "type": "object"
+    },
+    "EvaluatorBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ],
+      "title": "EvaluatorBinding",
+      "type": "object"
+    },
+    "EvidenceRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "failure": {
+          "$ref": "#/$defs/FailureEffect"
+        },
+        "kind": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Kind",
+          "type": "string"
+        },
+        "max_age_seconds": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Max Age Seconds"
+        },
+        "minimum_count": {
+          "exclusiveMinimum": 0,
+          "title": "Minimum Count",
+          "type": "integer"
+        },
+        "requirement_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Requirement Id",
+          "type": "string"
+        },
+        "requirement_type": {
+          "const": "evidence",
+          "default": "evidence",
+          "title": "Requirement Type",
+          "type": "string"
+        },
+        "separation": {
+          "$ref": "#/$defs/EvidenceSeparation"
+        },
+        "subject": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Subject",
+          "type": "string"
+        },
+        "verifier": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Verifier",
+          "type": "string"
+        }
+      },
+      "required": [
+        "requirement_id",
+        "failure",
+        "kind",
+        "subject",
+        "minimum_count",
+        "max_age_seconds",
+        "verifier",
+        "separation"
+      ],
+      "title": "EvidenceRequirement",
+      "type": "object"
+    },
+    "EvidenceSeparation": {
+      "additionalProperties": false,
+      "properties": {
+        "certifier_not_actor": {
+          "title": "Certifier Not Actor",
+          "type": "boolean"
+        },
+        "producer_certifier_distinct": {
+          "title": "Producer Certifier Distinct",
+          "type": "boolean"
+        },
+        "producer_not_actor": {
+          "title": "Producer Not Actor",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "producer_not_actor",
+        "certifier_not_actor",
+        "producer_certifier_distinct"
+      ],
+      "title": "EvidenceSeparation",
+      "type": "object"
+    },
+    "FailureEffect": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Code",
+          "type": "string"
+        },
+        "route": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Route"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verdict": {
+          "enum": [
+            "require_approval",
+            "route",
+            "block"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "route",
+        "code"
+      ],
+      "title": "FailureEffect",
+      "type": "object"
+    },
+    "IntentRef": {
+      "additionalProperties": false,
+      "properties": {
+        "intent_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Intent Digest",
+          "type": "string"
+        },
+        "intent_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Intent Id",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "intent_id",
+        "intent_digest"
+      ],
+      "title": "IntentRef",
+      "type": "object"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "maximum": 9223372036854775807,
+          "minimum": -9223372036854775808,
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ObjectRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "anyOf": [
+            {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Digest"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "object_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Object Id",
+          "type": "string"
+        },
+        "object_type": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Object Type",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        }
+      },
+      "required": [
+        "namespace",
+        "object_type",
+        "object_id",
+        "version",
+        "digest"
+      ],
+      "title": "ObjectRef",
+      "type": "object"
+    },
+    "ResourceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "resource_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Resource Id",
+          "type": "string"
+        },
+        "type": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Type",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "resource_id",
+        "version",
+        "type"
+      ],
+      "title": "ResourceRef",
+      "type": "object"
+    },
+    "Route": {
+      "additionalProperties": false,
+      "properties": {
+        "extensions": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Extensions",
+          "type": "object"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CoreRouteKind"
+            },
+            {
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+              "type": "string"
+            }
+          ],
+          "title": "Kind"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "parameters": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Parameters",
+          "type": "object"
+        },
+        "requires_recheck": {
+          "title": "Requires Recheck",
+          "type": "boolean"
+        },
+        "route_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Route Id",
+          "type": "string"
+        },
+        "schema": {
+          "const": "controlspec/v0/route",
+          "default": "controlspec/v0/route",
+          "title": "Schema",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1.0",
+          "default": "0.1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "target_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ObjectRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "namespace",
+        "route_id",
+        "kind",
+        "target_ref",
+        "parameters",
+        "requires_recheck"
+      ],
+      "title": "Route",
+      "type": "object"
+    },
+    "Verdict": {
+      "enum": [
+        "allow",
+        "allow_with_conditions",
+        "require_approval",
+        "route",
+        "block",
+        "conflict"
+      ],
+      "title": "Verdict",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "applied_controls": {
+      "$ref": "#/$defs/CanonicalSet_ControlRef_"
+    },
+    "approval_requirements": {
+      "$ref": "#/$defs/CanonicalSet_ApprovalRequirement_"
+    },
+    "binding": {
+      "$ref": "#/$defs/DecisionBinding"
+    },
+    "conditions": {
+      "$ref": "#/$defs/CanonicalSet_ConditionResult_"
+    },
+    "decision_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Decision Id",
+      "type": "string"
+    },
+    "evaluated_at": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+      "title": "Evaluated At",
+      "type": "string"
+    },
+    "expires_at": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+      "title": "Expires At",
+      "type": "string"
+    },
+    "explanation_codes": {
+      "$ref": "#/$defs/CanonicalSet_Annotated_str__StringConstraints___MinLen_min_length_1_",
+      "minLength": 1
+    },
+    "extensions": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "title": "Extensions",
+      "type": "object"
+    },
+    "intent_ref": {
+      "$ref": "#/$defs/IntentRef"
+    },
+    "namespace": {
+      "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+      "title": "Namespace",
+      "type": "string"
+    },
+    "predecessor_decision_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DecisionRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "required_evidence": {
+      "$ref": "#/$defs/CanonicalSet_EvidenceRequirement_"
+    },
+    "requires_recheck": {
+      "title": "Requires Recheck",
+      "type": "boolean"
+    },
+    "route": {
+      "$ref": "#/$defs/Route"
+    },
+    "schema": {
+      "const": "controlspec/v0/decision",
+      "default": "controlspec/v0/decision",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1.0",
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_digest": {
+      "anyOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Semantic Digest"
+    },
+    "verdict": {
+      "$ref": "#/$defs/Verdict"
+    }
+  },
+  "required": [
+    "namespace",
+    "decision_id",
+    "intent_ref",
+    "evaluated_at",
+    "expires_at",
+    "predecessor_decision_ref",
+    "verdict",
+    "route",
+    "conditions",
+    "approval_requirements",
+    "required_evidence",
+    "applied_controls",
+    "explanation_codes",
+    "binding",
+    "requires_recheck"
+  ],
+  "title": "Decision",
+  "type": "object"
+}

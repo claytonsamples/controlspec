@@ -1,0 +1,124 @@
+{
+  "$defs": {
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "maximum": 9223372036854775807,
+          "minimum": -9223372036854775808,
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "attributes": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Attributes",
+      "type": "object"
+    },
+    "business_id": {
+      "anyOf": [
+        {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Business Id"
+    },
+    "display_name": {
+      "anyOf": [
+        {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Display Name"
+    },
+    "extensions": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "title": "Extensions",
+      "type": "object"
+    },
+    "namespace": {
+      "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+      "title": "Namespace",
+      "type": "string"
+    },
+    "resource_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Resource Id",
+      "type": "string"
+    },
+    "schema": {
+      "const": "controlspec/v0/resource",
+      "default": "controlspec/v0/resource",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1.0",
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "type": {
+      "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+      "title": "Type",
+      "type": "string"
+    },
+    "version": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "namespace",
+    "resource_id",
+    "version",
+    "type",
+    "business_id",
+    "attributes"
+  ],
+  "title": "Resource",
+  "type": "object"
+}

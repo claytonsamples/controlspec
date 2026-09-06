@@ -1,0 +1,184 @@
+{
+  "$defs": {
+    "CoreRouteKind": {
+      "enum": [
+        "continue",
+        "ask_user",
+        "human_review",
+        "specialist_agent",
+        "different_model",
+        "redact_then_continue",
+        "narrow_action",
+        "block",
+        "record_only"
+      ],
+      "title": "CoreRouteKind",
+      "type": "string"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "maximum": 9223372036854775807,
+          "minimum": -9223372036854775808,
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ObjectRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "anyOf": [
+            {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Digest"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "object_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Object Id",
+          "type": "string"
+        },
+        "object_type": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Object Type",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        }
+      },
+      "required": [
+        "namespace",
+        "object_type",
+        "object_id",
+        "version",
+        "digest"
+      ],
+      "title": "ObjectRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "extensions": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "title": "Extensions",
+      "type": "object"
+    },
+    "kind": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CoreRouteKind"
+        },
+        {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "type": "string"
+        }
+      ],
+      "title": "Kind"
+    },
+    "namespace": {
+      "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+      "title": "Namespace",
+      "type": "string"
+    },
+    "parameters": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "title": "Parameters",
+      "type": "object"
+    },
+    "requires_recheck": {
+      "title": "Requires Recheck",
+      "type": "boolean"
+    },
+    "route_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Route Id",
+      "type": "string"
+    },
+    "schema": {
+      "const": "controlspec/v0/route",
+      "default": "controlspec/v0/route",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1.0",
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "target_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ObjectRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "namespace",
+    "route_id",
+    "kind",
+    "target_ref",
+    "parameters",
+    "requires_recheck"
+  ],
+  "title": "Route",
+  "type": "object"
+}

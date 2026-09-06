@@ -1,0 +1,182 @@
+{
+  "$defs": {
+    "ActorType": {
+      "enum": [
+        "agent",
+        "human",
+        "service",
+        "workflow",
+        "application",
+        "organization"
+      ],
+      "title": "ActorType",
+      "type": "string"
+    },
+    "CanonicalSet_ObjectRef_": {
+      "items": {
+        "$ref": "#/$defs/ObjectRef"
+      },
+      "type": "array"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "maximum": 9223372036854775807,
+          "minimum": -9223372036854775808,
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ObjectRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "anyOf": [
+            {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Digest"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "object_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Object Id",
+          "type": "string"
+        },
+        "object_type": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Object Type",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        }
+      },
+      "required": [
+        "namespace",
+        "object_type",
+        "object_id",
+        "version",
+        "digest"
+      ],
+      "title": "ObjectRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Actor Id",
+      "type": "string"
+    },
+    "attributes": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Attributes",
+      "type": "object"
+    },
+    "extensions": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "title": "Extensions",
+      "type": "object"
+    },
+    "lineage_refs": {
+      "$ref": "#/$defs/CanonicalSet_ObjectRef_"
+    },
+    "namespace": {
+      "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+      "title": "Namespace",
+      "type": "string"
+    },
+    "owner_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ObjectRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "schema": {
+      "const": "controlspec/v0/actor",
+      "default": "controlspec/v0/actor",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1.0",
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "type": {
+      "$ref": "#/$defs/ActorType"
+    },
+    "version": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "namespace",
+    "actor_id",
+    "version",
+    "type",
+    "owner_ref",
+    "lineage_refs",
+    "attributes"
+  ],
+  "title": "Actor",
+  "type": "object"
+}

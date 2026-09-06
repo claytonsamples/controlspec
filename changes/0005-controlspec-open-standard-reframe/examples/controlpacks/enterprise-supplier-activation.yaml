@@ -1,0 +1,269 @@
+schema: controlspec/v0/control-pack
+schema_version: 0.1.0
+namespace: enterprise.supplier.activation
+pack_id: supplier-activation-reference
+name: Enterprise supplier activation
+version: 0.1.0
+status: draft
+title: Enterprise Supplier Activation
+description: Non-authoritative example aligned with RiskSpec; no executable runtime support is claimed.
+controls:
+  - schema: controlspec/v0/control
+    schema_version: 0.1.0
+    namespace: enterprise.supplier.activation
+    control_id: supplier-evidence-and-approval
+    version: 0.1.0
+    status: draft
+    effective_from: null
+    effective_until: null
+    title: Supplier evidence and approval
+    description: High-risk or restricted-data suppliers follow a human review route.
+    owner_ref: null
+    source_refs: []
+    match:
+      actor_types: [agent]
+      action_types: [modify]
+      domain_actions: [enterprise.supplier.activate]
+      resource_types: [enterprise.supplier]
+      predicates:
+        - operator: eq
+          path: /context/enterprise.supplier.high_risk
+          value: true
+          values: []
+          expected: null
+    on_unknown:
+      verdict: block
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: enterprise.supplier.activation
+        route_id: block
+        kind: block
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      code: enterprise.supplier.missing_context
+    effect:
+      verdict: route
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: enterprise.supplier.activation
+        route_id: human-review
+        kind: human_review
+        target_ref: null
+        parameters: {}
+        requires_recheck: true
+        extensions: {}
+      requirements:
+        - requirement_id: independent-approval
+          requirement_type: approval
+          role: enterprise.supplier.role.approver
+          scope: {enterprise.supplier.activation: exact_intent}
+          minimum_count: 1
+          validity_seconds: 3600
+          separate_from_actor: true
+          separate_from_roles: [enterprise.supplier.role.proposer]
+          failure:
+            verdict: require_approval
+            route: null
+            code: enterprise.supplier.approval_required
+        - requirement_id: supplier-evidence
+          requirement_type: evidence
+          kind: enterprise.supplier.evidence.complete
+          subject: enterprise.supplier
+          minimum_count: 1
+          max_age_seconds: null
+          verifier: enterprise.supplier.evidence.valid
+          separation:
+            producer_not_actor: false
+            certifier_not_actor: true
+            producer_certifier_distinct: true
+          failure:
+            verdict: block
+            route:
+              schema: controlspec/v0/route
+              schema_version: 0.1.0
+              namespace: enterprise.supplier.activation
+              route_id: block-evidence
+              kind: block
+              target_ref: null
+              parameters: {}
+              requires_recheck: false
+              extensions: {}
+            code: enterprise.supplier.evidence_missing
+      conditions: []
+      code: enterprise.supplier.human_route
+    metadata: {profile: riskspec_enterprise_supplier}
+    semantic_digest: null
+    extensions: {}
+  - schema: controlspec/v0/control
+    schema_version: 0.1.0
+    namespace: enterprise.supplier.activation
+    control_id: routine-supplier-evidence
+    version: 0.1.0
+    status: draft
+    effective_from: null
+    effective_until: null
+    title: Routine supplier evidence
+    description: A routine supplier still requires verified evidence before assurance can complete.
+    owner_ref: null
+    source_refs: []
+    match:
+      actor_types: [agent]
+      action_types: [modify]
+      domain_actions: [enterprise.supplier.activate]
+      resource_types: [enterprise.supplier]
+      predicates:
+        - operator: eq
+          path: /context/enterprise.supplier.high_risk
+          value: false
+          values: []
+          expected: null
+        - operator: eq
+          path: /context/enterprise.supplier.restricted_data
+          value: false
+          values: []
+          expected: null
+    on_unknown:
+      verdict: block
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: enterprise.supplier.activation
+        route_id: block-unknown-risk
+        kind: block
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      code: enterprise.supplier.risk_context_missing
+    effect:
+      verdict: allow_with_conditions
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: enterprise.supplier.activation
+        route_id: continue-routine
+        kind: continue
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      requirements:
+        - requirement_id: routine-supplier-evidence
+          requirement_type: evidence
+          kind: enterprise.supplier.evidence.complete
+          subject: enterprise.supplier
+          minimum_count: 1
+          max_age_seconds: null
+          verifier: enterprise.supplier.evidence.valid
+          separation:
+            producer_not_actor: false
+            certifier_not_actor: true
+            producer_certifier_distinct: true
+          failure:
+            verdict: block
+            route:
+              schema: controlspec/v0/route
+              schema_version: 0.1.0
+              namespace: enterprise.supplier.activation
+              route_id: block-routine-evidence
+              kind: block
+              target_ref: null
+              parameters: {}
+              requires_recheck: false
+              extensions: {}
+            code: enterprise.supplier.evidence_missing
+      conditions: []
+      code: enterprise.supplier.routine_controlled
+    metadata: {profile: riskspec_enterprise_supplier}
+    semantic_digest: null
+    extensions: {}
+  - schema: controlspec/v0/control
+    schema_version: 0.1.0
+    namespace: enterprise.supplier.activation
+    control_id: restricted-data-privacy-review
+    version: 0.1.0
+    status: draft
+    effective_from: null
+    effective_until: null
+    title: Restricted-data privacy review
+    description: Restricted data requires an independent privacy review before proceeding.
+    owner_ref: null
+    source_refs: []
+    match:
+      actor_types: [agent]
+      action_types: [modify]
+      domain_actions: [enterprise.supplier.activate]
+      resource_types: [enterprise.supplier]
+      predicates:
+        - operator: eq
+          path: /context/enterprise.supplier.restricted_data
+          value: true
+          values: []
+          expected: null
+    on_unknown:
+      verdict: block
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: enterprise.supplier.activation
+        route_id: block-unknown-classification
+        kind: block
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      code: enterprise.supplier.classification_missing
+    effect:
+      verdict: require_approval
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: enterprise.supplier.activation
+        route_id: privacy-review
+        kind: human_review
+        target_ref: null
+        parameters: {}
+        requires_recheck: true
+        extensions: {}
+      requirements:
+        - requirement_id: privacy-review
+          requirement_type: approval
+          role: enterprise.supplier.role.privacy_reviewer
+          scope: {enterprise.supplier.restricted_data: exact_intent}
+          minimum_count: 1
+          validity_seconds: 3600
+          separate_from_actor: true
+          separate_from_roles: [enterprise.supplier.role.proposer]
+          failure:
+            verdict: require_approval
+            route: null
+            code: enterprise.supplier.privacy_review_required
+      conditions: []
+      code: enterprise.supplier.privacy_review_route
+    metadata: {profile: riskspec_enterprise_supplier}
+    semantic_digest: null
+    extensions: {}
+dependencies: []
+vocabularies:
+  domain_actions: [enterprise.supplier.activate]
+  resource_types: [enterprise.supplier]
+  verifiers:
+    - name: enterprise.supplier.evidence.valid
+      version: "1"
+      input_schema_digest: sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
+  routes: []
+extension_requirements: []
+conformance_profile: core
+examples:
+  - {case: routine_with_evidence, expected: allow_with_conditions}
+  - {case: restricted_without_review, expected: block}
+  - {case: high_risk, expected: human_review}
+  - {case: self_approval, expected: block}
+  - {case: missing_evidence, expected: incomplete_receipt}
+metadata: {authority: non_authoritative_example}
+semantic_digest: null
+extensions: {}

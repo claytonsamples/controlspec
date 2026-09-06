@@ -1,0 +1,603 @@
+{
+  "$defs": {
+    "Action": {
+      "additionalProperties": false,
+      "properties": {
+        "domain_action": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Domain Action",
+          "type": "string"
+        },
+        "requested_effect": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": {
+          "$ref": "#/$defs/CanonicalAction"
+        }
+      },
+      "required": [
+        "type",
+        "domain_action",
+        "requested_effect"
+      ],
+      "title": "Action",
+      "type": "object"
+    },
+    "Actor": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Attributes",
+          "type": "object"
+        },
+        "extensions": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Extensions",
+          "type": "object"
+        },
+        "lineage_refs": {
+          "$ref": "#/$defs/CanonicalSet_ObjectRef_"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "owner_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ObjectRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema": {
+          "const": "controlspec/v0/actor",
+          "default": "controlspec/v0/actor",
+          "title": "Schema",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1.0",
+          "default": "0.1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/ActorType"
+        },
+        "version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "actor_id",
+        "version",
+        "type",
+        "owner_ref",
+        "lineage_refs",
+        "attributes"
+      ],
+      "title": "Actor",
+      "type": "object"
+    },
+    "ActorType": {
+      "enum": [
+        "agent",
+        "human",
+        "service",
+        "workflow",
+        "application",
+        "organization"
+      ],
+      "title": "ActorType",
+      "type": "string"
+    },
+    "Amount": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "minor_units": {
+          "title": "Minor Units",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "currency",
+        "minor_units"
+      ],
+      "title": "Amount",
+      "type": "object"
+    },
+    "CanonicalAction": {
+      "enum": [
+        "observe",
+        "infer",
+        "communicate",
+        "modify",
+        "commit",
+        "transfer",
+        "delegate"
+      ],
+      "title": "CanonicalAction",
+      "type": "string"
+    },
+    "CanonicalSet_EvidenceRef_": {
+      "items": {
+        "$ref": "#/$defs/EvidenceRef"
+      },
+      "type": "array"
+    },
+    "CanonicalSet_ObjectRef_": {
+      "items": {
+        "$ref": "#/$defs/ObjectRef"
+      },
+      "type": "array"
+    },
+    "CoreRouteKind": {
+      "enum": [
+        "continue",
+        "ask_user",
+        "human_review",
+        "specialist_agent",
+        "different_model",
+        "redact_then_continue",
+        "narrow_action",
+        "block",
+        "record_only"
+      ],
+      "title": "CoreRouteKind",
+      "type": "string"
+    },
+    "EvidenceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "evidence_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "kind": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Kind",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "evidence_id",
+        "digest",
+        "kind"
+      ],
+      "title": "EvidenceRef",
+      "type": "object"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "maximum": 9223372036854775807,
+          "minimum": -9223372036854775808,
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ObjectRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "anyOf": [
+            {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Digest"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "object_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Object Id",
+          "type": "string"
+        },
+        "object_type": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Object Type",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        }
+      },
+      "required": [
+        "namespace",
+        "object_type",
+        "object_id",
+        "version",
+        "digest"
+      ],
+      "title": "ObjectRef",
+      "type": "object"
+    },
+    "Resource": {
+      "additionalProperties": false,
+      "properties": {
+        "attributes": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Attributes",
+          "type": "object"
+        },
+        "business_id": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Business Id"
+        },
+        "display_name": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Display Name"
+        },
+        "extensions": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Extensions",
+          "type": "object"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "resource_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Resource Id",
+          "type": "string"
+        },
+        "schema": {
+          "const": "controlspec/v0/resource",
+          "default": "controlspec/v0/resource",
+          "title": "Schema",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1.0",
+          "default": "0.1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "type": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Type",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "resource_id",
+        "version",
+        "type",
+        "business_id",
+        "attributes"
+      ],
+      "title": "Resource",
+      "type": "object"
+    },
+    "Route": {
+      "additionalProperties": false,
+      "properties": {
+        "extensions": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Extensions",
+          "type": "object"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CoreRouteKind"
+            },
+            {
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+              "type": "string"
+            }
+          ],
+          "title": "Kind"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "parameters": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Parameters",
+          "type": "object"
+        },
+        "requires_recheck": {
+          "title": "Requires Recheck",
+          "type": "boolean"
+        },
+        "route_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Route Id",
+          "type": "string"
+        },
+        "schema": {
+          "const": "controlspec/v0/route",
+          "default": "controlspec/v0/route",
+          "title": "Schema",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1.0",
+          "default": "0.1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "target_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ObjectRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "namespace",
+        "route_id",
+        "kind",
+        "target_ref",
+        "parameters",
+        "requires_recheck"
+      ],
+      "title": "Route",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "$ref": "#/$defs/Action"
+    },
+    "actor": {
+      "$ref": "#/$defs/Actor"
+    },
+    "context": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "title": "Context",
+      "type": "object"
+    },
+    "context_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Context Digest",
+      "type": "string"
+    },
+    "cost": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Amount"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence_refs": {
+      "$ref": "#/$defs/CanonicalSet_EvidenceRef_"
+    },
+    "extensions": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "title": "Extensions",
+      "type": "object"
+    },
+    "idempotency_key": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Idempotency Key",
+      "type": "string"
+    },
+    "intent_digest": {
+      "anyOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Intent Digest"
+    },
+    "intent_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Intent Id",
+      "type": "string"
+    },
+    "namespace": {
+      "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+      "title": "Namespace",
+      "type": "string"
+    },
+    "requested_at": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+      "title": "Requested At",
+      "type": "string"
+    },
+    "requested_route": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Route"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "resource": {
+      "$ref": "#/$defs/Resource"
+    },
+    "retry_count": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Retry Count"
+    },
+    "schema": {
+      "const": "controlspec/v0/action-intent",
+      "default": "controlspec/v0/action-intent",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1.0",
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "namespace",
+    "intent_id",
+    "actor",
+    "action",
+    "resource",
+    "context",
+    "requested_route",
+    "evidence_refs",
+    "cost",
+    "retry_count",
+    "requested_at",
+    "idempotency_key",
+    "context_digest"
+  ],
+  "title": "ActionIntent",
+  "type": "object"
+}

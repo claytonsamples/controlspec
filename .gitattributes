@@ -1,0 +1,2 @@
+# Preserve source-manifest bytes across platforms; no checkout newline rewriting.
+* -text

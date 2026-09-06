@@ -1,0 +1,491 @@
+{
+  "$defs": {
+    "ActorRef": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "actor_id",
+        "version"
+      ],
+      "title": "ActorRef",
+      "type": "object"
+    },
+    "CanonicalSet_Condition_": {
+      "items": {
+        "$ref": "#/$defs/Condition"
+      },
+      "type": "array"
+    },
+    "Condition": {
+      "additionalProperties": false,
+      "properties": {
+        "condition_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "failure": {
+          "$ref": "#/$defs/FailureEffect"
+        },
+        "parameters": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Parameters",
+          "type": "object"
+        },
+        "verifier": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Verifier",
+          "type": "string"
+        }
+      },
+      "required": [
+        "condition_id",
+        "verifier",
+        "parameters",
+        "failure"
+      ],
+      "title": "Condition",
+      "type": "object"
+    },
+    "CoreRouteKind": {
+      "enum": [
+        "continue",
+        "ask_user",
+        "human_review",
+        "specialist_agent",
+        "different_model",
+        "redact_then_continue",
+        "narrow_action",
+        "block",
+        "record_only"
+      ],
+      "title": "CoreRouteKind",
+      "type": "string"
+    },
+    "DecisionRef": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "semantic_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Semantic Digest",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "decision_id",
+        "semantic_digest"
+      ],
+      "title": "DecisionRef",
+      "type": "object"
+    },
+    "FailureEffect": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Code",
+          "type": "string"
+        },
+        "route": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Route"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verdict": {
+          "enum": [
+            "require_approval",
+            "route",
+            "block"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "route",
+        "code"
+      ],
+      "title": "FailureEffect",
+      "type": "object"
+    },
+    "IntentRef": {
+      "additionalProperties": false,
+      "properties": {
+        "intent_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Intent Digest",
+          "type": "string"
+        },
+        "intent_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Intent Id",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "intent_id",
+        "intent_digest"
+      ],
+      "title": "IntentRef",
+      "type": "object"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "maximum": 9223372036854775807,
+          "minimum": -9223372036854775808,
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ObjectRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "anyOf": [
+            {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Digest"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "object_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Object Id",
+          "type": "string"
+        },
+        "object_type": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Object Type",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        }
+      },
+      "required": [
+        "namespace",
+        "object_type",
+        "object_id",
+        "version",
+        "digest"
+      ],
+      "title": "ObjectRef",
+      "type": "object"
+    },
+    "Route": {
+      "additionalProperties": false,
+      "properties": {
+        "extensions": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Extensions",
+          "type": "object"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CoreRouteKind"
+            },
+            {
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+              "type": "string"
+            }
+          ],
+          "title": "Kind"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "parameters": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Parameters",
+          "type": "object"
+        },
+        "requires_recheck": {
+          "title": "Requires Recheck",
+          "type": "boolean"
+        },
+        "route_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Route Id",
+          "type": "string"
+        },
+        "schema": {
+          "const": "controlspec/v0/route",
+          "default": "controlspec/v0/route",
+          "title": "Schema",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1.0",
+          "default": "0.1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "target_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ObjectRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "namespace",
+        "route_id",
+        "kind",
+        "target_ref",
+        "parameters",
+        "requires_recheck"
+      ],
+      "title": "Route",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_digest": {
+      "anyOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Approval Digest"
+    },
+    "approval_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Approval Id",
+      "type": "string"
+    },
+    "approved": {
+      "title": "Approved",
+      "type": "boolean"
+    },
+    "approved_route_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ObjectRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "approver_ref": {
+      "$ref": "#/$defs/ActorRef"
+    },
+    "authority_ref": {
+      "$ref": "#/$defs/ObjectRef"
+    },
+    "conditions": {
+      "$ref": "#/$defs/CanonicalSet_Condition_"
+    },
+    "decided_at": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+      "title": "Decided At",
+      "type": "string"
+    },
+    "decision_ref": {
+      "$ref": "#/$defs/DecisionRef"
+    },
+    "extensions": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "title": "Extensions",
+      "type": "object"
+    },
+    "intent_ref": {
+      "$ref": "#/$defs/IntentRef"
+    },
+    "namespace": {
+      "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+      "title": "Namespace",
+      "type": "string"
+    },
+    "predecessor_approval_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ObjectRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "requirement_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Requirement Id",
+      "type": "string"
+    },
+    "schema": {
+      "const": "controlspec/v0/approval",
+      "default": "controlspec/v0/approval",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1.0",
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scope": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "title": "Scope",
+      "type": "object"
+    },
+    "scope_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "title": "Scope Digest",
+      "type": "string"
+    },
+    "valid_from": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+      "title": "Valid From",
+      "type": "string"
+    },
+    "valid_until": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+      "title": "Valid Until",
+      "type": "string"
+    }
+  },
+  "required": [
+    "namespace",
+    "approval_id",
+    "decision_ref",
+    "intent_ref",
+    "requirement_id",
+    "scope",
+    "scope_digest",
+    "approved_route_ref",
+    "approver_ref",
+    "authority_ref",
+    "approved",
+    "conditions",
+    "decided_at",
+    "valid_from",
+    "valid_until",
+    "predecessor_approval_ref"
+  ],
+  "title": "Approval",
+  "type": "object"
+}

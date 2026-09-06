@@ -1,0 +1,500 @@
+{
+  "$defs": {
+    "CanonicalSet_Annotated_str__StringConstraints__": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "CanonicalSet_EvidenceRef_": {
+      "items": {
+        "$ref": "#/$defs/EvidenceRef"
+      },
+      "type": "array"
+    },
+    "CoreRouteKind": {
+      "enum": [
+        "continue",
+        "ask_user",
+        "human_review",
+        "specialist_agent",
+        "different_model",
+        "redact_then_continue",
+        "narrow_action",
+        "block",
+        "record_only"
+      ],
+      "title": "CoreRouteKind",
+      "type": "string"
+    },
+    "DecisionRef": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "semantic_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Semantic Digest",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "decision_id",
+        "semantic_digest"
+      ],
+      "title": "DecisionRef",
+      "type": "object"
+    },
+    "EvidenceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "evidence_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "kind": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Kind",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "evidence_id",
+        "digest",
+        "kind"
+      ],
+      "title": "EvidenceRef",
+      "type": "object"
+    },
+    "ExecutionOutcome": {
+      "enum": [
+        "succeeded",
+        "failed",
+        "aborted",
+        "not_executed"
+      ],
+      "title": "ExecutionOutcome",
+      "type": "string"
+    },
+    "IntentRef": {
+      "additionalProperties": false,
+      "properties": {
+        "intent_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "title": "Intent Digest",
+          "type": "string"
+        },
+        "intent_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Intent Id",
+          "type": "string"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "intent_id",
+        "intent_digest"
+      ],
+      "title": "IntentRef",
+      "type": "object"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "maximum": 9223372036854775807,
+          "minimum": -9223372036854775808,
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ObjectRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "anyOf": [
+            {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Digest"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "object_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Object Id",
+          "type": "string"
+        },
+        "object_type": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Object Type",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        }
+      },
+      "required": [
+        "namespace",
+        "object_type",
+        "object_id",
+        "version",
+        "digest"
+      ],
+      "title": "ObjectRef",
+      "type": "object"
+    },
+    "ReceiptOutcome": {
+      "enum": [
+        "completed",
+        "blocked",
+        "approved",
+        "rejected",
+        "incomplete",
+        "failed",
+        "reversed",
+        "pending"
+      ],
+      "title": "ReceiptOutcome",
+      "type": "string"
+    },
+    "ReceiptStatus": {
+      "enum": [
+        "complete",
+        "incomplete",
+        "failed"
+      ],
+      "title": "ReceiptStatus",
+      "type": "string"
+    },
+    "ReportedExecution": {
+      "additionalProperties": false,
+      "properties": {
+        "business_outcome": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Business Outcome"
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/CanonicalSet_EvidenceRef_"
+        },
+        "execution_result": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Execution Result"
+        }
+      },
+      "required": [
+        "execution_result",
+        "evidence_refs",
+        "business_outcome"
+      ],
+      "title": "ReportedExecution",
+      "type": "object"
+    },
+    "Route": {
+      "additionalProperties": false,
+      "properties": {
+        "extensions": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Extensions",
+          "type": "object"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CoreRouteKind"
+            },
+            {
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+              "type": "string"
+            }
+          ],
+          "title": "Kind"
+        },
+        "namespace": {
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+          "title": "Namespace",
+          "type": "string"
+        },
+        "parameters": {
+          "patternProperties": {
+            "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+              "$ref": "#/$defs/JsonValue"
+            }
+          },
+          "title": "Parameters",
+          "type": "object"
+        },
+        "requires_recheck": {
+          "title": "Requires Recheck",
+          "type": "boolean"
+        },
+        "route_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Route Id",
+          "type": "string"
+        },
+        "schema": {
+          "const": "controlspec/v0/route",
+          "default": "controlspec/v0/route",
+          "title": "Schema",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1.0",
+          "default": "0.1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "target_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ObjectRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "namespace",
+        "route_id",
+        "kind",
+        "target_ref",
+        "parameters",
+        "requires_recheck"
+      ],
+      "title": "Route",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "actual_route": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Route"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "decision_ref": {
+      "$ref": "#/$defs/DecisionRef"
+    },
+    "execution_outcome": {
+      "$ref": "#/$defs/ExecutionOutcome"
+    },
+    "extensions": {
+      "patternProperties": {
+        "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "title": "Extensions",
+      "type": "object"
+    },
+    "intent_ref": {
+      "$ref": "#/$defs/IntentRef"
+    },
+    "missing_evidence_requirement_ids": {
+      "$ref": "#/$defs/CanonicalSet_Annotated_str__StringConstraints__"
+    },
+    "namespace": {
+      "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z][a-z0-9_-]*)+$",
+      "title": "Namespace",
+      "type": "string"
+    },
+    "occurred_at": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "outcome": {
+      "$ref": "#/$defs/ReceiptOutcome"
+    },
+    "predecessor_receipt_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ObjectRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "receipt_digest": {
+      "anyOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Receipt Digest"
+    },
+    "receipt_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Receipt Id",
+      "type": "string"
+    },
+    "receipt_kind": {
+      "const": "execution",
+      "default": "execution",
+      "title": "Receipt Kind",
+      "type": "string"
+    },
+    "recorded_at": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+      "title": "Recorded At",
+      "type": "string"
+    },
+    "reported_execution": {
+      "$ref": "#/$defs/ReportedExecution"
+    },
+    "schema": {
+      "const": "controlspec/v0/receipt",
+      "default": "controlspec/v0/receipt",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1.0",
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sequence": {
+      "exclusiveMinimum": 0,
+      "title": "Sequence",
+      "type": "integer"
+    },
+    "status": {
+      "$ref": "#/$defs/ReceiptStatus"
+    },
+    "status_authority": {
+      "const": "system_determined",
+      "default": "system_determined",
+      "title": "Status Authority",
+      "type": "string"
+    },
+    "verified_evidence_refs": {
+      "$ref": "#/$defs/CanonicalSet_EvidenceRef_"
+    }
+  },
+  "required": [
+    "namespace",
+    "receipt_id",
+    "sequence",
+    "decision_ref",
+    "intent_ref",
+    "actual_route",
+    "reported_execution",
+    "verified_evidence_refs",
+    "missing_evidence_requirement_ids",
+    "execution_outcome",
+    "outcome",
+    "status",
+    "occurred_at",
+    "recorded_at",
+    "predecessor_receipt_ref"
+  ],
+  "title": "Receipt",
+  "type": "object"
+}

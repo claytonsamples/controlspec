@@ -1,0 +1,1 @@
+"""Canonical reference ControlPack artifacts."""

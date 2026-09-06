@@ -1,0 +1,219 @@
+schema: controlspec/v0/control-pack
+schema_version: 0.1.0
+namespace: personal.agent.spending
+pack_id: spending-baseline
+name: Personal agent spending
+version: 0.1.0
+status: draft
+title: Personal Agent Spending
+description: Non-authoritative portable example; no executable runtime support is claimed.
+controls:
+  - schema: controlspec/v0/control
+    schema_version: 0.1.0
+    namespace: personal.agent.spending
+    control_id: grocery-purchase
+    version: 0.1.0
+    status: draft
+    effective_from: null
+    effective_until: null
+    title: Grocery purchase boundary
+    description: Non-recurring grocery purchases within the integer minor-unit limit are allowed and retain a post-action receipt obligation.
+    owner_ref: null
+    source_refs: []
+    match:
+      actor_types: [agent]
+      action_types: [commit]
+      domain_actions: [personal.purchase]
+      resource_types: [personal.cart]
+      predicates:
+        - operator: lte
+          path: /context/personal.spending.total_minor_units
+          value: 7500
+          values: []
+          expected: null
+        - operator: eq
+          path: /context/personal.spending.recurring
+          value: false
+          values: []
+          expected: null
+    on_unknown:
+      verdict: block
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: personal.agent.spending
+        route_id: block-unknown
+        kind: block
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      code: personal.spending.missing_context
+    effect:
+      verdict: allow
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: personal.agent.spending
+        route_id: continue
+        kind: continue
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      requirements:
+        - requirement_id: purchase-receipt
+          requirement_type: evidence
+          kind: personal.evidence.purchase_receipt
+          subject: personal.purchase
+          minimum_count: 1
+          max_age_seconds: null
+          verifier: personal.evidence.receipt_valid
+          separation:
+            producer_not_actor: false
+            certifier_not_actor: false
+            producer_certifier_distinct: false
+          failure:
+            verdict: block
+            route:
+              schema: controlspec/v0/route
+              schema_version: 0.1.0
+              namespace: personal.agent.spending
+              route_id: block
+              kind: block
+              target_ref: null
+              parameters: {}
+              requires_recheck: false
+              extensions: {}
+            code: personal.spending.receipt_required
+      conditions: []
+      code: personal.spending.within_boundary
+    metadata: {limit_minor_units: 7500}
+    semantic_digest: null
+    extensions: {}
+  - schema: controlspec/v0/control
+    schema_version: 0.1.0
+    namespace: personal.agent.spending
+    control_id: over-limit-approval
+    version: 0.1.0
+    status: draft
+    effective_from: null
+    effective_until: null
+    title: Spending above 75 dollars requires approval
+    description: The amount is an integer number of minor currency units.
+    owner_ref: null
+    source_refs: []
+    match:
+      actor_types: [agent]
+      action_types: [commit]
+      domain_actions: [personal.purchase]
+      resource_types: [personal.cart]
+      predicates:
+        - operator: gt
+          path: /context/personal.spending.total_minor_units
+          value: 7500
+          values: []
+          expected: null
+    on_unknown:
+      verdict: block
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: personal.agent.spending
+        route_id: block-unknown-amount
+        kind: block
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      code: personal.spending.amount_missing
+    effect:
+      verdict: require_approval
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: personal.agent.spending
+        route_id: ask-before-purchase
+        kind: ask_user
+        target_ref: null
+        parameters: {}
+        requires_recheck: true
+        extensions: {}
+      requirements: []
+      conditions: []
+      code: personal.spending.approval_required
+    metadata: {threshold_minor_units: 7500}
+    semantic_digest: null
+    extensions: {}
+  - schema: controlspec/v0/control
+    schema_version: 0.1.0
+    namespace: personal.agent.spending
+    control_id: recurring-purchase-approval
+    version: 0.1.0
+    status: draft
+    effective_from: null
+    effective_until: null
+    title: Recurring purchases require approval
+    description: Recurrence is bound in the exact namespaced intent context.
+    owner_ref: null
+    source_refs: []
+    match:
+      actor_types: [agent]
+      action_types: [commit]
+      domain_actions: [personal.purchase]
+      resource_types: [personal.cart]
+      predicates:
+        - operator: eq
+          path: /context/personal.spending.recurring
+          value: true
+          values: []
+          expected: null
+    on_unknown:
+      verdict: block
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: personal.agent.spending
+        route_id: block-unknown-recurrence
+        kind: block
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      code: personal.spending.recurrence_missing
+    effect:
+      verdict: require_approval
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: personal.agent.spending
+        route_id: ask-before-recurring-purchase
+        kind: ask_user
+        target_ref: null
+        parameters: {}
+        requires_recheck: true
+        extensions: {}
+      requirements: []
+      conditions: []
+      code: personal.spending.recurring_approval_required
+    metadata: {}
+    semantic_digest: null
+    extensions: {}
+dependencies: []
+vocabularies:
+  domain_actions: [personal.purchase]
+  resource_types: [personal.cart]
+  verifiers:
+    - name: personal.evidence.receipt_valid
+      version: "1"
+      input_schema_digest: sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
+  routes: []
+extension_requirements: []
+conformance_profile: core
+examples:
+  - {case: groceries_42, expected: allow}
+  - {case: groceries_142, expected: require_approval}
+  - {case: recurring_999, expected: require_approval}
+metadata: {authority: non_authoritative_example}
+semantic_digest: null
+extensions: {}

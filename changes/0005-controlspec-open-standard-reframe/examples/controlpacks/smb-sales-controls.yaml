@@ -1,0 +1,195 @@
+schema: controlspec/v0/control-pack
+schema_version: 0.1.0
+namespace: smb.sales.controls
+pack_id: sales-baseline
+name: Small-business sales controls
+version: 0.1.0
+status: draft
+title: Small-Business Sales Controls
+description: Non-authoritative portable example; no executable runtime support is claimed.
+controls:
+  - schema: controlspec/v0/control
+    schema_version: 0.1.0
+    namespace: smb.sales.controls
+    control_id: discount-independence
+    version: 0.1.0
+    status: draft
+    effective_from: null
+    effective_until: null
+    title: Discount approval independence
+    description: Higher discounts require a manager who is independent of the proposing agent.
+    owner_ref: null
+    source_refs: []
+    match:
+      actor_types: [agent]
+      action_types: [communicate]
+      domain_actions: [smb.sales.offer_discount]
+      resource_types: [smb.customer_email]
+      predicates:
+        - operator: gt
+          path: /context/smb.sales.discount_basis_points
+          value: 1000
+          values: []
+          expected: null
+    on_unknown:
+      verdict: block
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: smb.sales.controls
+        route_id: block
+        kind: block
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      code: smb.sales.missing_discount_context
+    effect:
+      verdict: allow_with_conditions
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: smb.sales.controls
+        route_id: continue
+        kind: continue
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      requirements:
+        - requirement_id: independent-manager
+          requirement_type: approval
+          role: smb.sales.role.manager
+          scope: {smb.sales.discount: exact_intent}
+          minimum_count: 1
+          validity_seconds: 3600
+          separate_from_actor: true
+          separate_from_roles: [smb.sales.role.proposer]
+          failure:
+            verdict: require_approval
+            route: null
+            code: smb.sales.manager_required
+      conditions: []
+      code: smb.sales.discount_controlled
+    metadata: {approval_threshold_basis_points: 1000}
+    semantic_digest: null
+    extensions: {}
+  - schema: controlspec/v0/control
+    schema_version: 0.1.0
+    namespace: smb.sales.controls
+    control_id: discount-within-limit
+    version: 0.1.0
+    status: draft
+    effective_from: null
+    effective_until: null
+    title: Discount within delegated limit
+    description: Discounts up to and including ten percent remain within the draft example envelope.
+    owner_ref: null
+    source_refs: []
+    match:
+      actor_types: [agent]
+      action_types: [communicate]
+      domain_actions: [smb.sales.offer_discount]
+      resource_types: [smb.customer_email]
+      predicates:
+        - operator: lte
+          path: /context/smb.sales.discount_basis_points
+          value: 1000
+          values: []
+          expected: null
+    on_unknown:
+      verdict: block
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: smb.sales.controls
+        route_id: block-unknown-discount
+        kind: block
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      code: smb.sales.discount_missing
+    effect:
+      verdict: allow_with_conditions
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: smb.sales.controls
+        route_id: continue-within-limit
+        kind: continue
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      requirements: []
+      conditions: []
+      code: smb.sales.within_delegated_limit
+    metadata: {maximum_basis_points: 1000}
+    semantic_digest: null
+    extensions: {}
+  - schema: controlspec/v0/control
+    schema_version: 0.1.0
+    namespace: smb.sales.controls
+    control_id: draft-customer-email
+    version: 0.1.0
+    status: draft
+    effective_from: null
+    effective_until: null
+    title: Draft customer email
+    description: Drafting does not itself authorize sending or a discount.
+    owner_ref: null
+    source_refs: []
+    match:
+      actor_types: [agent]
+      action_types: [communicate]
+      domain_actions: [smb.sales.draft_email]
+      resource_types: [smb.customer_email]
+      predicates: []
+    on_unknown:
+      verdict: block
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: smb.sales.controls
+        route_id: block-unknown-email
+        kind: block
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      code: smb.sales.email_context_missing
+    effect:
+      verdict: allow
+      route:
+        schema: controlspec/v0/route
+        schema_version: 0.1.0
+        namespace: smb.sales.controls
+        route_id: continue-draft
+        kind: continue
+        target_ref: null
+        parameters: {}
+        requires_recheck: false
+        extensions: {}
+      requirements: []
+      conditions: []
+      code: smb.sales.draft_only
+    metadata: {send_authority: false}
+    semantic_digest: null
+    extensions: {}
+dependencies: []
+vocabularies:
+  domain_actions: [smb.sales.draft_email, smb.sales.offer_discount]
+  resource_types: [smb.customer_email]
+  verifiers: []
+  routes: []
+extension_requirements: []
+conformance_profile: core
+examples:
+  - {case: draft_no_discount, expected: allow}
+  - {case: discount_800_basis_points, expected: allow_with_conditions}
+  - {case: discount_1500_basis_points, expected: require_approval}
+  - {case: self_approval, expected: block}
+metadata: {authority: non_authoritative_example}
+semantic_digest: null
+extensions: {}

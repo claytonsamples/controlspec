@@ -1,0 +1,591 @@
+{
+  "baseline_commit": "6b8131635ef424f026545e79d55e5559594a3b3d",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    {
+      "path": "backend/src/assurance/api/controlspec.py",
+      "sha256": "199922151f5cd4303f15b5576bb8b2f44bbaf54a461eee2898c44fec19b1ad38",
+      "bytes": 16494
+    },
+    {
+      "path": "backend/src/assurance/contracts/canonical.py",
+      "sha256": "720c6d02681f844d54548cd1dc218b70a6f53a7790c919cb282407ee63016da2",
+      "bytes": 5329
+    },
+    {
+      "path": "backend/src/assurance/contracts/common.py",
+      "sha256": "e25f55d8263f99d9398c79f1656a2ecec89f8bc8b5eca2ac2dac6e199c911c91",
+      "bytes": 10249
+    },
+    {
+      "path": "backend/src/assurance/contracts/objects.py",
+      "sha256": "9787ee8f8ede3ba1c7d533866ba2af7f48704f6580c4edc9450fc9cdbe622587",
+      "bytes": 162275
+    },
+    {
+      "path": "backend/src/assurance/contracts/policy.py",
+      "sha256": "571df4f1d5f0a031ecb1935249b62318886edecd46baa093ede2dfbe7d0bfc08",
+      "bytes": 10310
+    },
+    {
+      "path": "backend/src/assurance/contracts/workflow.py",
+      "sha256": "1a83da936573fa92695b38ae8b8bc85b153405ba60109df1b76f2c0a390fd36e",
+      "bytes": 18364
+    },
+    {
+      "path": "backend/src/assurance/controlspec/__init__.py",
+      "sha256": "eb4a63f9f06121ae98edfeec289b8417b0540c450a3d9d7c837d2668ee956895",
+      "bytes": 1647
+    },
+    {
+      "path": "backend/src/assurance/controlspec/api_models.py",
+      "sha256": "b0e46103872c5a463f3c4073ca25d390f532439ea94d098dd24a817c6090af74",
+      "bytes": 9411
+    },
+    {
+      "path": "backend/src/assurance/controlspec/authoring.py",
+      "sha256": "8b5573626054cfd33cd4f2232a792bcc06494bf6d0e095d3472e1f0836358181",
+      "bytes": 3502
+    },
+    {
+      "path": "backend/src/assurance/controlspec/canonical.py",
+      "sha256": "0eb59ae23c727d8ddf773c5dd5f716c21a8b165e2afd8c72d14e6c321863940a",
+      "bytes": 5373
+    },
+    {
+      "path": "backend/src/assurance/controlspec/client.py",
+      "sha256": "2d89b60e8a37e200c21bfbc4f4854f9417530d4536eae275c530e1c852a58ad6",
+      "bytes": 18593
+    },
+    {
+      "path": "backend/src/assurance/controlspec/composition.py",
+      "sha256": "f7038aa897f2ec499bc555b437674cfb439bf57654b6f75ad20c2c01490085e4",
+      "bytes": 5067
+    },
+    {
+      "path": "backend/src/assurance/controlspec/conformance.py",
+      "sha256": "64e37fcab3e9ff0d6af834a152ec3cb74f1efce92e4fc1254a85bb5d75ceea2b",
+      "bytes": 10870
+    },
+    {
+      "path": "backend/src/assurance/controlspec/contracts.py",
+      "sha256": "e358c728bfceff7dc6ded824f0401f58d506fea19cc573fcab1f49daeae2843b",
+      "bytes": 27608
+    },
+    {
+      "path": "backend/src/assurance/controlspec/evaluator.py",
+      "sha256": "0fe82e58c72bca264d964da9e08c7b6401da8bac61cd1019c5a34fc172300b4a",
+      "bytes": 6769
+    },
+    {
+      "path": "backend/src/assurance/controlspec/export.py",
+      "sha256": "902d4a0004a54c437fa357bf1d5b5b6969ff4b477443835229268bcf9b074394",
+      "bytes": 654
+    },
+    {
+      "path": "backend/src/assurance/controlspec/facts.py",
+      "sha256": "267f00d81c72813ab49582f28d83fa79f6acd281631f34ca2e49eccfd8228fe5",
+      "bytes": 6021
+    },
+    {
+      "path": "backend/src/assurance/controlspec/mapping.py",
+      "sha256": "af7c1dcb1b6dca7b01b4631d03bc0a643013cee68dc5f9975f4e5488d7d42bed",
+      "bytes": 30622
+    },
+    {
+      "path": "backend/src/assurance/controlspec/predicate.py",
+      "sha256": "d6f1937be2ca8893aada7fc4e2f4dd815351ae463c982212dccd0e08c10f5529",
+      "bytes": 4070
+    },
+    {
+      "path": "backend/src/assurance/controlspec/profiles/__init__.py",
+      "sha256": "ae47ab003e103a38158e753617316ff1e38393be5202531662756ea907334f92",
+      "bytes": 196
+    },
+    {
+      "path": "backend/src/assurance/controlspec/profiles/reference.py",
+      "sha256": "b8ba6ac76b98c05be0385d65e3e27d8ed65380dac97b6e5739384a4699cbe2db",
+      "bytes": 6469
+    },
+    {
+      "path": "backend/src/assurance/controlspec/profiles/riskspec.py",
+      "sha256": "79e40585a5ae49169ec3c3f6189ca84e213f735e49e8f101c44d5474a8e1f288",
+      "bytes": 9739
+    },
+    {
+      "path": "backend/src/assurance/controlspec/receipt.py",
+      "sha256": "5c38679fdfbdc13931544c2a3dd2c85898871dcc578a675d218dbb13d8debc5d",
+      "bytes": 7479
+    },
+    {
+      "path": "backend/src/assurance/controlspec/recheck.py",
+      "sha256": "67e77e5f09e335235a35199276f439c114fdd114e9191eac978f92a93ef2d7f3",
+      "bytes": 2492
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog.py",
+      "sha256": "0e8e8b4578f2e853651885cd5660000d3bcddb8d6174c28291458c4c1ee295d0",
+      "bytes": 34265
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/__init__.py",
+      "sha256": "130ff5b1f7edd9c28637f30fdbf6dd0de5f65eacb6a7d6f2daa3ae95c5e11cc5",
+      "bytes": 74
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0/__init__.py",
+      "sha256": "50963721b80e2ba150fd136921ab1cd2ec4527993c1934f79d61265592c04d18",
+      "bytes": 45
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0/packs/__init__.py",
+      "sha256": "458efa6da599915b5ebecae2a80d43772dc6547692fe7a0ee04ee31eb5a35d1b",
+      "bytes": 49
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0/packs/enterprise-supplier-advance.json",
+      "sha256": "998a74430030df1dcc107fe2a2c6a202c1284009639fdde294b0c58b2dfe0455",
+      "bytes": 25198
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0/packs/personal-agent-spending.json",
+      "sha256": "a7525b52b9c9fc314dcabf5d122933bf93ee73170654ada70b30b1951ab97313",
+      "bytes": 6337
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0/packs/smb-sales-controls.json",
+      "sha256": "6f3aea1ac3e587820f29a7287d926ba5a8ca82371b9ef28d841df61a4df4c616",
+      "bytes": 5756
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0/profile_cases/__init__.py",
+      "sha256": "37af92a7c43e7f36d26e9d03dc0492e0200d7be8fd585c731e1ee90d71491563",
+      "bytes": 76
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0/profile_cases/routine-supplier-advance.json",
+      "sha256": "20ccb73b53905c03e44bfb28dcb1a07acdd294fc7b96dddfc789dcb0b926fef9",
+      "bytes": 9760
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/__init__.py",
+      "sha256": "91c2669e666c4b87e59a7ede8d3ea4cc7f5f11caedeb1b7bcb41e0b2152347a1",
+      "bytes": 59
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/manifest.sha256",
+      "sha256": "4f24ef9ceefab3f1b9e3174901991116070da94e97a79b92b3492ee4d501fb1b",
+      "bytes": 879
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/packs/__init__.py",
+      "sha256": "980623fed32bc9d90629a93029374b190d10073b6b193a16cc08c0e34836bfc2",
+      "bytes": 47
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/packs/enterprise-high-risk-approval.json",
+      "sha256": "74dd2a8563cf796e4b421fced18310267f8c192ebc0f78fbb7bfd1d31a626d66",
+      "bytes": 29424
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/packs/enterprise-supplier-advance.json",
+      "sha256": "998a74430030df1dcc107fe2a2c6a202c1284009639fdde294b0c58b2dfe0455",
+      "bytes": 25198
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/packs/personal-agent-spending.json",
+      "sha256": "a7525b52b9c9fc314dcabf5d122933bf93ee73170654ada70b30b1951ab97313",
+      "bytes": 6337
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/packs/smb-sales-controls.json",
+      "sha256": "6f3aea1ac3e587820f29a7287d926ba5a8ca82371b9ef28d841df61a4df4c616",
+      "bytes": 5756
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/scenarios/__init__.py",
+      "sha256": "49ad7034eb282e97a127e049a9968c3907e25d9cda8da3b8aed14a5291e00336",
+      "bytes": 50
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/scenarios/enterprise-attempted-self-approval.json",
+      "sha256": "918f74e32ecb7c8084150c53a9b6fcd76cc19e947d06b9baab250ccba116aaee",
+      "bytes": 18409
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/scenarios/enterprise-high-risk-missing-approval.json",
+      "sha256": "7644fb14affeb8df33c55dc0dd24ed43aa9a9da1914bc8a18750f98f8caf8a17",
+      "bytes": 12972
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/scenarios/enterprise-routine-supplier-advance.json",
+      "sha256": "4107339b725b1f6fbc3a35b3e9b9499ee1190985f57810835005a3c5d1b113b3",
+      "bytes": 10349
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/scenarios/smb-discount-15-direct-self-approval.json",
+      "sha256": "73bf82699c96d89636f24f9812e8eee2f6bfdd1041c582cf34a46a80dd34b3cb",
+      "bytes": 6132
+    },
+    {
+      "path": "backend/src/assurance/controlspec/reference_service.py",
+      "sha256": "a7680fe6b6f672eb8e344b1216a595f1fa767913bdf746cc2215679eaffb7825",
+      "bytes": 27081
+    },
+    {
+      "path": "backend/src/assurance/controlspec/requirements.py",
+      "sha256": "d7728174aca9d819bb7b4ed670c9a67ca38aeac039e22ade03534d0ad755f66d",
+      "bytes": 11261
+    },
+    {
+      "path": "backend/src/assurance/controlspec/selection.py",
+      "sha256": "a321b535fb7a430037a1c706edd8ab77909daa5b91a463436f211e3a33e92e5e",
+      "bytes": 5161
+    },
+    {
+      "path": "backend/src/assurance/domain/__init__.py",
+      "sha256": "8b865601a74c41c2434c1a868bb2490ed62027d21cd1895ad9648de057adace4",
+      "bytes": 1233
+    },
+    {
+      "path": "backend/src/assurance/domain/enums.py",
+      "sha256": "e6f5e0d07e0ff3ea86f83bcc4418c410fff83851c05cc06dd237c6b69925878c",
+      "bytes": 11758
+    },
+    {
+      "path": "backend/src/assurance/runtime/models.py",
+      "sha256": "f9b55054cbf612778f562f20b6db480b3d7d08c53bfec429597df8ee3c1b2137",
+      "bytes": 12329
+    },
+    {
+      "path": "backend/src/assurance/runtime/selection.py",
+      "sha256": "d0ffb6001eb72f2f46e7a571a208bed8b2db22ea6be954a84ac5ccbed6668416",
+      "bytes": 14392
+    },
+    {
+      "path": "backend/tests/__init__.py",
+      "sha256": "98ac779ee447640914baa754565e62e2bab82a71ec806d665edfa1fc7afabac6",
+      "bytes": 28
+    },
+    {
+      "path": "backend/tests/controlspec/test_authoring.py",
+      "sha256": "926b5c9ec8952165a76b55fa346e5c5d3404990aa896e8cf71a71c2ba8c67a13",
+      "bytes": 2511
+    },
+    {
+      "path": "backend/tests/controlspec/test_client.py",
+      "sha256": "2b6f4d60d1d2d7548a86878aa89ee4b75368593f8d23b8f886713c8f4dccc5bb",
+      "bytes": 26779
+    },
+    {
+      "path": "backend/tests/controlspec/test_contracts.py",
+      "sha256": "a862d0c6b5fd1b4f86a46a8c64bf705d3ec59c62f652a9414f6f0e83e36bab77",
+      "bytes": 9205
+    },
+    {
+      "path": "backend/tests/controlspec/test_distribution_runner.py",
+      "sha256": "4d9ec4a907fdcee5d5da4b150574d432e1d3b79af7a29e876c7a27fa2bcd9df0",
+      "bytes": 24604
+    },
+    {
+      "path": "backend/tests/controlspec/test_t02_composition.py",
+      "sha256": "8477a50969ba0596fd011f33f05d4e8fe56bc6b3f27b08ac1f3f2e3d277a8c53",
+      "bytes": 9789
+    },
+    {
+      "path": "backend/tests/controlspec/test_t02_conformance.py",
+      "sha256": "7f135109e0118c64c5bd025fafe809189f9ae949e03f2a37ed2610ae0566a225",
+      "bytes": 21932
+    },
+    {
+      "path": "backend/tests/controlspec/test_t02_evaluator.py",
+      "sha256": "eb4652c218e2d975a3e28b87bd40cf4601e1dfc3980ef8071501bcd609cf8576",
+      "bytes": 1171
+    },
+    {
+      "path": "backend/tests/controlspec/test_t02_examples.py",
+      "sha256": "3152c1ca8e741a035502c2488f85f6604a28cff13d1dc4ac25bcd1591dc6990c",
+      "bytes": 18071
+    },
+    {
+      "path": "backend/tests/controlspec/test_t02_facts.py",
+      "sha256": "65c75a6c6cce70800ee63f1f36eb256ef649e4a352a44eb309c809b78559f8af",
+      "bytes": 5683
+    },
+    {
+      "path": "backend/tests/controlspec/test_t02_import_boundaries.py",
+      "sha256": "38f95a46c5534c8b9d9296890a587117872e6b0d478102d852580a8714385f59",
+      "bytes": 895
+    },
+    {
+      "path": "backend/tests/controlspec/test_t02_predicates.py",
+      "sha256": "2997a8ffbc27c831f9be52fa46455c338f4fe46ae279d8e87ef439723ad3ef27",
+      "bytes": 2019
+    },
+    {
+      "path": "backend/tests/controlspec/test_t02_receipts.py",
+      "sha256": "6244165d14e02813ab1c9e4b7ed3c39611f616b812035f62907caa3dde06e03e",
+      "bytes": 15271
+    },
+    {
+      "path": "backend/tests/controlspec/test_t02_recheck.py",
+      "sha256": "a02e80136eddcf8cf7839493d6b708b8b4577ebebccb8066ff8e8639f1a5fca4",
+      "bytes": 1173
+    },
+    {
+      "path": "backend/tests/controlspec/test_t02_selection.py",
+      "sha256": "8cce09e9fc1292e1fe2bac89927ec87dda39873eb376d28a7846324764116909",
+      "bytes": 1522
+    },
+    {
+      "path": "backend/tests/controlspec/test_t03_api_models.py",
+      "sha256": "5fa94dee9d8a7ccd259cb8db9b2e36b2e4adfaa1cd38c63c71ff0bdd6c5dca48",
+      "bytes": 2568
+    },
+    {
+      "path": "backend/tests/controlspec/test_t03_reference_catalog.py",
+      "sha256": "cacb4faad7db5343fb66e4e802915a5c621f97c3a03406e904676e10560f5bf4",
+      "bytes": 15113
+    },
+    {
+      "path": "backend/tests/controlspec/test_t03_reference_service.py",
+      "sha256": "d8161aa8e71f6af522a3a97dcc919843f5d6f2b9052fb4de7afc130fb5c55d06",
+      "bytes": 11212
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/packs/enterprise-riskspec-v11.json",
+      "sha256": "8a0c8db35eae725412947c18e8ead7e3276b96ac6260556d240c08a76be36cec",
+      "bytes": 363
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/packs/personal-agent-spending.json",
+      "sha256": "2cf22ff95918373cb43b2d4c6641c13cbade0dd2e1c870e1ac700a4d5a6c715b",
+      "bytes": 343
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/packs/smb-sales-controls.json",
+      "sha256": "378263ee37f1213b65cc6ad73766e45d5a683143fff7b73610c17a11a654daa6",
+      "bytes": 338
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vector.schema.json",
+      "sha256": "695d2508b3a0b130fb2ff0af5463cd61d5a82309583052a366ad9007de4d0df6",
+      "bytes": 29055
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-001.json",
+      "sha256": "3c44fec43facc3b202432b8107a8d1bd434234d59703c0f6cf4dc340d1a9b383",
+      "bytes": 3096
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-002.json",
+      "sha256": "e133e8e6e453e89a28e53c60e6f21bd3793507eea415c366181a940ec53fffbc",
+      "bytes": 3070
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-003.json",
+      "sha256": "ae1c38a09e37993028547affc4951cb5c26d443603a223e358144b3cf24f210c",
+      "bytes": 3173
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-004.json",
+      "sha256": "4a0095fd1b01cac122a0892848c7390c231acae8a32390ac0d2ef40a77e241cd",
+      "bytes": 3881
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-005.json",
+      "sha256": "ae929b6e23107c83f86a89620ff5d77bb1bc80b3eff282c6146257a1d3566c5e",
+      "bytes": 3434
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-006.json",
+      "sha256": "b3ff154070578e542391d4efdf7a0d558b365394bddd870f19167a69b7995eb5",
+      "bytes": 4909
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-007.json",
+      "sha256": "b4c2a6ce1cef4956e8951a638b0f27b18fdd84b9d16e699f6fbd299dd2da4fa8",
+      "bytes": 20361
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-008.json",
+      "sha256": "3cd71d63e5a8c44463735b27807d48614e95e33593ff551eaace676b1def991c",
+      "bytes": 4180
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-009.json",
+      "sha256": "b00d47505138bcbb61f6d3219b62bbb15835335b5dfba320013a30ebd3b0b813",
+      "bytes": 4518
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-010.json",
+      "sha256": "b2a859ed31cba8eaa337fdea784ce9c2e4994c5e76d8647c2e7ffed765139d8c",
+      "bytes": 8824
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-011.json",
+      "sha256": "7a379f2a9b05887f03bcbfeeada2ddff672bc7da69b73b02afe915ac8a96050f",
+      "bytes": 4235
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/conformance/controlspec-v0/vectors/CS-CF-012.json",
+      "sha256": "f6ef7aa9c3ae71c05dd46b67e000e3fa27b741bda1170009bb3f98f0e3b970f0",
+      "bytes": 4388
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/examples/controlpacks/enterprise-supplier-activation.yaml",
+      "sha256": "b64854cc65c7cc256f41da835b8cc0a546722516a5225df1a71bf86184ec91bb",
+      "bytes": 8953
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/examples/controlpacks/personal-agent-spending.yaml",
+      "sha256": "37740d52b4dacf17f93e63f87e38cd5ead1b68bc417138acd744b2d74edb1c5c",
+      "bytes": 6673
+    },
+    {
+      "path": "changes/0005-controlspec-open-standard-reframe/examples/controlpacks/smb-sales-controls.yaml",
+      "sha256": "b77e1068eb764ce2c82ffeb2fcce1fc8ca339d09fc9736796e3d499710dfc2d4",
+      "bytes": 5874
+    },
+    {
+      "path": "examples/controlspec/client_journey.py",
+      "sha256": "1d64996d427a8c1b391006c61cddb668d7079223c63ecc18800c82fc1ab464ce",
+      "bytes": 6918
+    },
+    {
+      "path": "examples/controlspec/enterprise-supplier/requests/enterprise-attempted-self-approval.json",
+      "sha256": "9696941f53e7b5c79799bcab4fbd1ae9e4cbebc69d84b498800082ad2445685e",
+      "bytes": 5202
+    },
+    {
+      "path": "examples/controlspec/enterprise-supplier/requests/enterprise-high-risk-missing-approval.json",
+      "sha256": "e8319e5b624886853c702c7b8fb6634c6b32afbc0e7033368b9ba09bdc88102f",
+      "bytes": 5206
+    },
+    {
+      "path": "examples/controlspec/enterprise-supplier/requests/enterprise-routine-supplier-advance.json",
+      "sha256": "6729b4868589a97456006b41050c09cf11d0d6dc7e65459ae5945e3b74c2e4ac",
+      "bytes": 5169
+    },
+    {
+      "path": "examples/controlspec/enterprise-supplier/requests/restricted-data-without-review.json",
+      "sha256": "df28f301c3b128b359e38c2cbed659ba04d52c2b1d4407fd7fa4af29b9804bbe",
+      "bytes": 5279
+    },
+    {
+      "path": "examples/controlspec/enterprise-supplier/scenarios.json",
+      "sha256": "5cabb81fa69ae5a3fef36f1c86cc51f8357171d4c8f46e5c4a0ddf79e0ea765a",
+      "bytes": 5142
+    },
+    {
+      "path": "examples/controlspec/personal-agent-spending/requests/groceries-142.json",
+      "sha256": "83d5b210e9ddb10e20a36d6381f5638987eff7a421436b3aff2b2339a2ce35dd",
+      "bytes": 1571
+    },
+    {
+      "path": "examples/controlspec/personal-agent-spending/requests/groceries-42-changed-intent.json",
+      "sha256": "482b8d05c088c453dc44890064917d6df67aa47e25d374b77a486d06e5fda510",
+      "bytes": 1217
+    },
+    {
+      "path": "examples/controlspec/personal-agent-spending/requests/groceries-42.json",
+      "sha256": "2f3af3e062d43ba28728504661e8d1eef1f7f2d520a8e3ba0f4e8ad9065b4dd6",
+      "bytes": 1568
+    },
+    {
+      "path": "examples/controlspec/personal-agent-spending/requests/recurring-999.json",
+      "sha256": "eeceddbbaf99a328eea016c7a7873c032873435abfb106a91bc9d4899752f77a",
+      "bytes": 1568
+    },
+    {
+      "path": "examples/controlspec/personal-agent-spending/scenarios.json",
+      "sha256": "b50a3f4b51618cad64c7b28a2c7330b1b5af3b383b81d52eead2e49607fa16ae",
+      "bytes": 3631
+    },
+    {
+      "path": "examples/controlspec/smb-sales-controls/requests/discount-15.json",
+      "sha256": "1515589b2f067afa303eb9b55335e94047add62a5b35bb42512fc3860fb3d235",
+      "bytes": 1512
+    },
+    {
+      "path": "examples/controlspec/smb-sales-controls/requests/discount-8.json",
+      "sha256": "8fce043ddeccf6e4b4614bc0f9c19b6aee2a58e9e79ec4fd4bcfaa1b4853889c",
+      "bytes": 1509
+    },
+    {
+      "path": "examples/controlspec/smb-sales-controls/requests/draft.json",
+      "sha256": "35e2e13e2b930d22de235342f088e572a2136b6d18177f101178d9bef16fa47e",
+      "bytes": 1456
+    },
+    {
+      "path": "examples/controlspec/smb-sales-controls/requests/smb-discount-15-direct-self-approval.json",
+      "sha256": "425256c9c57f680f202836a42a2cda7034a2b7f1f3dc61379b9eb00b9be7651f",
+      "bytes": 1534
+    },
+    {
+      "path": "examples/controlspec/smb-sales-controls/scenarios.json",
+      "sha256": "82aaa7c15d015cece46a6a8fed9e165545b344812224789c7011af4ff7feaccd",
+      "bytes": 4701
+    },
+    {
+      "path": "scripts/controlspec_example.py",
+      "sha256": "732bc7a252bd8b1a50f70aa9840a5c85a45787bb5670298d625dea58d0f9de6e",
+      "bytes": 46641
+    },
+    {
+      "path": "specs/controlspec-v0.1/schemas/ActionIntent.schema.json",
+      "sha256": "7578a18f5825e56f2461ac7830661ce08cf8f491867e2ee16c63a69e5f8cb590",
+      "bytes": 14345
+    },
+    {
+      "path": "specs/controlspec-v0.1/schemas/Actor.schema.json",
+      "sha256": "55cdc8047014f1ef8cda6ed71b7891726d1daa051a6c001bba4e16a4f784adf1",
+      "bytes": 3969
+    },
+    {
+      "path": "specs/controlspec-v0.1/schemas/Approval.schema.json",
+      "sha256": "ace172ffb486fdea31dcc491cc7a34fecf8c63394c7e97e57ce81e4f01c40dc0",
+      "bytes": 11777
+    },
+    {
+      "path": "specs/controlspec-v0.1/schemas/Control.schema.json",
+      "sha256": "944e1b39fe825cfa96b5aa2e32830f2691fe17fd3a3f21bf8b928d3b60db5490",
+      "bytes": 21294
+    },
+    {
+      "path": "specs/controlspec-v0.1/schemas/ControlPack.schema.json",
+      "sha256": "e939c6be6f9972c59bdfba5876e808d16953203172c6ef3955876cb0b8740078",
+      "bytes": 29806
+    },
+    {
+      "path": "specs/controlspec-v0.1/schemas/Decision.schema.json",
+      "sha256": "f6dbb68848d09ab39422d35190fb2a8f2e5c04bdfba276d4b6c156e889f44b40",
+      "bytes": 21395
+    },
+    {
+      "path": "specs/controlspec-v0.1/schemas/Receipt.schema.json",
+      "sha256": "30951c4173f31aa3ebfa533476e29cbefb0bff27818e082d5219a3d60e0960fc",
+      "bytes": 12063
+    },
+    {
+      "path": "specs/controlspec-v0.1/schemas/Resource.schema.json",
+      "sha256": "5986d38dd69223572f208d048035070ba007f6d8b4a85bb57cf9fc837ce4c72b",
+      "bytes": 2616
+    },
+    {
+      "path": "specs/controlspec-v0.1/schemas/Route.schema.json",
+      "sha256": "1a41439e5981efa8d57fd6ce3870c96e63131cb67b0508c2f2c37148ac5fb486",
+      "bytes": 4092
+    }
+  ],
+  "packaging_overrides": [
+    "backend/src/assurance/api/__init__.py",
+    "backend/src/assurance/contracts/__init__.py",
+    "backend/src/assurance/runtime/__init__.py"
+  ],
+  "note": "Source snapshot, including preview client and example tooling; no private Git history. Hashes identify copied bytes, not independent assurance."
+}

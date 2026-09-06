@@ -18,6 +18,10 @@ Reported success is not verified execution evidence.
 
 ## Try it locally
 
+Explore the [interactive recorded examples on Hugging Face](https://huggingface.co/spaces/claytonsamples/controlspec)
+without installing anything. The static demo displays seven verified reference
+scenarios; it does not run live policies or execute actions.
+
 You need Python 3.13 and [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
 ```sh

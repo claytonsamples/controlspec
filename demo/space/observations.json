@@ -1,0 +1,248 @@
+{
+  "mode": "recorded_reference_outputs",
+  "source_commit": "77178798ffe7fed1e6608b7d4037e67c1c8cd113",
+  "reference_time": "2026-08-20T12:00:00.000000Z",
+  "external_actions_executed": false,
+  "domains": [
+    {
+      "domain": "personal",
+      "release_id": "v0.1.1",
+      "catalog_digest": "sha256:07e00e11176752146d402c31269d3c89dbe1f8ae200c98a91f7e4f34f7888322",
+      "scenarios": [
+        {
+          "scenario_id": "groceries-42",
+          "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+          "pack_catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+          "verdict": "allow",
+          "route_kind": "continue",
+          "route_id": "continue",
+          "recheck_valid": true,
+          "changed_recheck_valid": false,
+          "receipt_status": "incomplete",
+          "missing_evidence_count": 1,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        },
+        {
+          "scenario_id": "groceries-142",
+          "intent_digest": "sha256:5b0a007d31cec073c4a6c8731e192c15cc7de7e0a0c4d96b64d4b23210afd1c0",
+          "pack_catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+          "verdict": "require_approval",
+          "route_kind": "ask_user",
+          "route_id": "ask-before-purchase",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        },
+        {
+          "scenario_id": "recurring-999",
+          "intent_digest": "sha256:bc82299648aa586ad4cb8da960d413c5cfbeaca046e58912a359714b7d0ec801",
+          "pack_catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+          "verdict": "require_approval",
+          "route_kind": "ask_user",
+          "route_id": "ask-before-recurring-purchase",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        }
+      ],
+      "machine_summary": {
+        "status": "ok",
+        "scope": "local_reference_examples",
+        "domain": "personal",
+        "release_id": "v0.1.1",
+        "catalog_digest": "sha256:07e00e11176752146d402c31269d3c89dbe1f8ae200c98a91f7e4f34f7888322",
+        "observed": [
+          {
+            "id": "groceries-42",
+            "verdict": "allow",
+            "recheck_valid": true,
+            "receipt_status": "incomplete",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          },
+          {
+            "id": "groceries-142",
+            "verdict": "require_approval",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          },
+          {
+            "id": "recurring-999",
+            "verdict": "require_approval",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          }
+        ],
+        "scenario_count": 3,
+        "probe_count": 0,
+        "operations": [
+          "GET packs",
+          "GET packs/{id}",
+          "GET controls",
+          "GET controls/{id}",
+          "POST decide",
+          "POST recheck",
+          "POST receipts"
+        ],
+        "external_actions_executed": false,
+        "receipts_stored": false
+      }
+    },
+    {
+      "domain": "smb",
+      "release_id": "v0.1.1",
+      "catalog_digest": "sha256:07e00e11176752146d402c31269d3c89dbe1f8ae200c98a91f7e4f34f7888322",
+      "scenarios": [
+        {
+          "scenario_id": "draft",
+          "intent_digest": "sha256:c97b00a3ce7f1e71a27f90bab783f4490f1fe09286f137abaa5cf2cf2882b64d",
+          "pack_catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+          "verdict": "allow",
+          "route_kind": "continue",
+          "route_id": "continue-draft",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        },
+        {
+          "scenario_id": "discount-8",
+          "intent_digest": "sha256:be0d497159b6110a72d0a6bea0c2db21f82202f40e6217ef586ae1f51bbac7d0",
+          "pack_catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+          "verdict": "allow_with_conditions",
+          "route_kind": "continue",
+          "route_id": "continue-within-limit",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        },
+        {
+          "scenario_id": "discount-15",
+          "intent_digest": "sha256:ec4f4dee20b67ee8dd0b264dcbf60f185eda92d48fa48bbf2ed54f0ff090e5d4",
+          "pack_catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+          "verdict": "require_approval",
+          "route_kind": "continue",
+          "route_id": "continue",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        },
+        {
+          "scenario_id": "smb-discount-15-direct-self-approval",
+          "intent_digest": "sha256:c28c5920136a243b8256f8baaa59709217a8f7043e95dcec06013aaee3d1bf1a",
+          "pack_catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+          "verdict": "block",
+          "route_kind": "block",
+          "route_id": "fail-closed-block",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        }
+      ],
+      "machine_summary": {
+        "status": "ok",
+        "scope": "local_reference_examples",
+        "domain": "smb",
+        "release_id": "v0.1.1",
+        "catalog_digest": "sha256:07e00e11176752146d402c31269d3c89dbe1f8ae200c98a91f7e4f34f7888322",
+        "observed": [
+          {
+            "id": "draft",
+            "verdict": "allow",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          },
+          {
+            "id": "discount-8",
+            "verdict": "allow_with_conditions",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          },
+          {
+            "id": "discount-15",
+            "verdict": "require_approval",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          },
+          {
+            "id": "smb-discount-15-direct-self-approval",
+            "verdict": "block",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          }
+        ],
+        "scenario_count": 4,
+        "probe_count": 0,
+        "operations": [
+          "GET packs",
+          "GET packs/{id}",
+          "GET controls",
+          "GET controls/{id}",
+          "POST decide",
+          "POST recheck",
+          "POST receipts"
+        ],
+        "external_actions_executed": false,
+        "receipts_stored": false
+      }
+    }
+  ]
+}

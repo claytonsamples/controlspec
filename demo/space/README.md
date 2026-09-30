@@ -4,7 +4,7 @@ emoji: 🧭
 colorFrom: green
 colorTo: blue
 sdk: static
-app_file: index.html
+app_file: runtime.html
 pinned: false
 license: apache-2.0
 short_description: Exact-action approval and evidence, alongside OpenShell
@@ -12,18 +12,20 @@ short_description: Exact-action approval and evidence, alongside OpenShell
 
 # Before an agent acts
 
-Explore nine recorded action-control experiments using the real ControlSpec
-evaluator, TLS gRPC middleware targeting NVIDIA OpenShell v0.1.2, and a separate
-synthetic HTTP target. Inspect approvals, changed requests, replay, missing proof,
-outage and a real smolagents tool calling without a ticket.
+Explore 14 recorded probes through an actual NVIDIA OpenShell v0.1.2 sandbox,
+authenticated TLS ControlSpec middleware, and a synthetic HTTPS purchase target.
+Inspect exact approvals, changed amounts, replay, missing proof, native path
+denial, direct-IP and control-plane attempts, and a middleware outage. Download
+the original observations, effective policy, supervisor logs and recovery proof.
 
 **Static evidence replay.** Scripted requests and test-operator approvals; no
-live LLM, money or external actions. The actual OpenShell sandbox runtime was
-not run and is visibly marked unavailable. These are protocol/target tests,
-not evidence of sandbox containment or a native-platform benchmark.
+live LLM, money or external actions. The runtime ran on Docker Desktop / WSL2.
+Selected probes passed; this is not a production security certification or a
+platform benchmark. A separate protocol lab preserves the earlier nine scenes;
+its native comparison lane remains unrun.
 
 [Source and reproduction](https://github.com/claytonsamples/controlspec/tree/main/integrations/openshell) ·
-[Experimental release](https://github.com/claytonsamples/controlspec/releases/tag/v0.1.2-preview.1) ·
+[Experimental releases](https://github.com/claytonsamples/controlspec/releases) ·
 [Report a failure](https://github.com/claytonsamples/controlspec/issues)
 
 The prior six-scene action demo and seven original reference examples remain

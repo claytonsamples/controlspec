@@ -1,0 +1,178 @@
+{
+  "schema_version": "1",
+  "synthetic_only": true,
+  "sandbox_id": "cf9877e9-b1d4-4c13-b919-f222cc9dae1f",
+  "runtime_report_sha256": "c0e375fd5b56c3e3185ed1a98880e70a87d68eea5ad3691dea327b6518eab414",
+  "controller_image": "ghcr.io/astral-sh/uv@sha256:531f855bda2c73cd6ef67d56b733b357cea384185b3022bd09f05e002cd144ca",
+  "supervisor_base": "ghcr.io/nvidia/openshell/supervisor@sha256:d7b5264bb6bc56f4796e6fa3617b8e4a8d785be0b7293542efd8cc250b0fb67a",
+  "supervisor_image_id": "sha256:6991babe94f436fb043f7d3510ba42517d6f248870e3cc852afc2a713f55fa3a",
+  "workload_image_id": "sha256:43618714a62a0fd0f1c6889aa6cbe9c1d618f459a69cb1c673da72d721ca9b7f",
+  "docker_version": "28.5.1",
+  "kernel": "6.6.87.2-microsoft-standard-WSL2",
+  "supervisor_logs": [
+    "2026-09-30T22:20:19.487Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:19.531Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:l7]",
+    "2026-09-30T22:20:19.567Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:middleware] [failed:false transformed:true]",
+    "2026-09-30T22:20:19.659Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:19.712Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:l7]",
+    "2026-09-30T22:20:19.742Z OCSF HTTP:POST [MED] DENIED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:middleware] [failed:false transformed:false reason:middleware_denied:controlspec-purchases:action_already_reserved]",
+    "2026-09-30T22:20:19.813Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:19.853Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:l7]",
+    "2026-09-30T22:20:19.876Z OCSF HTTP:POST [MED] DENIED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:middleware] [failed:false transformed:false reason:middleware_denied:controlspec-purchases:approval_required]",
+    "2026-09-30T22:20:19.943Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:19.980Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:l7]",
+    "2026-09-30T22:20:20.007Z OCSF HTTP:POST [MED] DENIED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:middleware] [failed:false transformed:false reason:middleware_denied:controlspec-purchases:approval_required]",
+    "2026-09-30T22:20:20.145Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:20.185Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:l7]",
+    "2026-09-30T22:20:20.217Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:middleware] [failed:false transformed:true]",
+    "2026-09-30T22:20:20.334Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:20.384Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:l7]",
+    "2026-09-30T22:20:20.425Z OCSF HTTP:POST [MED] DENIED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:middleware] [failed:false transformed:false reason:middleware_denied:controlspec-purchases:approval_required]",
+    "2026-09-30T22:20:20.575Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:20.623Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:l7]",
+    "2026-09-30T22:20:20.635Z OCSF HTTP:POST [MED] DENIED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:middleware] [failed:false transformed:false reason:middleware_denied:controlspec-purchases:action_changed]",
+    "2026-09-30T22:20:20.781Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:20.822Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:l7]",
+    "2026-09-30T22:20:20.852Z OCSF HTTP:POST [MED] DENIED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:middleware] [failed:false transformed:false reason:middleware_denied:controlspec-purchases:policy_denied]",
+    "2026-09-30T22:20:20.949Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:20.988Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:l7]",
+    "2026-09-30T22:20:21.014Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:middleware] [failed:false transformed:true]",
+    "2026-09-30T22:20:21.208Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:21.253Z OCSF HTTP:GET [MED] DENIED GET http://host.openshell.internal:18081/state [policy:synthetic-purchase engine:l7] [reason:L7_REQUEST deny GET host.openshell.internal:18081/state reason=GET /state not permitted by policy]",
+    "2026-09-30T22:20:21.346Z OCSF NET:OPEN [MED] DENIED /usr/bin/curl(0) -> 172.30.0.2:18081 [reason:transparent_tcp_policy_denied]",
+    "2026-09-30T22:20:21.462Z OCSF NET:OPEN [MED] DENIED /usr/bin/curl(0) -> 172.30.0.2:17670 [reason:transparent_tcp_policy_denied]",
+    "2026-09-30T22:20:21.556Z OCSF NET:OPEN [MED] DENIED /usr/bin/curl(0) -> 172.30.0.2:50051 [reason:transparent_tcp_policy_denied]",
+    "2026-09-30T22:20:21.878Z OCSF NET:OPEN [INFO] ALLOWED /usr/bin/curl(0) -> host.openshell.internal:18081 [policy:synthetic-purchase engine:opa]",
+    "2026-09-30T22:20:21.920Z OCSF HTTP:POST [INFO] ALLOWED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:l7]",
+    "2026-09-30T22:20:21.921Z OCSF HTTP:POST [MED] DENIED POST http://host.openshell.internal:18081/purchases [policy:synthetic-purchase engine:middleware] [failed:true transformed:false reason:middleware_failed: external_service_error]"
+  ],
+  "recovery": {
+    "scenario": "middleware_recovery",
+    "command": [
+      "openshell",
+      "--gateway-endpoint",
+      "http://127.0.0.1:17670",
+      "sandbox",
+      "exec",
+      "--name",
+      "csrt-20260930-8e3f",
+      "--no-tty",
+      "--no-login-shell",
+      "--",
+      "/usr/bin/curl",
+      "-sS",
+      "-i",
+      "--max-time",
+      "12",
+      "https://host.openshell.internal:18081/purchases",
+      "-H",
+      "content-type: application/json",
+      "--data",
+      "{\"schema_version\":\"1\",\"action_id\":\"runtime-43e46fd5e9-recovery\",\"amount_minor\":4200,\"currency\":\"USD\",\"merchant\":\"demo-store\",\"recurring\":false}"
+    ],
+    "exit_code": 0,
+    "stdout": "HTTP/1.1 200 OK\ndate: Wed, 30 Sep 2026 22:21:47 GMT\nserver: uvicorn\ncontent-length: 618\ncontent-type: application/json\n\n{\"schema_version\":\"1\",\"synthetic_only\":true,\"status\":\"committed\",\"action_id\":\"runtime-43e46fd5e9-recovery\",\"scope\":{\"gateway_id\":\"controlspec-runtime-18a317b6341a\",\"sandbox_id\":\"cf9877e9-b1d4-4c13-b919-f222cc9dae1f\"},\"request_digest\":\"sha256:f7c068f1e05f61a3fb5dd6f658cbacf04d64e34a633caf35360ae663c2a977fa\",\"nonce\":\"3dde692254cedb2d1c061d5e0e7b3ba27b0f2467b4c94a262b68337ecc2a2d5e\",\"amount_minor\":4200,\"committed_at\":\"2026-09-30T22:21:48.071657Z\",\"evidence_id\":\"sha256:eaae0f87ecdb0d3a8f8c73821e670f583d7850f6d9a87f53a4c311603a823766\",\"evidence_mac\":\"e3fe357b29f5771c565a67bc36acd10be1686a159838700dc2cab1b6b13a1603\"}",
+    "stderr": "",
+    "http": {
+      "status": 200,
+      "headers": {
+        "date": "Wed, 30 Sep 2026 22:21:47 GMT",
+        "server": "uvicorn",
+        "content-length": "618",
+        "content-type": "application/json"
+      },
+      "body": {
+        "schema_version": "1",
+        "synthetic_only": true,
+        "status": "committed",
+        "action_id": "runtime-43e46fd5e9-recovery",
+        "scope": {
+          "gateway_id": "controlspec-runtime-18a317b6341a",
+          "sandbox_id": "cf9877e9-b1d4-4c13-b919-f222cc9dae1f"
+        },
+        "request_digest": "sha256:f7c068f1e05f61a3fb5dd6f658cbacf04d64e34a633caf35360ae663c2a977fa",
+        "nonce": "3dde692254cedb2d1c061d5e0e7b3ba27b0f2467b4c94a262b68337ecc2a2d5e",
+        "amount_minor": 4200,
+        "committed_at": "2026-09-30T22:21:48.071657Z",
+        "evidence_id": "sha256:eaae0f87ecdb0d3a8f8c73821e670f583d7850f6d9a87f53a4c311603a823766",
+        "evidence_mac": "e3fe357b29f5771c565a67bc36acd10be1686a159838700dc2cab1b6b13a1603"
+      }
+    },
+    "target_purchase_delta": 1,
+    "target_spend_delta_minor": 4200,
+    "completion_verified": true,
+    "effective_policy_unchanged": true,
+    "policy_after": {
+      "active_version": 2,
+      "config_revision": 16511938764146938059,
+      "hash": "672621067d5e56ef6db856be8c756d9a1529ef66327428263026eea079f779fd",
+      "policy": {
+        "filesystem_policy": {
+          "include_workdir": true,
+          "read_only": [
+            "/usr",
+            "/lib",
+            "/etc",
+            "/var/log",
+            "/proc",
+            "/dev/urandom"
+          ],
+          "read_write": [
+            "/tmp",
+            "/dev/null"
+          ]
+        },
+        "network_middlewares": {
+          "controlspec-purchases": {
+            "config": {
+              "profile": "synthetic-purchases-v1"
+            },
+            "endpoints": {
+              "include": [
+                "host.openshell.internal"
+              ]
+            },
+            "middleware": "controlspec-demo",
+            "name": "ControlSpec synthetic purchases",
+            "on_error": "fail_closed",
+            "order": 100
+          }
+        },
+        "network_policies": {
+          "synthetic-purchase": {
+            "binaries": [
+              {
+                "path": "/usr/bin/curl"
+              }
+            ],
+            "endpoints": [
+              {
+                "enforcement": "enforce",
+                "host": "host.openshell.internal",
+                "port": 18081,
+                "protocol": "rest",
+                "rules": [
+                  {
+                    "allow": {
+                      "method": "POST",
+                      "path": "/purchases"
+                    }
+                  }
+                ]
+              }
+            ],
+            "name": "Synthetic purchases"
+          }
+        },
+        "version": 1
+      },
+      "policy_source": "sandbox",
+      "sandbox": "csrt-20260930-8e3f",
+      "scope": "sandbox",
+      "status": "effective",
+      "version": 2
+    },
+    "synthetic_only": true,
+    "status": "passed"
+  }
+}

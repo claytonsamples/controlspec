@@ -33,11 +33,16 @@ Nine recorded scenes expose the decision, actual local target state and raw
 evidence: permitted spending, approval, overspending, changed amount, invalid
 operator credentials, replay, missing proof, outage and a ticketless tool call.
 
-**This is a tested protocol preview, not a verified OpenShell deployment.**
-The full sandbox runtime could not start on the recording host; its lane is
-marked **not run**. OpenShell already supports body-aware policies. This project
-explores portable business authority and evidence alongside that boundary, and
-does not claim to replace NVIDIA's isolation or outperform it.
+**The integration now also runs through an actual OpenShell sandbox.**
+The [runtime recipe](integrations/openshell/runtime/README.md) uses the pinned
+gateway, supervisor and sandbox, authenticated TLS middleware, and a synthetic
+HTTPS target. Its observations are separate from the nine-scene protocol fixture;
+the fixture's native comparison lane remains **not run**. At v0.1.2, native REST rules
+match method, path and query; its body-aware GraphQL, MCP and JSON-RPC controls
+are separate protocol features. This REST example adds checks on purchase JSON,
+exact-action approval and outcome evidence through middleware. It does not claim
+to replace NVIDIA's isolation or outperform it. See the
+[pinned capability references](integrations/openshell/UPSTREAM.md#native-policy-scope-at-the-pin).
 
 ```sh
 uv sync --project backend --locked --all-extras

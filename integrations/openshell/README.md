@@ -5,12 +5,12 @@ portable, deterministic action decision, an exact-action approval fact, a one-us
 reservation, and reconciliation with a synthetic target's receipt at OpenShell's
 supervisor middleware extension point.
 
-**Verified here:** the pinned v0.1.2 protobuf interface over real TLS gRPC,
-gateway-shaped signed test identities, the real ControlSpec evaluator, a separate
-loopback HTTP purchase service, and persistent SQLite records. **Not yet verified:**
-an actual OpenShell supervisor/sandbox run, native policy admission, network
-isolation, or sandbox bypass resistance. The local Docker engine crashed before
-it started. A protocol fixture is not an OpenShell runtime.
+Two distinct experiments are available: the original TLS gRPC protocol fixture,
+and a [real OpenShell runtime recipe](runtime/README.md). The latter runs the
+pinned v0.1.2 gateway, supervisor and sandbox with gateway-issued JWTs, verified
+HTTPS, native policy enforcement and the ControlSpec evaluator. Inspect its
+recorded probes and deployment limits separately; passing selected probes is
+not a general security certification. Both use synthetic targets and SQLite.
 
 [Replay the evidence](https://huggingface.co/spaces/claytonsamples/controlspec) ·
 [Upstream pin and provenance](UPSTREAM.md) ·
@@ -67,17 +67,25 @@ flowchart LR
 ```
 
 Only the middleware-to-target part of this topology is exercised by the local
-protocol fixture. OpenShell's middleware runs after native policy and before
-credential injection. Its native policies already support body-aware rules.
-We are not claiming it can only filter hosts, or that this control layer replaces
-its isolation, policy prover, or NVIDIA Sentry hardware boundary.
+protocol fixture. The separate runtime recipe exercises the sandbox path.
+OpenShell's middleware runs after native policy and before
+credential injection. At the pinned v0.1.2 version, native REST rules match HTTP
+method, path and query parameters. OpenShell also inspects protocol-specific
+content for GraphQL, MCP and JSON-RPC; those features do not provide arbitrary
+JSON-body predicates for this REST purchase endpoint. See the
+[pinned policy references](UPSTREAM.md#native-policy-scope-at-the-pin).
+This control layer complements its network and isolation boundaries; it does
+not replace its policy prover or NVIDIA Sentry hardware boundary.
 
 The two policy files specify the same binary/host/port/method/path boundary.
 [policy-controlspec.yaml](policy-controlspec.yaml) adds the final fail-closed
 middleware. [policy-native.yaml](policy-native.yaml) is an illustrative native
-baseline, not a strongest-possible policy or a tested native outcome. A future
-fair comparison should also encode the static amount/recurrence rules natively.
-Stateful approval lineage and outcome evidence are the focus of this experiment.
+baseline, not a tested native outcome. A fair comparison must hold the supported
+REST boundary constant and disclose that amount/recurrence checks in this JSON
+body are implemented by ControlSpec middleware. The pinned native REST rule
+schema cannot encode those body predicates. Changing the API protocol or adding
+another middleware implementation would be a separate comparison. Exact-action
+approval and outcome evidence are also part of this experiment.
 
 The controlled synthetic target additionally requires a signed ticket. The
 unguarded lane calls a different target directly through Python and requires no
@@ -138,7 +146,7 @@ result = tool(action_id="purchase-1", amount_minor=4200, recurring=False)
 The real `smolagents==1.26.0` Tool is exercised in the recording's direct-call
 scene. It carries no ticket or operator credential, follows no redirects, and
 does not automatically retry. It cannot enforce a security boundary on its own.
-A positive agent-through-OpenShell run is future verification; none is implied
+A positive smolagents-through-OpenShell run is future verification; none is implied
 by importing a Tool or by the recorded rejection. No model call is made.
 
 ## Boundaries and next contribution
@@ -161,6 +169,7 @@ by importing a Tool or by the recorded rejection. No model call is made.
   WebSockets, live policy writes or production control publication are offered.
 
 The most useful next contribution is an independently reproduced, version-pinned
-OpenShell runtime run with effective policies, native body-rule parity, outage
-and alternate-route probes. Report failures as well as passes. This project is
+OpenShell runtime run with effective policies, matched native REST boundaries,
+explicit middleware body checks, outage and alternate-route probes. Report
+failures as well as passes. This project is
 independent and has no NVIDIA or Hugging Face endorsement.

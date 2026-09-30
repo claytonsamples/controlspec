@@ -439,7 +439,12 @@ def record_scene(directory: Path, definition: tuple[str, str, int, str, str]) ->
                     "events": [],
                     "evidence": {
                         "policy": "integrations/openshell/policy-native.yaml",
-                        "note": "Native policy is body-aware. No native outcome is inferred here.",
+                        "note": (
+                            "Pinned v0.1.2 native REST rules match method, path and query, "
+                            "not this purchase JSON body. GraphQL, MCP and JSON-RPC "
+                            "inspection are separate protocol features. "
+                            "No native outcome is inferred here."
+                        ),
                     },
                 },
                 {

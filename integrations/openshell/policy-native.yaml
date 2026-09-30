@@ -8,6 +8,7 @@ network_policies:
       - host: host.openshell.internal
         port: 18081
         protocol: rest
+        enforcement: enforce
         rules:
           - allow:
               method: POST

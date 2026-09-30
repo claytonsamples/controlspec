@@ -24,6 +24,31 @@ compiler. The generated files contain compiler/runtime version requirements;
 `backend/uv.lock` fixes the actual dependencies. Generated code is third-party
 protocol plumbing, not human policy authority.
 
+## Native policy scope at the pin
+
+The v0.1.2 policy schema distinguishes protocol-specific matchers:
+
+- Native REST rules match HTTP `method`, `path` and `query` parameters. They do
+  not expose arbitrary JSON-body predicates for `amount_minor` or `recurring`.
+- GraphQL rules inspect operation type, operation name and top-level fields.
+- MCP rules inspect method and tool name. The pinned documentation explicitly
+  says tool arguments are not matched; an allowed tool accepts any arguments.
+- JSON-RPC rules inspect the method name; parameters are not matched. These
+  protocol-aware body features are not generic REST JSON-body matching.
+
+Source: pinned [policy schema documentation](https://github.com/NVIDIA/OpenShell/blob/6648bd0c290efbc41ba131ee9831ee45cd431f94/docs/how-it-works/policies/schema.mdx#rest-rules),
+[network rule overview](https://github.com/NVIDIA/OpenShell/blob/6648bd0c290efbc41ba131ee9831ee45cd431f94/docs/how-it-works/policies/network-rules.mdx),
+and [typed matcher schema](https://github.com/NVIDIA/OpenShell/blob/6648bd0c290efbc41ba131ee9831ee45cd431f94/crates/openshell-policy-schema/src/lib.rs).
+The [middleware operations contract](https://github.com/NVIDIA/OpenShell/blob/6648bd0c290efbc41ba131ee9831ee45cd431f94/docs/extensibility/supervisor-middleware/operations.mdx)
+separately supplies request bodies to extensions and rechecks body-aware native
+policies, such as GraphQL, JSON-RPC or MCP, after body replacement.
+
+This example keeps the same native REST destination/method/path boundary in both
+policy files. ControlSpec middleware adds the synthetic purchase-body checks,
+exact-action approval and evidence handling. Native policy support should be
+reassessed when changing the upstream pin; do not assume these limits hold for
+all OpenShell versions or protocols.
+
 ## Identity source and transport
 
 Authentication follows upstream `crates/openshell-extension-core/src/jwt.rs` and

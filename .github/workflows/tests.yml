@@ -30,7 +30,9 @@ jobs:
           tests/controlspec/test_openshell_engine.py
           tests/controlspec/test_openshell_middleware.py
           tests/controlspec/test_openshell_recording.py
-          ../scripts/build_openshell_demo.py --exclude '*_pb2*'
+          ../scripts/build_openshell_demo.py ../scripts/build_runtime_demo.py
+          ../integrations/openshell/runtime/bootstrap.py
+          ../integrations/openshell/runtime/probe.py --exclude '*_pb2*'
       - name: Check reference and integration types
         working-directory: backend
         run: uv run --locked --all-extras mypy --package assurance --exclude 'openshell_demo/proto'

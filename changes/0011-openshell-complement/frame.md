@@ -4,6 +4,11 @@ User authorization, 2026-09-30: build the discussed complementary OpenShell inte
 
 ## Outcome
 
+Runtime follow-up authorized September 30: the user enabled Full Access,
+started Docker Desktop and asked to retry. This continues the accepted build
+and publication scope. Preserve actual runtime evidence separately from the
+protocol fixture, and retain all limits of synthetic authority and assessment.
+
 One pinned OpenShell middleware adapter, one isolated synthetic transaction target, reproducible native-policy and combined-policy comparisons, adversarial tests, and an upgraded static Space displaying recorded evidence. Include a small smolagents example if a supported path is verified. Preserve the existing non-authoritative reference API.
 
 ## Acceptance

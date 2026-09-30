@@ -9,7 +9,7 @@ import re
 from collections.abc import Iterator
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, Literal
 
 import grpc
 from google.protobuf.json_format import MessageToDict
@@ -59,14 +59,17 @@ class ControlSpecMiddleware(rpc.SupervisorMiddlewareServicer):
         self.verifier = verifier
         self.boundary = boundary or TargetBoundary()
 
-    def _identity(self, context: grpc.ServicerContext, kind: str) -> ExtensionIdentity:
+    def _identity(
+        self, context: grpc.ServicerContext,
+        kinds: tuple[Literal["gateway", "supervisor"], ...],
+    ) -> ExtensionIdentity:
         values = [v for k, v in context.invocation_metadata() if k == "authorization"]
         try:
             if (len(values) != 1 or not isinstance(values[0], str)
                     or not values[0].startswith("Bearer ")):
                 raise AuthenticationError("extension authentication required")
             identity = self.verifier.verify(values[0][7:])
-            if identity.caller_kind != kind:
+            if identity.caller_kind not in kinds:
                 raise AuthenticationError("extension caller cannot use this operation")
             return identity
         except AuthenticationError:
@@ -76,7 +79,10 @@ class ControlSpecMiddleware(rpc.SupervisorMiddlewareServicer):
     def Describe(
         self, request: pb.MiddlewareDescribeRequest, context: grpc.ServicerContext,
     ) -> pb.MiddlewareManifest:
-        self._identity(context, "gateway")
+        # OpenShell v0.1.2 supervisor/src/lib.rs:connect_middleware_registry uses
+        # supervisor credentials for the same Describe negotiation as the gateway.
+        # Discovery is read-only; it does not grant transaction authority.
+        self._identity(context, ("gateway", "supervisor"))
         gateway = request.gateway
         if (not request.HasField("gateway")
                 or gateway.protocol_version.major != 1
@@ -108,7 +114,8 @@ class ControlSpecMiddleware(rpc.SupervisorMiddlewareServicer):
     def ValidateConfig(
         self, request: pb.ValidateConfigRequest, context: grpc.ServicerContext,
     ) -> pb.ValidateConfigResponse:
-        self._identity(context, "gateway")
+        # Policy admission calls ValidateConfig from openshell-server/middleware.rs.
+        self._identity(context, ("gateway",))
         valid = self._valid_config(request)
         return pb.ValidateConfigResponse(
             valid=valid, reason="" if valid else "only synthetic-purchases-v1 is supported",
@@ -117,7 +124,7 @@ class ControlSpecMiddleware(rpc.SupervisorMiddlewareServicer):
     def EvaluateHttpRequest(
         self, request: pb.HttpRequestEvaluation, context: grpc.ServicerContext,
     ) -> pb.HttpRequestResult:
-        identity = self._identity(context, "supervisor")
+        identity = self._identity(context, ("supervisor",))
         target = request.target
         if (not identity.sandbox_id or request.context.sandbox_id != identity.sandbox_id
                 or not request.context.request_id or request.context.ByteSize() > 4096):
@@ -176,7 +183,7 @@ class ControlSpecMiddleware(rpc.SupervisorMiddlewareServicer):
     def EvaluateWebSocketSession(
         self, request_iterator: Iterator[pb.WebSocketSessionEvent], context: grpc.ServicerContext,
     ) -> Iterator[pb.WebSocketSessionEventResult]:
-        self._identity(context, "supervisor")
+        self._identity(context, ("supervisor",))
         context.abort(grpc.StatusCode.PERMISSION_DENIED, "websockets are unsupported")
         return iter(())
 

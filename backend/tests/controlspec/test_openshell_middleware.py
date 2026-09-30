@@ -108,6 +108,56 @@ def test_describe_negotiates_and_config_is_closed(service: Any) -> None:
     assert error.value.code() == grpc.StatusCode.FAILED_PRECONDITION
 
 
+def test_supervisor_can_discover_but_cannot_admit_policy(service: Any) -> None:
+    """Real supervisors negotiate the registry using their sandbox-scoped JWT."""
+    stub, key, _ = service
+    peer = ext.PeerMetadata(
+        protocol_version=ext.ProtocolVersion(major=1), implementation_name="openshell/gateway",
+        supported_capabilities=[CAPABILITY], required_capabilities=[CAPABILITY],
+    )
+    manifest = stub.Describe(
+        pb.MiddlewareDescribeRequest(gateway=peer), metadata=metadata(token(key)),
+    )
+    assert manifest.expected_audience == AUDIENCE
+    assert manifest.bindings[0].phase == pb.SUPERVISOR_MIDDLEWARE_PHASE_PRE_CREDENTIALS
+    with pytest.raises(grpc.RpcError) as error:
+        stub.ValidateConfig(
+            pb.ValidateConfigRequest(config=EXPECTED_CONFIG, middleware_name=REGISTRATION),
+            metadata=metadata(token(key)),
+        )
+    assert error.value.code() == grpc.StatusCode.UNAUTHENTICATED
+    # Read-only discovery cannot substitute for exact scoped action evaluation.
+    assert stub.EvaluateHttpRequest(
+        request(), metadata=metadata(token(key)),
+    ).decision == pb.DECISION_ALLOW
+
+
+def test_gateway_discovery_does_not_grant_action_execution(service: Any) -> None:
+    stub, key, _ = service
+    with pytest.raises(grpc.RpcError) as error:
+        stub.EvaluateHttpRequest(request(), metadata=metadata(token(key, "gateway")))
+    assert error.value.code() == grpc.StatusCode.UNAUTHENTICATED
+
+
+@pytest.mark.parametrize("credentials", ["missing", "forged", "foreign_sandbox_subject"])
+def test_describe_still_rejects_invalid_supervisor_credentials(
+    service: Any, credentials: str,
+) -> None:
+    stub, key, _ = service
+    peer = ext.PeerMetadata(
+        protocol_version=ext.ProtocolVersion(major=1), implementation_name="openshell/gateway",
+        supported_capabilities=[CAPABILITY], required_capabilities=[CAPABILITY],
+    )
+    creds = ()
+    if credentials == "forged":
+        creds = metadata(token(Ed25519PrivateKey.generate()))
+    elif credentials == "foreign_sandbox_subject":
+        creds = metadata(token(key, sub="spiffe://openshell/sandbox/other"))
+    with pytest.raises(grpc.RpcError) as error:
+        stub.Describe(pb.MiddlewareDescribeRequest(gateway=peer), metadata=creds)
+    assert error.value.code() == grpc.StatusCode.UNAUTHENTICATED
+
+
 def test_real_engine_permits_ticket_once_and_preserves_body(service: Any) -> None:
     stub, key, _ = service
     result = stub.EvaluateHttpRequest(request(), metadata=metadata(token(key)))
@@ -133,11 +183,19 @@ def test_approval_required_then_operator_approval_is_reevaluated(service: Any) -
 @pytest.mark.parametrize("claims", [
     {"aud": "wrong"}, {"iss": "openshell-gateway:other"}, {"exp": 1},
     {"caller_kind": "gateway"}, {"sub": "spiffe://openshell/sandbox/other"},
-    {"sandbox_id": None}, {"iat": int(time.time())+120}, {"exp": int(time.time())+7200},
+    {"sandbox_id": None}, {"iat": "future"}, {"exp": "excessive_lifetime"},
     {"aud": [AUDIENCE]},
 ])
 def test_invalid_signed_identity_cannot_evaluate(service: Any, claims: Any) -> None:
     stub, key, _ = service
+    # Compute invalid time windows when this test runs, not during collection.
+    # A slow integration suite must not age a future-iat fixture into validity.
+    claims = dict(claims)
+    now = int(time.time())
+    if claims.get("iat") == "future":
+        claims["iat"] = now + 120
+    if claims.get("exp") == "excessive_lifetime":
+        claims["exp"] = now + 7200
     with pytest.raises(grpc.RpcError) as error:
         stub.EvaluateHttpRequest(request(), metadata=metadata(token(key, **claims)))
     assert error.value.code() == grpc.StatusCode.UNAUTHENTICATED

@@ -42,6 +42,7 @@ def main() -> None:
     service.add_argument("--bind", default="127.0.0.1:50051")
     service.add_argument("--target-host", default="host.openshell.internal")
     service.add_argument("--target-port", type=int, default=18081)
+    service.add_argument("--target-scheme", choices=("http", "https"), default="http")
     args = parser.parse_args()
     directory = args.state_dir.resolve()
     if args.command == "init":
@@ -79,7 +80,7 @@ def main() -> None:
         middleware = ControlSpecMiddleware(
             engine_at(directory),
             verifier,
-            TargetBoundary(args.target_host, args.target_port),
+            TargetBoundary(args.target_host, args.target_port, args.target_scheme),
         )
         server, port = create_server(
             middleware,

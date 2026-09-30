@@ -1,7 +1,7 @@
 {
   "schema_version": "1",
-  "generated_at": "2026-09-30T04:55:26.379568+00:00",
-  "source_revision": "e30ac3657bdc75e2ec268b88429d762a7b4b70a8",
+  "generated_at": "2026-09-30T22:23:55.611982+00:00",
+  "source_revision": "98f91d119db5f61c18f5743aee1802802ce030d2",
   "upstream": {
     "version": "v0.1.2",
     "commit": "6648bd0c290efbc41ba131ee9831ee45cd431f94"
@@ -51,9 +51,9 @@
               {
                 "action_id": "allowed",
                 "amount_minor": 4200,
-                "committed_at": "2026-09-30T04:55:20.848432Z",
+                "committed_at": "2026-09-30T22:23:47.119685Z",
                 "evidence_id": "sha256:b02c2f0b3ed1e7499415aad7d544e1b3ffed94674fb2dcaa5566be59827e14c2",
-                "evidence_mac": "722cef5ddf2515e9a37cc361620853c662153b86f1e80a7105f005d37482c82e",
+                "evidence_mac": "69245e845d4658aedb981cb2e06e830a78c78a852a848534b40582329fe23f4d",
                 "nonce": "unguarded-synthetic-baseline",
                 "request_digest": "sha256:65c79308466c25d8e702be25340e9094d41113512800a2d6c380a27fe8a059f7",
                 "schema_version": "1",
@@ -85,9 +85,9 @@
               "request_digest": "sha256:65c79308466c25d8e702be25340e9094d41113512800a2d6c380a27fe8a059f7",
               "nonce": "unguarded-synthetic-baseline",
               "amount_minor": 4200,
-              "committed_at": "2026-09-30T04:55:20.848432Z",
+              "committed_at": "2026-09-30T22:23:47.119685Z",
               "evidence_id": "sha256:b02c2f0b3ed1e7499415aad7d544e1b3ffed94674fb2dcaa5566be59827e14c2",
-              "evidence_mac": "722cef5ddf2515e9a37cc361620853c662153b86f1e80a7105f005d37482c82e"
+              "evidence_mac": "69245e845d4658aedb981cb2e06e830a78c78a852a848534b40582329fe23f4d"
             },
             "transport": "direct Python call",
             "target_idempotency": true,
@@ -105,7 +105,7 @@
           "events": [],
           "evidence": {
             "policy": "integrations/openshell/policy-native.yaml",
-            "note": "Native policy is body-aware. No native outcome is inferred here."
+            "note": "Pinned v0.1.2 native REST rules match method, path and query, not this purchase JSON body. GraphQL, MCP and JSON-RPC inspection are separate protocol features. No native outcome is inferred here."
           }
         },
         {
@@ -130,10 +130,10 @@
               {
                 "action_id": "allowed",
                 "amount_minor": 4200,
-                "committed_at": "2026-09-30T04:55:20.888113Z",
-                "evidence_id": "sha256:051b06ab80262d3750be694f9fa6c02630b9945d96f6a45548f53c9c22d2803f",
-                "evidence_mac": "b35fa1cab191b07e55527059b5e5032b128c89029f3c3eb6e275cc5be7c32ad4",
-                "nonce": "457e63cc17f60a12f2d0da687eb64d5f448de6a41eb7da745a673f9ad45b3fe5",
+                "committed_at": "2026-09-30T22:23:47.189635Z",
+                "evidence_id": "sha256:aa59cc9ba17c19a97f11b3738df1aba6788214a1e2b7782d4ff54b6a12b582ab",
+                "evidence_mac": "20dde639cbc7804c85bc10fc7d5a9d5ea855be5acb3fdc932370888917e4911d",
+                "nonce": "ff9bb2f17cbe4f55636c43c93e9c1497ab6281ecda75737c466563900b94c7da",
                 "request_digest": "sha256:65c79308466c25d8e702be25340e9094d41113512800a2d6c380a27fe8a059f7",
                 "schema_version": "1",
                 "scope": {
@@ -168,7 +168,7 @@
             "reason": "target_receipt_verified",
             "forwarded": true,
             "reconciled": true,
-            "rpc_elapsed_ms": 18.311,
+            "rpc_elapsed_ms": 56.41,
             "target_receipt": {
               "schema_version": "1",
               "synthetic_only": true,
@@ -179,11 +179,11 @@
                 "sandbox_id": "scripted-agent"
               },
               "request_digest": "sha256:65c79308466c25d8e702be25340e9094d41113512800a2d6c380a27fe8a059f7",
-              "nonce": "457e63cc17f60a12f2d0da687eb64d5f448de6a41eb7da745a673f9ad45b3fe5",
+              "nonce": "ff9bb2f17cbe4f55636c43c93e9c1497ab6281ecda75737c466563900b94c7da",
               "amount_minor": 4200,
-              "committed_at": "2026-09-30T04:55:20.888113Z",
-              "evidence_id": "sha256:051b06ab80262d3750be694f9fa6c02630b9945d96f6a45548f53c9c22d2803f",
-              "evidence_mac": "b35fa1cab191b07e55527059b5e5032b128c89029f3c3eb6e275cc5be7c32ad4"
+              "committed_at": "2026-09-30T22:23:47.189635Z",
+              "evidence_id": "sha256:aa59cc9ba17c19a97f11b3738df1aba6788214a1e2b7782d4ff54b6a12b582ab",
+              "evidence_mac": "20dde639cbc7804c85bc10fc7d5a9d5ea855be5acb3fdc932370888917e4911d"
             },
             "ledger_events": [
               {
@@ -222,7 +222,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:c58f8e4f07bd983b3493d90885c5826e173ea9a672087b704cc5f28c0672a5d3",
+                      "intent_digest": "sha256:393fce36091ba359a35da9262c7bb49615bacf683bd888f79227931be2045be3",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -231,9 +231,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-0b7e5486776d9556d3c158bc3a03e9aab008dd979fe3e3568045759d9cd451e8",
-                    "evaluated_at": "2026-09-30T04:55:20.855683Z",
-                    "expires_at": "2026-09-30T04:57:20.855683Z",
+                    "decision_id": "decision-ef4c399289aacd62be67075a03170a0818fc684a4e7a2bccd126163b7eabe70e",
+                    "evaluated_at": "2026-09-30T22:23:47.131239Z",
+                    "expires_at": "2026-09-30T22:25:47.131239Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.within_limit"
@@ -242,7 +242,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:c58f8e4f07bd983b3493d90885c5826e173ea9a672087b704cc5f28c0672a5d3",
+                      "intent_digest": "sha256:393fce36091ba359a35da9262c7bb49615bacf683bd888f79227931be2045be3",
                       "intent_id": "allowed",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -263,10 +263,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:f49b608b3ae784f15b7ea5aa0456d81ffaf0def920bb8725ca965fcddd9075da",
+                    "semantic_digest": "sha256:cb11baca5b9843c5a13563bd6d0728f69f47c0f576c0fd7b39bdf5623070ed96",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:20.855683Z",
+                  "first_seen": "2026-09-30T22:23:47.131239Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -305,10 +305,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "allowed",
-                    "intent_digest": "sha256:c58f8e4f07bd983b3493d90885c5826e173ea9a672087b704cc5f28c0672a5d3",
+                    "intent_digest": "sha256:393fce36091ba359a35da9262c7bb49615bacf683bd888f79227931be2045be3",
                     "intent_id": "allowed",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:20.855683Z",
+                    "requested_at": "2026-09-30T22:23:47.131239Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -375,11 +375,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:61529660963d7141bf4eda8aaa8111cf555ece7290274143d988fcae765185c8"
+                    "snapshot_digest": "sha256:a2709782bd04958ee7c5f4b8cda926c2f3a6c86b3093dc38667afcc4eea41c24"
                   }
                 },
                 "previous_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-                "event_hash": "sha256:3bc400ead62de739bbb367f6711a028dcba6dd596fb98643feff367523280676"
+                "event_hash": "sha256:8cccf5a291c9880542b98b7050d2149180e34d85d6106128c58e7e64bb148f20"
               },
               {
                 "sequence": 2,
@@ -417,7 +417,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:c58f8e4f07bd983b3493d90885c5826e173ea9a672087b704cc5f28c0672a5d3",
+                      "intent_digest": "sha256:393fce36091ba359a35da9262c7bb49615bacf683bd888f79227931be2045be3",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -426,9 +426,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-0b7e5486776d9556d3c158bc3a03e9aab008dd979fe3e3568045759d9cd451e8",
-                    "evaluated_at": "2026-09-30T04:55:20.855683Z",
-                    "expires_at": "2026-09-30T04:57:20.855683Z",
+                    "decision_id": "decision-ef4c399289aacd62be67075a03170a0818fc684a4e7a2bccd126163b7eabe70e",
+                    "evaluated_at": "2026-09-30T22:23:47.131239Z",
+                    "expires_at": "2026-09-30T22:25:47.131239Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.within_limit"
@@ -437,7 +437,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:c58f8e4f07bd983b3493d90885c5826e173ea9a672087b704cc5f28c0672a5d3",
+                      "intent_digest": "sha256:393fce36091ba359a35da9262c7bb49615bacf683bd888f79227931be2045be3",
                       "intent_id": "allowed",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -458,10 +458,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:f49b608b3ae784f15b7ea5aa0456d81ffaf0def920bb8725ca965fcddd9075da",
+                    "semantic_digest": "sha256:cb11baca5b9843c5a13563bd6d0728f69f47c0f576c0fd7b39bdf5623070ed96",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:20.855683Z",
+                  "first_seen": "2026-09-30T22:23:47.131239Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -500,10 +500,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "allowed",
-                    "intent_digest": "sha256:c58f8e4f07bd983b3493d90885c5826e173ea9a672087b704cc5f28c0672a5d3",
+                    "intent_digest": "sha256:393fce36091ba359a35da9262c7bb49615bacf683bd888f79227931be2045be3",
                     "intent_id": "allowed",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:20.855683Z",
+                    "requested_at": "2026-09-30T22:23:47.131239Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -533,11 +533,11 @@
                   "request_digest": "sha256:65c79308466c25d8e702be25340e9094d41113512800a2d6c380a27fe8a059f7",
                   "reservation": {
                     "action_id": "allowed",
-                    "decision_digest": "sha256:f49b608b3ae784f15b7ea5aa0456d81ffaf0def920bb8725ca965fcddd9075da",
-                    "expires_at": "2026-09-30T04:55:50.855683Z",
-                    "issued_at": "2026-09-30T04:55:20.855683Z",
+                    "decision_digest": "sha256:cb11baca5b9843c5a13563bd6d0728f69f47c0f576c0fd7b39bdf5623070ed96",
+                    "expires_at": "2026-09-30T22:24:17.131239Z",
+                    "issued_at": "2026-09-30T22:23:47.131239Z",
                     "method": "POST",
-                    "nonce": "457e63cc17f60a12f2d0da687eb64d5f448de6a41eb7da745a673f9ad45b3fe5",
+                    "nonce": "ff9bb2f17cbe4f55636c43c93e9c1497ab6281ecda75737c466563900b94c7da",
                     "path": "/purchases",
                     "policy_digest": "sha256:558cf1a9ca441b90fde0b487ccec26e31418060d38f85ed483bdc93109a3a2cf",
                     "purpose": "synthetic-purchase-only",
@@ -587,11 +587,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:61529660963d7141bf4eda8aaa8111cf555ece7290274143d988fcae765185c8"
+                    "snapshot_digest": "sha256:a2709782bd04958ee7c5f4b8cda926c2f3a6c86b3093dc38667afcc4eea41c24"
                   }
                 },
-                "previous_hash": "sha256:3bc400ead62de739bbb367f6711a028dcba6dd596fb98643feff367523280676",
-                "event_hash": "sha256:1594847e3ab67c739ed88ff72794c3cb7ad8e967c758c779dfbe396d95b01e4e"
+                "previous_hash": "sha256:8cccf5a291c9880542b98b7050d2149180e34d85d6106128c58e7e64bb148f20",
+                "event_hash": "sha256:a27228b28cb8f738095918cad9a04c457777c28a2776c5b962aa42ca7a1656f0"
               },
               {
                 "sequence": 3,
@@ -599,14 +599,14 @@
                 "action_id": "allowed",
                 "kind": "reconciliation",
                 "payload": {
-                  "at": "2026-09-30T04:55:20.893387Z",
+                  "at": "2026-09-30T22:23:47.200445Z",
                   "receipt": {
                     "action_id": "allowed",
                     "amount_minor": 4200,
-                    "committed_at": "2026-09-30T04:55:20.888113Z",
-                    "evidence_id": "sha256:051b06ab80262d3750be694f9fa6c02630b9945d96f6a45548f53c9c22d2803f",
-                    "evidence_mac": "b35fa1cab191b07e55527059b5e5032b128c89029f3c3eb6e275cc5be7c32ad4",
-                    "nonce": "457e63cc17f60a12f2d0da687eb64d5f448de6a41eb7da745a673f9ad45b3fe5",
+                    "committed_at": "2026-09-30T22:23:47.189635Z",
+                    "evidence_id": "sha256:aa59cc9ba17c19a97f11b3738df1aba6788214a1e2b7782d4ff54b6a12b582ab",
+                    "evidence_mac": "20dde639cbc7804c85bc10fc7d5a9d5ea855be5acb3fdc932370888917e4911d",
+                    "nonce": "ff9bb2f17cbe4f55636c43c93e9c1497ab6281ecda75737c466563900b94c7da",
                     "request_digest": "sha256:65c79308466c25d8e702be25340e9094d41113512800a2d6c380a27fe8a059f7",
                     "schema_version": "1",
                     "scope": {
@@ -618,8 +618,8 @@
                   },
                   "verified": true
                 },
-                "previous_hash": "sha256:1594847e3ab67c739ed88ff72794c3cb7ad8e967c758c779dfbe396d95b01e4e",
-                "event_hash": "sha256:233d5f7d3a26f4b56c574cbaa6cf4db56167c03a3489d55c64a599b4898d1604"
+                "previous_hash": "sha256:a27228b28cb8f738095918cad9a04c457777c28a2776c5b962aa42ca7a1656f0",
+                "event_hash": "sha256:5d6e436c32178f2c461e346675024f9c20718c6ea2df4eeb9a6147f6ccbab6da"
               }
             ],
             "ledger_chain_valid": true,
@@ -666,9 +666,9 @@
               {
                 "action_id": "approval",
                 "amount_minor": 14200,
-                "committed_at": "2026-09-30T04:55:21.190654Z",
+                "committed_at": "2026-09-30T22:23:47.503822Z",
                 "evidence_id": "sha256:a6efb85be193ed05c4455422564e38c9594fdcf8e770d594175df7918fa4a2da",
-                "evidence_mac": "8f682ea5ed775ffe81533099b74c872825fc1ced7e09021f4f950b72ab8fcd24",
+                "evidence_mac": "e1dc9dd26d1b9efd92bdf52542a0d1e279d3bc1b760f85ca9a7207c2ba2fad5e",
                 "nonce": "unguarded-synthetic-baseline",
                 "request_digest": "sha256:72812147c8c266900de75c290c85d6d9bd66e10943015c4207bac0ae106e4649",
                 "schema_version": "1",
@@ -700,9 +700,9 @@
               "request_digest": "sha256:72812147c8c266900de75c290c85d6d9bd66e10943015c4207bac0ae106e4649",
               "nonce": "unguarded-synthetic-baseline",
               "amount_minor": 14200,
-              "committed_at": "2026-09-30T04:55:21.190654Z",
+              "committed_at": "2026-09-30T22:23:47.503822Z",
               "evidence_id": "sha256:a6efb85be193ed05c4455422564e38c9594fdcf8e770d594175df7918fa4a2da",
-              "evidence_mac": "8f682ea5ed775ffe81533099b74c872825fc1ced7e09021f4f950b72ab8fcd24"
+              "evidence_mac": "e1dc9dd26d1b9efd92bdf52542a0d1e279d3bc1b760f85ca9a7207c2ba2fad5e"
             },
             "transport": "direct Python call",
             "target_idempotency": true,
@@ -720,7 +720,7 @@
           "events": [],
           "evidence": {
             "policy": "integrations/openshell/policy-native.yaml",
-            "note": "Native policy is body-aware. No native outcome is inferred here."
+            "note": "Pinned v0.1.2 native REST rules match method, path and query, not this purchase JSON body. GraphQL, MCP and JSON-RPC inspection are separate protocol features. No native outcome is inferred here."
           }
         },
         {
@@ -745,10 +745,10 @@
               {
                 "action_id": "approval",
                 "amount_minor": 14200,
-                "committed_at": "2026-09-30T04:55:21.248998Z",
-                "evidence_id": "sha256:799906a43be46c0bcdfe4ae6bcca1dc8106d80503c55d87afe658880b34d42fd",
-                "evidence_mac": "dfaad92d18e178eea510edc94801559feb49745bcdaf5bab7e9b90e0e4d188b1",
-                "nonce": "40d7c67ef705d163dd65c13d1396184950e2a2bfdeb325b5548ebf29a37f865d",
+                "committed_at": "2026-09-30T22:23:47.594376Z",
+                "evidence_id": "sha256:d078f61d1f25ab0813b20a70892be1235d7f9f9cae33a06e62e044980b592383",
+                "evidence_mac": "2489e7f72edb3a42ad264a76a8cf937eb692107e6d159720095ee1a8d2d1a481",
+                "nonce": "52fe0fa91e9aa80f3d907b6c29788fd6afbe4becff120c38995ebed85e6c5639",
                 "request_digest": "sha256:72812147c8c266900de75c290c85d6d9bd66e10943015c4207bac0ae106e4649",
                 "schema_version": "1",
                 "scope": {
@@ -791,7 +791,7 @@
             "reason": "target_receipt_verified",
             "forwarded": true,
             "reconciled": true,
-            "rpc_elapsed_ms": 18.371,
+            "rpc_elapsed_ms": 25.437,
             "target_receipt": {
               "schema_version": "1",
               "synthetic_only": true,
@@ -802,11 +802,11 @@
                 "sandbox_id": "scripted-agent"
               },
               "request_digest": "sha256:72812147c8c266900de75c290c85d6d9bd66e10943015c4207bac0ae106e4649",
-              "nonce": "40d7c67ef705d163dd65c13d1396184950e2a2bfdeb325b5548ebf29a37f865d",
+              "nonce": "52fe0fa91e9aa80f3d907b6c29788fd6afbe4becff120c38995ebed85e6c5639",
               "amount_minor": 14200,
-              "committed_at": "2026-09-30T04:55:21.248998Z",
-              "evidence_id": "sha256:799906a43be46c0bcdfe4ae6bcca1dc8106d80503c55d87afe658880b34d42fd",
-              "evidence_mac": "dfaad92d18e178eea510edc94801559feb49745bcdaf5bab7e9b90e0e4d188b1"
+              "committed_at": "2026-09-30T22:23:47.594376Z",
+              "evidence_id": "sha256:d078f61d1f25ab0813b20a70892be1235d7f9f9cae33a06e62e044980b592383",
+              "evidence_mac": "2489e7f72edb3a42ad264a76a8cf937eb692107e6d159720095ee1a8d2d1a481"
             },
             "ledger_events": [
               {
@@ -863,7 +863,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                      "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -872,9 +872,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
-                    "evaluated_at": "2026-09-30T04:55:21.196928Z",
-                    "expires_at": "2026-09-30T04:57:21.196928Z",
+                    "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
+                    "evaluated_at": "2026-09-30T22:23:47.513333Z",
+                    "expires_at": "2026-09-30T22:25:47.513333Z",
                     "explanation_codes": [
                       "controlspec.core.approval.required",
                       "controlspec.synthetic.above_limit",
@@ -884,7 +884,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                      "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                       "intent_id": "approval",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -905,10 +905,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d",
+                    "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82",
                     "verdict": "require_approval"
                   },
-                  "first_seen": "2026-09-30T04:55:21.196928Z",
+                  "first_seen": "2026-09-30T22:23:47.513333Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -947,10 +947,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "approval",
-                    "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                    "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                     "intent_id": "approval",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:21.196928Z",
+                    "requested_at": "2026-09-30T22:23:47.513333Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -1018,11 +1018,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "require_approval",
-                    "snapshot_digest": "sha256:681fcadd8f7a0eb4598784ed908636bb6b06547719835daf1f5fa1815e9c45a0"
+                    "snapshot_digest": "sha256:ae731d1745eb1783726a12f98a18cad504246ec15cf39b0480575a6418e878f8"
                   }
                 },
                 "previous_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-                "event_hash": "sha256:79be57eebe5250caa7eb0862f12d11ca202b547cece7f024ce5f551b8652064e"
+                "event_hash": "sha256:663ac22915058b2b149b207f86684dc71cbe37b0fb35701cfff28b5066789cfb"
               },
               {
                 "sequence": 2,
@@ -1030,11 +1030,11 @@
                 "action_id": "approval",
                 "kind": "denied",
                 "payload": {
-                  "at": "2026-09-30T04:55:21.196928Z",
+                  "at": "2026-09-30T22:23:47.513333Z",
                   "reason": "approval_required"
                 },
-                "previous_hash": "sha256:79be57eebe5250caa7eb0862f12d11ca202b547cece7f024ce5f551b8652064e",
-                "event_hash": "sha256:72b3b0ad3b54d1d8c3d033b8e714eba3da953b4e11a91572ab973dd986084c88"
+                "previous_hash": "sha256:663ac22915058b2b149b207f86684dc71cbe37b0fb35701cfff28b5066789cfb",
+                "event_hash": "sha256:687db6b286c0af4950f76593c525539907e78882ce1f1db88f6f8dd68aa720db"
               },
               {
                 "sequence": 3,
@@ -1044,7 +1044,7 @@
                 "payload": {
                   "approvals": [
                     {
-                      "approval_id": "approval-a38da01487d67678e07ba36b9b62c456",
+                      "approval_id": "approval-91b25133d61e8def219f357e48595f00",
                       "approved": true,
                       "approver": {
                         "actor_id": "demo-human",
@@ -1066,13 +1066,13 @@
                         "version": "1"
                       },
                       "basis_decision_ref": {
-                        "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                        "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                         "namespace": "controlspec.synthetic.purchase",
-                        "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                        "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                       },
-                      "fact_digest": "sha256:dc5386b8ec48fcb778419fdc4fea44a70dcf698d5090af3808be201f43b105e7",
+                      "fact_digest": "sha256:40a34ae7ce69b84a331de2d9429b5bf2f5b3edf9b89863ddb4d92fc10e8f674e",
                       "intent_ref": {
-                        "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                        "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                         "intent_id": "approval",
                         "namespace": "controlspec.synthetic.purchase"
                       },
@@ -1083,14 +1083,14 @@
                       ],
                       "scope_digest": "sha256:357ae51ac9af39931ad35822582174da2c56d93480db4203fece52ebd85b2688",
                       "separated_role_actor_ids": {},
-                      "valid_from": "2026-09-30T04:55:21.211447Z",
-                      "valid_until": "2026-09-30T04:57:21.196928Z"
+                      "valid_from": "2026-09-30T22:23:47.530940Z",
+                      "valid_until": "2026-09-30T22:25:47.513333Z"
                     }
                   ],
                   "basis": {
-                    "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                    "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                     "namespace": "controlspec.synthetic.purchase",
-                    "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                    "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                   },
                   "decision": {
                     "applied_controls": [
@@ -1138,7 +1138,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                      "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -1147,9 +1147,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
-                    "evaluated_at": "2026-09-30T04:55:21.196928Z",
-                    "expires_at": "2026-09-30T04:57:21.196928Z",
+                    "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
+                    "evaluated_at": "2026-09-30T22:23:47.513333Z",
+                    "expires_at": "2026-09-30T22:25:47.513333Z",
                     "explanation_codes": [
                       "controlspec.core.approval.required",
                       "controlspec.synthetic.above_limit",
@@ -1159,7 +1159,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                      "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                       "intent_id": "approval",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -1180,10 +1180,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d",
+                    "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82",
                     "verdict": "require_approval"
                   },
-                  "first_seen": "2026-09-30T04:55:21.196928Z",
+                  "first_seen": "2026-09-30T22:23:47.513333Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -1222,10 +1222,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "approval",
-                    "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                    "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                     "intent_id": "approval",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:21.196928Z",
+                    "requested_at": "2026-09-30T22:23:47.513333Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -1293,11 +1293,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "require_approval",
-                    "snapshot_digest": "sha256:681fcadd8f7a0eb4598784ed908636bb6b06547719835daf1f5fa1815e9c45a0"
+                    "snapshot_digest": "sha256:ae731d1745eb1783726a12f98a18cad504246ec15cf39b0480575a6418e878f8"
                   }
                 },
-                "previous_hash": "sha256:72b3b0ad3b54d1d8c3d033b8e714eba3da953b4e11a91572ab973dd986084c88",
-                "event_hash": "sha256:470980ad738b5306ca0b0b96017430174232d82da5411d6d501d132ad0cd2a42"
+                "previous_hash": "sha256:687db6b286c0af4950f76593c525539907e78882ce1f1db88f6f8dd68aa720db",
+                "event_hash": "sha256:130f2b2100b8098e6ec6ef226e7dedf1a20c7a50ac4b45e3d3f4868d4a4e006d"
               },
               {
                 "sequence": 4,
@@ -1307,7 +1307,7 @@
                 "payload": {
                   "approvals": [
                     {
-                      "approval_id": "approval-a38da01487d67678e07ba36b9b62c456",
+                      "approval_id": "approval-91b25133d61e8def219f357e48595f00",
                       "approved": true,
                       "approver": {
                         "actor_id": "demo-human",
@@ -1329,13 +1329,13 @@
                         "version": "1"
                       },
                       "basis_decision_ref": {
-                        "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                        "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                         "namespace": "controlspec.synthetic.purchase",
-                        "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                        "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                       },
-                      "fact_digest": "sha256:dc5386b8ec48fcb778419fdc4fea44a70dcf698d5090af3808be201f43b105e7",
+                      "fact_digest": "sha256:40a34ae7ce69b84a331de2d9429b5bf2f5b3edf9b89863ddb4d92fc10e8f674e",
                       "intent_ref": {
-                        "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                        "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                         "intent_id": "approval",
                         "namespace": "controlspec.synthetic.purchase"
                       },
@@ -1346,14 +1346,14 @@
                       ],
                       "scope_digest": "sha256:357ae51ac9af39931ad35822582174da2c56d93480db4203fece52ebd85b2688",
                       "separated_role_actor_ids": {},
-                      "valid_from": "2026-09-30T04:55:21.211447Z",
-                      "valid_until": "2026-09-30T04:57:21.196928Z"
+                      "valid_from": "2026-09-30T22:23:47.530940Z",
+                      "valid_until": "2026-09-30T22:25:47.513333Z"
                     }
                   ],
                   "basis": {
-                    "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                    "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                     "namespace": "controlspec.synthetic.purchase",
-                    "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                    "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                   },
                   "decision": {
                     "applied_controls": [
@@ -1401,7 +1401,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                      "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -1410,9 +1410,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-1763b47bee68dc7b50b0433927c3bba963138f1bdbcdad45539522742cd0c7e1",
-                    "evaluated_at": "2026-09-30T04:55:21.211447Z",
-                    "expires_at": "2026-09-30T04:57:21.211447Z",
+                    "decision_id": "decision-93011e3e16c2f1ca60e7a3d8c5af00d3968094624032144eb6e9d7ca1f6a3f8f",
+                    "evaluated_at": "2026-09-30T22:23:47.530940Z",
+                    "expires_at": "2026-09-30T22:25:47.530940Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.above_limit"
@@ -1421,15 +1421,15 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                      "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                       "intent_id": "approval",
                       "namespace": "controlspec.synthetic.purchase"
                     },
                     "namespace": "controlspec.synthetic.purchase",
                     "predecessor_decision_ref": {
-                      "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                      "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                       "namespace": "controlspec.synthetic.purchase",
-                      "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                      "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                     },
                     "required_evidence": [],
                     "requires_recheck": false,
@@ -1446,10 +1446,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:60a7fb6da87fd7f81b4d0d72bf09a725b313e92aa552ec1a74e1adc2380d4328",
+                    "semantic_digest": "sha256:dd19dd843c069286abb5424fd652e4eb7559f6ab9924394bb8deda3133071b5b",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:21.196928Z",
+                  "first_seen": "2026-09-30T22:23:47.513333Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -1488,10 +1488,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "approval",
-                    "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                    "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                     "intent_id": "approval",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:21.196928Z",
+                    "requested_at": "2026-09-30T22:23:47.513333Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -1545,7 +1545,7 @@
                       "controlspec.core.allow",
                       "controlspec.synthetic.above_limit"
                     ],
-                    "facts_digest": "sha256:08e6590e3b41a30e2573ad4474855b2ec2cc1a7e6866f0a1c46280a202c12a9e",
+                    "facts_digest": "sha256:03c03e93f4e965c966ba7cebd76c46846bbfb695737a93b1f6aef3bc6d873eb3",
                     "final_route": {
                       "extensions": {},
                       "kind": "continue",
@@ -1558,11 +1558,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:ca4b95797ad9849122eb216e5962d2e37d7d0c45813f85cc3dfc493eea4b7c11"
+                    "snapshot_digest": "sha256:b60d2ee9d2eebaffae7df3dc48c9f22149b55580805df7788c9583fea516d023"
                   }
                 },
-                "previous_hash": "sha256:470980ad738b5306ca0b0b96017430174232d82da5411d6d501d132ad0cd2a42",
-                "event_hash": "sha256:85970f7ca6e18ddac61a353fc1ab7ea3412b583353ad61cf967afe8d785983b2"
+                "previous_hash": "sha256:130f2b2100b8098e6ec6ef226e7dedf1a20c7a50ac4b45e3d3f4868d4a4e006d",
+                "event_hash": "sha256:33b9e8727a513c3e6934ebd831633e3584508581506c3f8d93ff1880daab3b2b"
               },
               {
                 "sequence": 5,
@@ -1572,7 +1572,7 @@
                 "payload": {
                   "approvals": [
                     {
-                      "approval_id": "approval-a38da01487d67678e07ba36b9b62c456",
+                      "approval_id": "approval-91b25133d61e8def219f357e48595f00",
                       "approved": true,
                       "approver": {
                         "actor_id": "demo-human",
@@ -1594,13 +1594,13 @@
                         "version": "1"
                       },
                       "basis_decision_ref": {
-                        "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                        "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                         "namespace": "controlspec.synthetic.purchase",
-                        "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                        "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                       },
-                      "fact_digest": "sha256:dc5386b8ec48fcb778419fdc4fea44a70dcf698d5090af3808be201f43b105e7",
+                      "fact_digest": "sha256:40a34ae7ce69b84a331de2d9429b5bf2f5b3edf9b89863ddb4d92fc10e8f674e",
                       "intent_ref": {
-                        "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                        "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                         "intent_id": "approval",
                         "namespace": "controlspec.synthetic.purchase"
                       },
@@ -1611,14 +1611,14 @@
                       ],
                       "scope_digest": "sha256:357ae51ac9af39931ad35822582174da2c56d93480db4203fece52ebd85b2688",
                       "separated_role_actor_ids": {},
-                      "valid_from": "2026-09-30T04:55:21.211447Z",
-                      "valid_until": "2026-09-30T04:57:21.196928Z"
+                      "valid_from": "2026-09-30T22:23:47.530940Z",
+                      "valid_until": "2026-09-30T22:25:47.513333Z"
                     }
                   ],
                   "basis": {
-                    "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                    "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                     "namespace": "controlspec.synthetic.purchase",
-                    "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                    "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                   },
                   "decision": {
                     "applied_controls": [
@@ -1666,7 +1666,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                      "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -1675,9 +1675,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-107805bb980c91307c6ef08b68ea93e575c1bccb9d13530ad7aef4690672e668",
-                    "evaluated_at": "2026-09-30T04:55:21.229732Z",
-                    "expires_at": "2026-09-30T04:57:21.229732Z",
+                    "decision_id": "decision-e5eb2f7c12b23092f79be62e69048e9ad9f282e839a443a9863f39d0b809240b",
+                    "evaluated_at": "2026-09-30T22:23:47.568008Z",
+                    "expires_at": "2026-09-30T22:25:47.568008Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.above_limit"
@@ -1686,15 +1686,15 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                      "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                       "intent_id": "approval",
                       "namespace": "controlspec.synthetic.purchase"
                     },
                     "namespace": "controlspec.synthetic.purchase",
                     "predecessor_decision_ref": {
-                      "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                      "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                       "namespace": "controlspec.synthetic.purchase",
-                      "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                      "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                     },
                     "required_evidence": [],
                     "requires_recheck": false,
@@ -1711,10 +1711,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:2d12b04f10670f95b048e948b5e2f2fadd4ad4a0611ef89391c9a3d2097a6ac8",
+                    "semantic_digest": "sha256:675dc02797ea75c23eb52dbd78faabf877453d2db21643e2a1f8abd8a79c95af",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:21.196928Z",
+                  "first_seen": "2026-09-30T22:23:47.513333Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -1753,10 +1753,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "approval",
-                    "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                    "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                     "intent_id": "approval",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:21.196928Z",
+                    "requested_at": "2026-09-30T22:23:47.513333Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -1810,7 +1810,7 @@
                       "controlspec.core.allow",
                       "controlspec.synthetic.above_limit"
                     ],
-                    "facts_digest": "sha256:08e6590e3b41a30e2573ad4474855b2ec2cc1a7e6866f0a1c46280a202c12a9e",
+                    "facts_digest": "sha256:03c03e93f4e965c966ba7cebd76c46846bbfb695737a93b1f6aef3bc6d873eb3",
                     "final_route": {
                       "extensions": {},
                       "kind": "continue",
@@ -1823,11 +1823,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:f5ecef2a29c443eaa85cfd8936f3d5a00443a014daa4ced25286520869539e8d"
+                    "snapshot_digest": "sha256:708102d435850cf0cbb9b58d2ccfaeb835d3ca759537d306913354ac71cb2006"
                   }
                 },
-                "previous_hash": "sha256:85970f7ca6e18ddac61a353fc1ab7ea3412b583353ad61cf967afe8d785983b2",
-                "event_hash": "sha256:8d0617b5f98151a56303ff6318e218c6af9309ab67211836eb6cf740013d6e5d"
+                "previous_hash": "sha256:33b9e8727a513c3e6934ebd831633e3584508581506c3f8d93ff1880daab3b2b",
+                "event_hash": "sha256:173f6bcca24b4844048a706490676e4816963d8c1e7110cd99dc0ffae2cd1d33"
               },
               {
                 "sequence": 6,
@@ -1837,7 +1837,7 @@
                 "payload": {
                   "approvals": [
                     {
-                      "approval_id": "approval-a38da01487d67678e07ba36b9b62c456",
+                      "approval_id": "approval-91b25133d61e8def219f357e48595f00",
                       "approved": true,
                       "approver": {
                         "actor_id": "demo-human",
@@ -1859,13 +1859,13 @@
                         "version": "1"
                       },
                       "basis_decision_ref": {
-                        "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                        "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                         "namespace": "controlspec.synthetic.purchase",
-                        "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                        "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                       },
-                      "fact_digest": "sha256:dc5386b8ec48fcb778419fdc4fea44a70dcf698d5090af3808be201f43b105e7",
+                      "fact_digest": "sha256:40a34ae7ce69b84a331de2d9429b5bf2f5b3edf9b89863ddb4d92fc10e8f674e",
                       "intent_ref": {
-                        "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                        "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                         "intent_id": "approval",
                         "namespace": "controlspec.synthetic.purchase"
                       },
@@ -1876,14 +1876,14 @@
                       ],
                       "scope_digest": "sha256:357ae51ac9af39931ad35822582174da2c56d93480db4203fece52ebd85b2688",
                       "separated_role_actor_ids": {},
-                      "valid_from": "2026-09-30T04:55:21.211447Z",
-                      "valid_until": "2026-09-30T04:57:21.196928Z"
+                      "valid_from": "2026-09-30T22:23:47.530940Z",
+                      "valid_until": "2026-09-30T22:25:47.513333Z"
                     }
                   ],
                   "basis": {
-                    "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                    "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                     "namespace": "controlspec.synthetic.purchase",
-                    "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                    "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                   },
                   "decision": {
                     "applied_controls": [
@@ -1931,7 +1931,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                      "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -1940,9 +1940,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-107805bb980c91307c6ef08b68ea93e575c1bccb9d13530ad7aef4690672e668",
-                    "evaluated_at": "2026-09-30T04:55:21.229732Z",
-                    "expires_at": "2026-09-30T04:57:21.229732Z",
+                    "decision_id": "decision-e5eb2f7c12b23092f79be62e69048e9ad9f282e839a443a9863f39d0b809240b",
+                    "evaluated_at": "2026-09-30T22:23:47.568008Z",
+                    "expires_at": "2026-09-30T22:25:47.568008Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.above_limit"
@@ -1951,15 +1951,15 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                      "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                       "intent_id": "approval",
                       "namespace": "controlspec.synthetic.purchase"
                     },
                     "namespace": "controlspec.synthetic.purchase",
                     "predecessor_decision_ref": {
-                      "decision_id": "decision-117c3ed5e56eaef639482ab4b179dca539a853842174fd4b959fad2209d97ec2",
+                      "decision_id": "decision-9c3bc8957d7676fc47c645c991c9aae2227867d95bcccb0594e0ffa2c512ec98",
                       "namespace": "controlspec.synthetic.purchase",
-                      "semantic_digest": "sha256:c11178cec8a8c69c288e2f9171be813b9d7405a95e3acfb8e64cc06b43ec9e6d"
+                      "semantic_digest": "sha256:a9fb9f26ae8f062b2305349c5a4cb311e72670de6211ee3a82c9bd6110c88c82"
                     },
                     "required_evidence": [],
                     "requires_recheck": false,
@@ -1976,10 +1976,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:2d12b04f10670f95b048e948b5e2f2fadd4ad4a0611ef89391c9a3d2097a6ac8",
+                    "semantic_digest": "sha256:675dc02797ea75c23eb52dbd78faabf877453d2db21643e2a1f8abd8a79c95af",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:21.196928Z",
+                  "first_seen": "2026-09-30T22:23:47.513333Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -2018,10 +2018,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "approval",
-                    "intent_digest": "sha256:cd13f456fa22efa8a495292a3d296aef6e6fe026191452b17161bf1977b767fa",
+                    "intent_digest": "sha256:f0e90bc040a02ff1456038a77f327d8aa5a48ccc6694738d95be6fd4c92947c2",
                     "intent_id": "approval",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:21.196928Z",
+                    "requested_at": "2026-09-30T22:23:47.513333Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -2051,11 +2051,11 @@
                   "request_digest": "sha256:72812147c8c266900de75c290c85d6d9bd66e10943015c4207bac0ae106e4649",
                   "reservation": {
                     "action_id": "approval",
-                    "decision_digest": "sha256:2d12b04f10670f95b048e948b5e2f2fadd4ad4a0611ef89391c9a3d2097a6ac8",
-                    "expires_at": "2026-09-30T04:55:51.229732Z",
-                    "issued_at": "2026-09-30T04:55:21.229732Z",
+                    "decision_digest": "sha256:675dc02797ea75c23eb52dbd78faabf877453d2db21643e2a1f8abd8a79c95af",
+                    "expires_at": "2026-09-30T22:24:17.568008Z",
+                    "issued_at": "2026-09-30T22:23:47.568008Z",
                     "method": "POST",
-                    "nonce": "40d7c67ef705d163dd65c13d1396184950e2a2bfdeb325b5548ebf29a37f865d",
+                    "nonce": "52fe0fa91e9aa80f3d907b6c29788fd6afbe4becff120c38995ebed85e6c5639",
                     "path": "/purchases",
                     "policy_digest": "sha256:558cf1a9ca441b90fde0b487ccec26e31418060d38f85ed483bdc93109a3a2cf",
                     "purpose": "synthetic-purchase-only",
@@ -2092,7 +2092,7 @@
                       "controlspec.core.allow",
                       "controlspec.synthetic.above_limit"
                     ],
-                    "facts_digest": "sha256:08e6590e3b41a30e2573ad4474855b2ec2cc1a7e6866f0a1c46280a202c12a9e",
+                    "facts_digest": "sha256:03c03e93f4e965c966ba7cebd76c46846bbfb695737a93b1f6aef3bc6d873eb3",
                     "final_route": {
                       "extensions": {},
                       "kind": "continue",
@@ -2105,11 +2105,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:f5ecef2a29c443eaa85cfd8936f3d5a00443a014daa4ced25286520869539e8d"
+                    "snapshot_digest": "sha256:708102d435850cf0cbb9b58d2ccfaeb835d3ca759537d306913354ac71cb2006"
                   }
                 },
-                "previous_hash": "sha256:8d0617b5f98151a56303ff6318e218c6af9309ab67211836eb6cf740013d6e5d",
-                "event_hash": "sha256:543a0c2d61eb856c2d186e004028dffdf516808ae1ebfdddbb2bf455176e1183"
+                "previous_hash": "sha256:173f6bcca24b4844048a706490676e4816963d8c1e7110cd99dc0ffae2cd1d33",
+                "event_hash": "sha256:4345172dab93c4705638ce7561ee370143654613dad28c8ba5845c4f946f9097"
               },
               {
                 "sequence": 7,
@@ -2117,14 +2117,14 @@
                 "action_id": "approval",
                 "kind": "reconciliation",
                 "payload": {
-                  "at": "2026-09-30T04:55:21.255140Z",
+                  "at": "2026-09-30T22:23:47.605631Z",
                   "receipt": {
                     "action_id": "approval",
                     "amount_minor": 14200,
-                    "committed_at": "2026-09-30T04:55:21.248998Z",
-                    "evidence_id": "sha256:799906a43be46c0bcdfe4ae6bcca1dc8106d80503c55d87afe658880b34d42fd",
-                    "evidence_mac": "dfaad92d18e178eea510edc94801559feb49745bcdaf5bab7e9b90e0e4d188b1",
-                    "nonce": "40d7c67ef705d163dd65c13d1396184950e2a2bfdeb325b5548ebf29a37f865d",
+                    "committed_at": "2026-09-30T22:23:47.594376Z",
+                    "evidence_id": "sha256:d078f61d1f25ab0813b20a70892be1235d7f9f9cae33a06e62e044980b592383",
+                    "evidence_mac": "2489e7f72edb3a42ad264a76a8cf937eb692107e6d159720095ee1a8d2d1a481",
+                    "nonce": "52fe0fa91e9aa80f3d907b6c29788fd6afbe4becff120c38995ebed85e6c5639",
                     "request_digest": "sha256:72812147c8c266900de75c290c85d6d9bd66e10943015c4207bac0ae106e4649",
                     "schema_version": "1",
                     "scope": {
@@ -2136,8 +2136,8 @@
                   },
                   "verified": true
                 },
-                "previous_hash": "sha256:543a0c2d61eb856c2d186e004028dffdf516808ae1ebfdddbb2bf455176e1183",
-                "event_hash": "sha256:0f15fe2bd0ed136e3a5599c42a19596c6aa46767aefc58547d4bbe63222db116"
+                "previous_hash": "sha256:4345172dab93c4705638ce7561ee370143654613dad28c8ba5845c4f946f9097",
+                "event_hash": "sha256:82cc63c14754c00beae6d3f9b78826aec807a12b0d390be7534b4367282b35bf"
               }
             ],
             "ledger_chain_valid": true,
@@ -2184,9 +2184,9 @@
               {
                 "action_id": "overspend",
                 "amount_minor": 14200,
-                "committed_at": "2026-09-30T04:55:21.536145Z",
+                "committed_at": "2026-09-30T22:23:47.902284Z",
                 "evidence_id": "sha256:ad82058edc13d97af3fa18d83739d3efcdedc4aec1da48669d7f673ab2c7319d",
-                "evidence_mac": "8d1adf5960f06017d80ffb32d8218aaaf7969ade907fa25c412e62f4f48318ce",
+                "evidence_mac": "1ee14e52e91be4588d42d5d8bac9a741d2087e19e68eba138018b3a3af1855da",
                 "nonce": "unguarded-synthetic-baseline",
                 "request_digest": "sha256:b7674c888528ac5e987bd89ffaf8bfbf555e972f7f276d9a1c3e6a8f9e2914a2",
                 "schema_version": "1",
@@ -2218,9 +2218,9 @@
               "request_digest": "sha256:b7674c888528ac5e987bd89ffaf8bfbf555e972f7f276d9a1c3e6a8f9e2914a2",
               "nonce": "unguarded-synthetic-baseline",
               "amount_minor": 14200,
-              "committed_at": "2026-09-30T04:55:21.536145Z",
+              "committed_at": "2026-09-30T22:23:47.902284Z",
               "evidence_id": "sha256:ad82058edc13d97af3fa18d83739d3efcdedc4aec1da48669d7f673ab2c7319d",
-              "evidence_mac": "8d1adf5960f06017d80ffb32d8218aaaf7969ade907fa25c412e62f4f48318ce"
+              "evidence_mac": "1ee14e52e91be4588d42d5d8bac9a741d2087e19e68eba138018b3a3af1855da"
             },
             "transport": "direct Python call",
             "target_idempotency": true,
@@ -2238,7 +2238,7 @@
           "events": [],
           "evidence": {
             "policy": "integrations/openshell/policy-native.yaml",
-            "note": "Native policy is body-aware. No native outcome is inferred here."
+            "note": "Pinned v0.1.2 native REST rules match method, path and query, not this purchase JSON body. GraphQL, MCP and JSON-RPC inspection are separate protocol features. No native outcome is inferred here."
           }
         },
         {
@@ -2284,7 +2284,7 @@
             "reason": "approval_required",
             "forwarded": false,
             "reconciled": false,
-            "rpc_elapsed_ms": 16.833,
+            "rpc_elapsed_ms": 32.906,
             "ledger_events": [
               {
                 "sequence": 1,
@@ -2340,7 +2340,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:e4a5fdc72e9e8cce393df4b2612516713f15e39cc16555a4995aeb33ed25d744",
+                      "intent_digest": "sha256:b5616bb396ed571b2e4f35adeb90e8066468bb223087161f008e6ec6c011ae98",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -2349,9 +2349,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-7a0a03a1a38ca61a9ebddec6c7c8816b63d4ae04f9482ae5ede934c7f128733e",
-                    "evaluated_at": "2026-09-30T04:55:21.544155Z",
-                    "expires_at": "2026-09-30T04:57:21.544155Z",
+                    "decision_id": "decision-80d08563488a4a4d047015a34723f4be2990af39737d48baf6aa19d511064fd0",
+                    "evaluated_at": "2026-09-30T22:23:47.918160Z",
+                    "expires_at": "2026-09-30T22:25:47.918160Z",
                     "explanation_codes": [
                       "controlspec.core.approval.required",
                       "controlspec.synthetic.above_limit",
@@ -2361,7 +2361,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:e4a5fdc72e9e8cce393df4b2612516713f15e39cc16555a4995aeb33ed25d744",
+                      "intent_digest": "sha256:b5616bb396ed571b2e4f35adeb90e8066468bb223087161f008e6ec6c011ae98",
                       "intent_id": "overspend",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -2382,10 +2382,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:52b24636ca11b115404a9032188510f6bd35a78ea63ba9fd5e57f8875bd2e50f",
+                    "semantic_digest": "sha256:699e0f8d62536c41092e7d079e76997d78a695a73a46f9a048bb3fe341210624",
                     "verdict": "require_approval"
                   },
-                  "first_seen": "2026-09-30T04:55:21.544155Z",
+                  "first_seen": "2026-09-30T22:23:47.918160Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -2424,10 +2424,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "overspend",
-                    "intent_digest": "sha256:e4a5fdc72e9e8cce393df4b2612516713f15e39cc16555a4995aeb33ed25d744",
+                    "intent_digest": "sha256:b5616bb396ed571b2e4f35adeb90e8066468bb223087161f008e6ec6c011ae98",
                     "intent_id": "overspend",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:21.544155Z",
+                    "requested_at": "2026-09-30T22:23:47.918160Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -2495,11 +2495,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "require_approval",
-                    "snapshot_digest": "sha256:a530a68e8e49a516cdb32f89ab46bf235e98f7d30bdb8b07136dcb3377d56482"
+                    "snapshot_digest": "sha256:560abb036a8f32912f4954dd74f157e323f34ba2a42a14c8256f68b535985655"
                   }
                 },
                 "previous_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-                "event_hash": "sha256:d48842b103c3b8e7e5cf92e4952408eeef5ee248eb8bc99ee591008a0894bf54"
+                "event_hash": "sha256:ed7930ca0ef489afbccc36eb82242649739964df22f78b765efb69832731df82"
               },
               {
                 "sequence": 2,
@@ -2507,11 +2507,11 @@
                 "action_id": "overspend",
                 "kind": "denied",
                 "payload": {
-                  "at": "2026-09-30T04:55:21.544155Z",
+                  "at": "2026-09-30T22:23:47.918160Z",
                   "reason": "approval_required"
                 },
-                "previous_hash": "sha256:d48842b103c3b8e7e5cf92e4952408eeef5ee248eb8bc99ee591008a0894bf54",
-                "event_hash": "sha256:1fbc0438fc690446070eb8457ee5220459783aae1cc503c42f9dbb3b81aeecac"
+                "previous_hash": "sha256:ed7930ca0ef489afbccc36eb82242649739964df22f78b765efb69832731df82",
+                "event_hash": "sha256:a4f91906cdae21a766973247b67f42ed3ac71e96d5f44789fc170801411b43f1"
               }
             ],
             "ledger_chain_valid": true,
@@ -2558,9 +2558,9 @@
               {
                 "action_id": "changed",
                 "amount_minor": 14300,
-                "committed_at": "2026-09-30T04:55:21.915345Z",
+                "committed_at": "2026-09-30T22:23:48.312015Z",
                 "evidence_id": "sha256:c83159a987088e7414c3eeedef7fa75d6bb450b03be2122706ef6aa6a3600938",
-                "evidence_mac": "d2a36f248d761d258bb2741817f11a043fcdfefac6b0377de10d23e87157eb53",
+                "evidence_mac": "d3509f25bdd598380b5c61cbfd27bf2509030b720659da353dce63602961f47d",
                 "nonce": "unguarded-synthetic-baseline",
                 "request_digest": "sha256:57393bbfbcf4d7933b121c1784d7cbfc4532dd23a8be1eb6f578069310404c0b",
                 "schema_version": "1",
@@ -2592,9 +2592,9 @@
               "request_digest": "sha256:57393bbfbcf4d7933b121c1784d7cbfc4532dd23a8be1eb6f578069310404c0b",
               "nonce": "unguarded-synthetic-baseline",
               "amount_minor": 14300,
-              "committed_at": "2026-09-30T04:55:21.915345Z",
+              "committed_at": "2026-09-30T22:23:48.312015Z",
               "evidence_id": "sha256:c83159a987088e7414c3eeedef7fa75d6bb450b03be2122706ef6aa6a3600938",
-              "evidence_mac": "d2a36f248d761d258bb2741817f11a043fcdfefac6b0377de10d23e87157eb53"
+              "evidence_mac": "d3509f25bdd598380b5c61cbfd27bf2509030b720659da353dce63602961f47d"
             },
             "transport": "direct Python call",
             "target_idempotency": true,
@@ -2612,7 +2612,7 @@
           "events": [],
           "evidence": {
             "policy": "integrations/openshell/policy-native.yaml",
-            "note": "Native policy is body-aware. No native outcome is inferred here."
+            "note": "Pinned v0.1.2 native REST rules match method, path and query, not this purchase JSON body. GraphQL, MCP and JSON-RPC inspection are separate protocol features. No native outcome is inferred here."
           }
         },
         {
@@ -2666,7 +2666,7 @@
             "reason": "action_changed",
             "forwarded": false,
             "reconciled": false,
-            "rpc_elapsed_ms": 8.031,
+            "rpc_elapsed_ms": 12.528,
             "ledger_events": [
               {
                 "sequence": 1,
@@ -2722,7 +2722,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                      "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -2731,9 +2731,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-68651fa7c66a6577ee98dc41e778ca3d2f9d453d6f78e4863e225799bf4a105e",
-                    "evaluated_at": "2026-09-30T04:55:21.922458Z",
-                    "expires_at": "2026-09-30T04:57:21.922458Z",
+                    "decision_id": "decision-97d0f779ad73fca594b437d72f6fdbb0e0e0d442200aaf680c29e1807db716bd",
+                    "evaluated_at": "2026-09-30T22:23:48.321834Z",
+                    "expires_at": "2026-09-30T22:25:48.321834Z",
                     "explanation_codes": [
                       "controlspec.core.approval.required",
                       "controlspec.synthetic.above_limit",
@@ -2743,7 +2743,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                      "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                       "intent_id": "changed",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -2764,10 +2764,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:8b9cd114d1b6ffb780557a551b690edf1faa049633548c37c7a035f0876b19b1",
+                    "semantic_digest": "sha256:67b25dff7c1dce6d1df24daa621e7fe6c8c411620f374dcf9bcca35ca77cc0ca",
                     "verdict": "require_approval"
                   },
-                  "first_seen": "2026-09-30T04:55:21.922458Z",
+                  "first_seen": "2026-09-30T22:23:48.321834Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -2806,10 +2806,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "changed",
-                    "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                    "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                     "intent_id": "changed",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:21.922458Z",
+                    "requested_at": "2026-09-30T22:23:48.321834Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -2877,11 +2877,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "require_approval",
-                    "snapshot_digest": "sha256:358dafad7426e1dea9b2f53ca39e9cfa7e24e6956e80290614443bf2cb184a9c"
+                    "snapshot_digest": "sha256:9810de5866abe6f16f643f0df56e9e0d5f55c6dcffe433c447130de9d71a77b1"
                   }
                 },
                 "previous_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-                "event_hash": "sha256:365f34cfd78c8cec69387f84baf522be9f813d1e488754ae45bf6ac924ce65e9"
+                "event_hash": "sha256:3f580ef11f40757e3b41820b1db33aa5b63674e68d6c1013e6ef3c348513f87b"
               },
               {
                 "sequence": 2,
@@ -2889,11 +2889,11 @@
                 "action_id": "changed",
                 "kind": "denied",
                 "payload": {
-                  "at": "2026-09-30T04:55:21.922458Z",
+                  "at": "2026-09-30T22:23:48.321834Z",
                   "reason": "approval_required"
                 },
-                "previous_hash": "sha256:365f34cfd78c8cec69387f84baf522be9f813d1e488754ae45bf6ac924ce65e9",
-                "event_hash": "sha256:cd26eccc3e132fccc7a1f0f124af981a62a1d44be596bb1663d9a6d67fcdda93"
+                "previous_hash": "sha256:3f580ef11f40757e3b41820b1db33aa5b63674e68d6c1013e6ef3c348513f87b",
+                "event_hash": "sha256:fb99482101634e5b105c2f0e5c48956c3aa6c0b373e655c424862407aaf338be"
               },
               {
                 "sequence": 3,
@@ -2903,7 +2903,7 @@
                 "payload": {
                   "approvals": [
                     {
-                      "approval_id": "approval-75d55c4415f606a2b4f991bd0c635bbe",
+                      "approval_id": "approval-74ce4143146cc225a2e13cc4eb15f49f",
                       "approved": true,
                       "approver": {
                         "actor_id": "demo-human",
@@ -2925,13 +2925,13 @@
                         "version": "1"
                       },
                       "basis_decision_ref": {
-                        "decision_id": "decision-68651fa7c66a6577ee98dc41e778ca3d2f9d453d6f78e4863e225799bf4a105e",
+                        "decision_id": "decision-97d0f779ad73fca594b437d72f6fdbb0e0e0d442200aaf680c29e1807db716bd",
                         "namespace": "controlspec.synthetic.purchase",
-                        "semantic_digest": "sha256:8b9cd114d1b6ffb780557a551b690edf1faa049633548c37c7a035f0876b19b1"
+                        "semantic_digest": "sha256:67b25dff7c1dce6d1df24daa621e7fe6c8c411620f374dcf9bcca35ca77cc0ca"
                       },
-                      "fact_digest": "sha256:342f5311f501c5f6bffef317538643341de5fe178b8dd7f32d55bf7e374a6324",
+                      "fact_digest": "sha256:f867df631a0c1f774fcbf4819c38ebca101893a6612000e3a41b3ca68ca22276",
                       "intent_ref": {
-                        "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                        "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                         "intent_id": "changed",
                         "namespace": "controlspec.synthetic.purchase"
                       },
@@ -2942,14 +2942,14 @@
                       ],
                       "scope_digest": "sha256:357ae51ac9af39931ad35822582174da2c56d93480db4203fece52ebd85b2688",
                       "separated_role_actor_ids": {},
-                      "valid_from": "2026-09-30T04:55:21.934877Z",
-                      "valid_until": "2026-09-30T04:57:21.922458Z"
+                      "valid_from": "2026-09-30T22:23:48.341478Z",
+                      "valid_until": "2026-09-30T22:25:48.321834Z"
                     }
                   ],
                   "basis": {
-                    "decision_id": "decision-68651fa7c66a6577ee98dc41e778ca3d2f9d453d6f78e4863e225799bf4a105e",
+                    "decision_id": "decision-97d0f779ad73fca594b437d72f6fdbb0e0e0d442200aaf680c29e1807db716bd",
                     "namespace": "controlspec.synthetic.purchase",
-                    "semantic_digest": "sha256:8b9cd114d1b6ffb780557a551b690edf1faa049633548c37c7a035f0876b19b1"
+                    "semantic_digest": "sha256:67b25dff7c1dce6d1df24daa621e7fe6c8c411620f374dcf9bcca35ca77cc0ca"
                   },
                   "decision": {
                     "applied_controls": [
@@ -2997,7 +2997,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                      "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -3006,9 +3006,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-68651fa7c66a6577ee98dc41e778ca3d2f9d453d6f78e4863e225799bf4a105e",
-                    "evaluated_at": "2026-09-30T04:55:21.922458Z",
-                    "expires_at": "2026-09-30T04:57:21.922458Z",
+                    "decision_id": "decision-97d0f779ad73fca594b437d72f6fdbb0e0e0d442200aaf680c29e1807db716bd",
+                    "evaluated_at": "2026-09-30T22:23:48.321834Z",
+                    "expires_at": "2026-09-30T22:25:48.321834Z",
                     "explanation_codes": [
                       "controlspec.core.approval.required",
                       "controlspec.synthetic.above_limit",
@@ -3018,7 +3018,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                      "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                       "intent_id": "changed",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -3039,10 +3039,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:8b9cd114d1b6ffb780557a551b690edf1faa049633548c37c7a035f0876b19b1",
+                    "semantic_digest": "sha256:67b25dff7c1dce6d1df24daa621e7fe6c8c411620f374dcf9bcca35ca77cc0ca",
                     "verdict": "require_approval"
                   },
-                  "first_seen": "2026-09-30T04:55:21.922458Z",
+                  "first_seen": "2026-09-30T22:23:48.321834Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -3081,10 +3081,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "changed",
-                    "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                    "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                     "intent_id": "changed",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:21.922458Z",
+                    "requested_at": "2026-09-30T22:23:48.321834Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -3152,11 +3152,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "require_approval",
-                    "snapshot_digest": "sha256:358dafad7426e1dea9b2f53ca39e9cfa7e24e6956e80290614443bf2cb184a9c"
+                    "snapshot_digest": "sha256:9810de5866abe6f16f643f0df56e9e0d5f55c6dcffe433c447130de9d71a77b1"
                   }
                 },
-                "previous_hash": "sha256:cd26eccc3e132fccc7a1f0f124af981a62a1d44be596bb1663d9a6d67fcdda93",
-                "event_hash": "sha256:057e131dfd1e28812578ffe0aa5108110056dccca5d8c6796b0b1a915525fbb6"
+                "previous_hash": "sha256:fb99482101634e5b105c2f0e5c48956c3aa6c0b373e655c424862407aaf338be",
+                "event_hash": "sha256:69ff3ca1a4ae5c15893ae3dea77be117a9bd21f22fa93a19b66b5c7eba6b64d6"
               },
               {
                 "sequence": 4,
@@ -3166,7 +3166,7 @@
                 "payload": {
                   "approvals": [
                     {
-                      "approval_id": "approval-75d55c4415f606a2b4f991bd0c635bbe",
+                      "approval_id": "approval-74ce4143146cc225a2e13cc4eb15f49f",
                       "approved": true,
                       "approver": {
                         "actor_id": "demo-human",
@@ -3188,13 +3188,13 @@
                         "version": "1"
                       },
                       "basis_decision_ref": {
-                        "decision_id": "decision-68651fa7c66a6577ee98dc41e778ca3d2f9d453d6f78e4863e225799bf4a105e",
+                        "decision_id": "decision-97d0f779ad73fca594b437d72f6fdbb0e0e0d442200aaf680c29e1807db716bd",
                         "namespace": "controlspec.synthetic.purchase",
-                        "semantic_digest": "sha256:8b9cd114d1b6ffb780557a551b690edf1faa049633548c37c7a035f0876b19b1"
+                        "semantic_digest": "sha256:67b25dff7c1dce6d1df24daa621e7fe6c8c411620f374dcf9bcca35ca77cc0ca"
                       },
-                      "fact_digest": "sha256:342f5311f501c5f6bffef317538643341de5fe178b8dd7f32d55bf7e374a6324",
+                      "fact_digest": "sha256:f867df631a0c1f774fcbf4819c38ebca101893a6612000e3a41b3ca68ca22276",
                       "intent_ref": {
-                        "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                        "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                         "intent_id": "changed",
                         "namespace": "controlspec.synthetic.purchase"
                       },
@@ -3205,14 +3205,14 @@
                       ],
                       "scope_digest": "sha256:357ae51ac9af39931ad35822582174da2c56d93480db4203fece52ebd85b2688",
                       "separated_role_actor_ids": {},
-                      "valid_from": "2026-09-30T04:55:21.934877Z",
-                      "valid_until": "2026-09-30T04:57:21.922458Z"
+                      "valid_from": "2026-09-30T22:23:48.341478Z",
+                      "valid_until": "2026-09-30T22:25:48.321834Z"
                     }
                   ],
                   "basis": {
-                    "decision_id": "decision-68651fa7c66a6577ee98dc41e778ca3d2f9d453d6f78e4863e225799bf4a105e",
+                    "decision_id": "decision-97d0f779ad73fca594b437d72f6fdbb0e0e0d442200aaf680c29e1807db716bd",
                     "namespace": "controlspec.synthetic.purchase",
-                    "semantic_digest": "sha256:8b9cd114d1b6ffb780557a551b690edf1faa049633548c37c7a035f0876b19b1"
+                    "semantic_digest": "sha256:67b25dff7c1dce6d1df24daa621e7fe6c8c411620f374dcf9bcca35ca77cc0ca"
                   },
                   "decision": {
                     "applied_controls": [
@@ -3260,7 +3260,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                      "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -3269,9 +3269,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-3bbe8e9b078685569fbbcc3c90bca69ab70318fe6378836deecd8e30da0de3a4",
-                    "evaluated_at": "2026-09-30T04:55:21.934877Z",
-                    "expires_at": "2026-09-30T04:57:21.934877Z",
+                    "decision_id": "decision-252718f38b213bfa97eb3169b00e07cbfeba7811c05847a78b35e0259573e021",
+                    "evaluated_at": "2026-09-30T22:23:48.341478Z",
+                    "expires_at": "2026-09-30T22:25:48.341478Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.above_limit"
@@ -3280,15 +3280,15 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                      "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                       "intent_id": "changed",
                       "namespace": "controlspec.synthetic.purchase"
                     },
                     "namespace": "controlspec.synthetic.purchase",
                     "predecessor_decision_ref": {
-                      "decision_id": "decision-68651fa7c66a6577ee98dc41e778ca3d2f9d453d6f78e4863e225799bf4a105e",
+                      "decision_id": "decision-97d0f779ad73fca594b437d72f6fdbb0e0e0d442200aaf680c29e1807db716bd",
                       "namespace": "controlspec.synthetic.purchase",
-                      "semantic_digest": "sha256:8b9cd114d1b6ffb780557a551b690edf1faa049633548c37c7a035f0876b19b1"
+                      "semantic_digest": "sha256:67b25dff7c1dce6d1df24daa621e7fe6c8c411620f374dcf9bcca35ca77cc0ca"
                     },
                     "required_evidence": [],
                     "requires_recheck": false,
@@ -3305,10 +3305,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:12926983cab904067d2dd23a2c0363092792d777a73a0396675132d72379ce32",
+                    "semantic_digest": "sha256:7b5238c0c1b14512c51dda2bf616f7529753fd45b9e12ad13d04f24d0c00f0d3",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:21.922458Z",
+                  "first_seen": "2026-09-30T22:23:48.321834Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -3347,10 +3347,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "changed",
-                    "intent_digest": "sha256:ef5ce15df08150185282bd92b88154df8243268a13585192cc5078ff976c1cf4",
+                    "intent_digest": "sha256:cf70738be86b914664709a90e9f1361b3b65d4b6524f7ef031c0c2d2c4588168",
                     "intent_id": "changed",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:21.922458Z",
+                    "requested_at": "2026-09-30T22:23:48.321834Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -3404,7 +3404,7 @@
                       "controlspec.core.allow",
                       "controlspec.synthetic.above_limit"
                     ],
-                    "facts_digest": "sha256:a4b5a8df4ca167cb92d65f0347a28c569e4c77194b255d4bcc867419b23806e6",
+                    "facts_digest": "sha256:6d379dc3de827ffed32a87b7b7fa64b0a264afe678a18d04642412ed32397c7a",
                     "final_route": {
                       "extensions": {},
                       "kind": "continue",
@@ -3417,11 +3417,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:8a72e5b4a5ec545394295593864447ab846c7fe544bbc4c04642a9b48a1cf43a"
+                    "snapshot_digest": "sha256:b08293c6f5cfe93d942e213ebb778043e4e1ad7cb30e67ef5d6b6b8186279531"
                   }
                 },
-                "previous_hash": "sha256:057e131dfd1e28812578ffe0aa5108110056dccca5d8c6796b0b1a915525fbb6",
-                "event_hash": "sha256:4c7b4ae673499d701927c79239e0a57d671b04b186de847810156083486ad2a0"
+                "previous_hash": "sha256:69ff3ca1a4ae5c15893ae3dea77be117a9bd21f22fa93a19b66b5c7eba6b64d6",
+                "event_hash": "sha256:f0baa072b550026b84e37f28ee60de55fce888e7bea59be7ed14e15c93b37fae"
               },
               {
                 "sequence": 5,
@@ -3429,11 +3429,11 @@
                 "action_id": "changed",
                 "kind": "denied",
                 "payload": {
-                  "at": "2026-09-30T04:55:21.953845Z",
+                  "at": "2026-09-30T22:23:48.365597Z",
                   "reason": "action_changed"
                 },
-                "previous_hash": "sha256:4c7b4ae673499d701927c79239e0a57d671b04b186de847810156083486ad2a0",
-                "event_hash": "sha256:567fb5f3b8cc52729e8f5c36771542e9f5526fa6e56ad4084c9a2b76f23dcec6"
+                "previous_hash": "sha256:f0baa072b550026b84e37f28ee60de55fce888e7bea59be7ed14e15c93b37fae",
+                "event_hash": "sha256:7bff004cf9dab275e0113b3c865778d06cfcb279c100fa27c58705668508bab5"
               }
             ],
             "ledger_chain_valid": true,
@@ -3480,9 +3480,9 @@
               {
                 "action_id": "self-approval",
                 "amount_minor": 14200,
-                "committed_at": "2026-09-30T04:55:22.305347Z",
+                "committed_at": "2026-09-30T22:23:48.715562Z",
                 "evidence_id": "sha256:fa439ae48eda8985014d1fc4cde3e182627e75d5f43cdc4eda691ffb14e6f568",
-                "evidence_mac": "d4fce8a9c6be1334a732a57b079313efd428dbccf4efd360544ebf7f1ffb2b58",
+                "evidence_mac": "6b4fbe2bdca116757d2226da518654b340a437ee6a826106aad345a002784bc6",
                 "nonce": "unguarded-synthetic-baseline",
                 "request_digest": "sha256:8aa560df5bc11f57b7ec30c5a685261509babf0659f7de2e84e5434d15372073",
                 "schema_version": "1",
@@ -3514,9 +3514,9 @@
               "request_digest": "sha256:8aa560df5bc11f57b7ec30c5a685261509babf0659f7de2e84e5434d15372073",
               "nonce": "unguarded-synthetic-baseline",
               "amount_minor": 14200,
-              "committed_at": "2026-09-30T04:55:22.305347Z",
+              "committed_at": "2026-09-30T22:23:48.715562Z",
               "evidence_id": "sha256:fa439ae48eda8985014d1fc4cde3e182627e75d5f43cdc4eda691ffb14e6f568",
-              "evidence_mac": "d4fce8a9c6be1334a732a57b079313efd428dbccf4efd360544ebf7f1ffb2b58"
+              "evidence_mac": "6b4fbe2bdca116757d2226da518654b340a437ee6a826106aad345a002784bc6"
             },
             "transport": "direct Python call",
             "target_idempotency": true,
@@ -3534,7 +3534,7 @@
           "events": [],
           "evidence": {
             "policy": "integrations/openshell/policy-native.yaml",
-            "note": "Native policy is body-aware. No native outcome is inferred here."
+            "note": "Pinned v0.1.2 native REST rules match method, path and query, not this purchase JSON body. GraphQL, MCP and JSON-RPC inspection are separate protocol features. No native outcome is inferred here."
           }
         },
         {
@@ -3588,7 +3588,7 @@
             "reason": "approval_required",
             "forwarded": false,
             "reconciled": false,
-            "rpc_elapsed_ms": 14.658,
+            "rpc_elapsed_ms": 29.808,
             "ledger_events": [
               {
                 "sequence": 1,
@@ -3644,7 +3644,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:6a9b7004c3b77b77e872164105db6f9375da4f7576f65a0c9d9e1273b32627c9",
+                      "intent_digest": "sha256:0bb705f75ff986cf0325aa8236895770577a380e40504a299543495af3318a9a",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -3653,9 +3653,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-6f88f13c9cee539d2f9915335283e386ac3c65af0b1ed7d5ad16a5d0fe475314",
-                    "evaluated_at": "2026-09-30T04:55:22.315151Z",
-                    "expires_at": "2026-09-30T04:57:22.315151Z",
+                    "decision_id": "decision-3f712d353e50f56447d833bdfaf6fbb53046b70557fcaf0ffe5921c2fee3947a",
+                    "evaluated_at": "2026-09-30T22:23:48.726198Z",
+                    "expires_at": "2026-09-30T22:25:48.726198Z",
                     "explanation_codes": [
                       "controlspec.core.approval.required",
                       "controlspec.synthetic.above_limit",
@@ -3665,7 +3665,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:6a9b7004c3b77b77e872164105db6f9375da4f7576f65a0c9d9e1273b32627c9",
+                      "intent_digest": "sha256:0bb705f75ff986cf0325aa8236895770577a380e40504a299543495af3318a9a",
                       "intent_id": "self-approval",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -3686,10 +3686,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:47649f2cb7fdc77720fdfecf93f61a35f22cf483b992cfdeb8ae227cc26e9630",
+                    "semantic_digest": "sha256:cef15eb5c6d466d447f942b288ed43e47e8d14609de746ec56b016bb85a62fd0",
                     "verdict": "require_approval"
                   },
-                  "first_seen": "2026-09-30T04:55:22.315151Z",
+                  "first_seen": "2026-09-30T22:23:48.726198Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -3728,10 +3728,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "self-approval",
-                    "intent_digest": "sha256:6a9b7004c3b77b77e872164105db6f9375da4f7576f65a0c9d9e1273b32627c9",
+                    "intent_digest": "sha256:0bb705f75ff986cf0325aa8236895770577a380e40504a299543495af3318a9a",
                     "intent_id": "self-approval",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:22.315151Z",
+                    "requested_at": "2026-09-30T22:23:48.726198Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -3799,11 +3799,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "require_approval",
-                    "snapshot_digest": "sha256:3c8492a18a43ba8199d52d7246905ce8c9dc38f0d05ef6764666cd7ebb293761"
+                    "snapshot_digest": "sha256:64f8832393cefb1aed51b55aa2c2f269f148fc6e24a430c7c280c1072e13d9ec"
                   }
                 },
                 "previous_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-                "event_hash": "sha256:6e34711dc8415a840c87d4850b26c64d6294c57bb8d89f19add10df2effb703c"
+                "event_hash": "sha256:efaadefcae797d7df79d1f71e70dd1706993197413c89c6980eec7fc485e9b9e"
               },
               {
                 "sequence": 2,
@@ -3811,11 +3811,11 @@
                 "action_id": "self-approval",
                 "kind": "denied",
                 "payload": {
-                  "at": "2026-09-30T04:55:22.315151Z",
+                  "at": "2026-09-30T22:23:48.726198Z",
                   "reason": "approval_required"
                 },
-                "previous_hash": "sha256:6e34711dc8415a840c87d4850b26c64d6294c57bb8d89f19add10df2effb703c",
-                "event_hash": "sha256:5989f398f37acdf4dfcaa1c1cf78a4c27319e77491e60bcb282dbab88ceb3fec"
+                "previous_hash": "sha256:efaadefcae797d7df79d1f71e70dd1706993197413c89c6980eec7fc485e9b9e",
+                "event_hash": "sha256:c2a63765f91492153f65379b801d4699434c98fa23fc72aed12a9eefe8ec96b3"
               },
               {
                 "sequence": 3,
@@ -3823,11 +3823,11 @@
                 "action_id": "self-approval",
                 "kind": "denied",
                 "payload": {
-                  "at": "2026-09-30T04:55:22.329955Z",
+                  "at": "2026-09-30T22:23:48.752385Z",
                   "reason": "operator_authentication_failed"
                 },
-                "previous_hash": "sha256:5989f398f37acdf4dfcaa1c1cf78a4c27319e77491e60bcb282dbab88ceb3fec",
-                "event_hash": "sha256:7cf7b2cd2558d48b6df266988ff19e55e8290978b98bfa3ba47d15067ebd75ef"
+                "previous_hash": "sha256:c2a63765f91492153f65379b801d4699434c98fa23fc72aed12a9eefe8ec96b3",
+                "event_hash": "sha256:c78c19ccc375be16cf3a1bf032aab8876d36cb64dec25686bf628420b50d94e2"
               },
               {
                 "sequence": 4,
@@ -3883,7 +3883,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:6a9b7004c3b77b77e872164105db6f9375da4f7576f65a0c9d9e1273b32627c9",
+                      "intent_digest": "sha256:0bb705f75ff986cf0325aa8236895770577a380e40504a299543495af3318a9a",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -3892,9 +3892,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-34430eb026fa294aefcb76ad7e930f5a2746c1741cfefc4edd4be61ab0f084b4",
-                    "evaluated_at": "2026-09-30T04:55:22.337620Z",
-                    "expires_at": "2026-09-30T04:57:22.337620Z",
+                    "decision_id": "decision-d74db453beaaf27adacfae5ab9a173dc48292ad78276539654091dbd275e2396",
+                    "evaluated_at": "2026-09-30T22:23:48.767194Z",
+                    "expires_at": "2026-09-30T22:25:48.767194Z",
                     "explanation_codes": [
                       "controlspec.core.approval.required",
                       "controlspec.synthetic.above_limit",
@@ -3904,7 +3904,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:6a9b7004c3b77b77e872164105db6f9375da4f7576f65a0c9d9e1273b32627c9",
+                      "intent_digest": "sha256:0bb705f75ff986cf0325aa8236895770577a380e40504a299543495af3318a9a",
                       "intent_id": "self-approval",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -3925,10 +3925,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:04ee7f31e93e8721eebecaecc23d572209b7ce5b4510d058352fad12d5d9c2e2",
+                    "semantic_digest": "sha256:645cbaf9b69844bdc1c0cb38a2d521a3031682f6afa4378fb7cc0dd4dfe31c0e",
                     "verdict": "require_approval"
                   },
-                  "first_seen": "2026-09-30T04:55:22.315151Z",
+                  "first_seen": "2026-09-30T22:23:48.726198Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -3967,10 +3967,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "self-approval",
-                    "intent_digest": "sha256:6a9b7004c3b77b77e872164105db6f9375da4f7576f65a0c9d9e1273b32627c9",
+                    "intent_digest": "sha256:0bb705f75ff986cf0325aa8236895770577a380e40504a299543495af3318a9a",
                     "intent_id": "self-approval",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:22.315151Z",
+                    "requested_at": "2026-09-30T22:23:48.726198Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -4038,11 +4038,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "require_approval",
-                    "snapshot_digest": "sha256:ce12b6d78a754a243772c319a85f95354ee0eed7b8cf49e009994053add8dc3d"
+                    "snapshot_digest": "sha256:817759d3b959872cf681680e9bed995ee1febc53f9d68024878fb485ad373e2c"
                   }
                 },
-                "previous_hash": "sha256:7cf7b2cd2558d48b6df266988ff19e55e8290978b98bfa3ba47d15067ebd75ef",
-                "event_hash": "sha256:8e6ef149e84d1f9937fd798a8bf7c4998d32b2e90c0a5f3a12c4205dd8251992"
+                "previous_hash": "sha256:c78c19ccc375be16cf3a1bf032aab8876d36cb64dec25686bf628420b50d94e2",
+                "event_hash": "sha256:c96e3d5e566d7aecad2cf115e63507192daa4da968caaa209e3c1004816676c0"
               },
               {
                 "sequence": 5,
@@ -4050,11 +4050,11 @@
                 "action_id": "self-approval",
                 "kind": "denied",
                 "payload": {
-                  "at": "2026-09-30T04:55:22.337620Z",
+                  "at": "2026-09-30T22:23:48.767194Z",
                   "reason": "approval_required"
                 },
-                "previous_hash": "sha256:8e6ef149e84d1f9937fd798a8bf7c4998d32b2e90c0a5f3a12c4205dd8251992",
-                "event_hash": "sha256:ef695c73c8935d595e80906ea999f80bbd43dfb34588382e0af994dbb1ea71a7"
+                "previous_hash": "sha256:c96e3d5e566d7aecad2cf115e63507192daa4da968caaa209e3c1004816676c0",
+                "event_hash": "sha256:8d8cd242ad53eb8fd8121a098017252a1aaa2ee8b87409ab9d34e345ed95fd75"
               }
             ],
             "ledger_chain_valid": true,
@@ -4101,9 +4101,9 @@
               {
                 "action_id": "replay",
                 "amount_minor": 4200,
-                "committed_at": "2026-09-30T04:55:22.672678Z",
+                "committed_at": "2026-09-30T22:23:49.104703Z",
                 "evidence_id": "sha256:5b902fece5a0ca45c9a9bc2d26c558d0333e1597fb61c4e31c536e836136a047",
-                "evidence_mac": "8c4d6e09c46b5a575f93af2a64a52187049e7f4c183e8056e3a0a849f8dd6da1",
+                "evidence_mac": "668f607cf9f5243bfe7402c7d8260b08d62305dca37745d3ac177e06595697de",
                 "nonce": "unguarded-synthetic-baseline",
                 "request_digest": "sha256:50d0aab6cc44c2a73f7858e569521dbe9a07851385b9631cefc85764f7b3b405",
                 "schema_version": "1",
@@ -4135,9 +4135,9 @@
               "request_digest": "sha256:50d0aab6cc44c2a73f7858e569521dbe9a07851385b9631cefc85764f7b3b405",
               "nonce": "unguarded-synthetic-baseline",
               "amount_minor": 4200,
-              "committed_at": "2026-09-30T04:55:22.672678Z",
+              "committed_at": "2026-09-30T22:23:49.104703Z",
               "evidence_id": "sha256:5b902fece5a0ca45c9a9bc2d26c558d0333e1597fb61c4e31c536e836136a047",
-              "evidence_mac": "8c4d6e09c46b5a575f93af2a64a52187049e7f4c183e8056e3a0a849f8dd6da1"
+              "evidence_mac": "668f607cf9f5243bfe7402c7d8260b08d62305dca37745d3ac177e06595697de"
             },
             "transport": "direct Python call",
             "target_idempotency": true,
@@ -4155,7 +4155,7 @@
           "events": [],
           "evidence": {
             "policy": "integrations/openshell/policy-native.yaml",
-            "note": "Native policy is body-aware. No native outcome is inferred here."
+            "note": "Pinned v0.1.2 native REST rules match method, path and query, not this purchase JSON body. GraphQL, MCP and JSON-RPC inspection are separate protocol features. No native outcome is inferred here."
           }
         },
         {
@@ -4180,10 +4180,10 @@
               {
                 "action_id": "replay",
                 "amount_minor": 4200,
-                "committed_at": "2026-09-30T04:55:22.705481Z",
-                "evidence_id": "sha256:beeb1342834e8baf39ec1de5b9940e92ecccaabdca49b1a7848b46709ec2317d",
-                "evidence_mac": "da0dc86f18bfab03341e08d7b3e84b7544f554df14d044db7ce9b6b5fbca41bb",
-                "nonce": "47ef88f3560e214a4392602545dfd8e19ac10cd11bff6c8a6ccbdde5a599929d",
+                "committed_at": "2026-09-30T22:23:49.165293Z",
+                "evidence_id": "sha256:004b557548e1f62ce342a9cfa142d1ed15bde2c678c01eb61d4748dd48e922bd",
+                "evidence_mac": "f35966bfc1980c9ab94ba0e12321d247b1f83980be61e4f63ff849167a268f03",
+                "nonce": "a935c25649cd69c5314db24b44139ddb5121d80add77a69ce1c1a7e2958357d5",
                 "request_digest": "sha256:50d0aab6cc44c2a73f7858e569521dbe9a07851385b9631cefc85764f7b3b405",
                 "schema_version": "1",
                 "scope": {
@@ -4222,7 +4222,7 @@
             "reason": "action_already_reserved",
             "forwarded": false,
             "reconciled": false,
-            "rpc_elapsed_ms": 13.454,
+            "rpc_elapsed_ms": 19.971,
             "ledger_events": [
               {
                 "sequence": 1,
@@ -4260,7 +4260,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:3cbeaae7a6b9c2b27d2f9ea59f53ea07deaac5eae4426e9b02210524b1fe4397",
+                      "intent_digest": "sha256:f9071cded09b65261f93b469c8bd71dc7bb1c37587b28934926124987a9fe8c9",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -4269,9 +4269,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-80d63d76294f7dcee7bfc44e99fbad41ff9879160e49a45c0d3da0e1dd1a0432",
-                    "evaluated_at": "2026-09-30T04:55:22.679161Z",
-                    "expires_at": "2026-09-30T04:57:22.679161Z",
+                    "decision_id": "decision-8ba65e45bdfb493b4a5e72fec5975a4b66b8e304f5b4147b94feaabeabb8cb1e",
+                    "evaluated_at": "2026-09-30T22:23:49.115497Z",
+                    "expires_at": "2026-09-30T22:25:49.115497Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.within_limit"
@@ -4280,7 +4280,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:3cbeaae7a6b9c2b27d2f9ea59f53ea07deaac5eae4426e9b02210524b1fe4397",
+                      "intent_digest": "sha256:f9071cded09b65261f93b469c8bd71dc7bb1c37587b28934926124987a9fe8c9",
                       "intent_id": "replay",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -4301,10 +4301,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:71ac85d322fe855a403120217eb5c724908c4da3d0c515c97b4e4316fa76df6e",
+                    "semantic_digest": "sha256:a1a3f8deb606b5889c0cbeb5b43e27c201868422297a6c0fd79c9e836172d19f",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:22.679161Z",
+                  "first_seen": "2026-09-30T22:23:49.115497Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -4343,10 +4343,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "replay",
-                    "intent_digest": "sha256:3cbeaae7a6b9c2b27d2f9ea59f53ea07deaac5eae4426e9b02210524b1fe4397",
+                    "intent_digest": "sha256:f9071cded09b65261f93b469c8bd71dc7bb1c37587b28934926124987a9fe8c9",
                     "intent_id": "replay",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:22.679161Z",
+                    "requested_at": "2026-09-30T22:23:49.115497Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -4413,11 +4413,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:e7d56f5247d9945b57d3cbd0f01d886f27d119859f4df23698048a525d6102b4"
+                    "snapshot_digest": "sha256:32c052cd7b9c0f58ab1592fe3e43435e93fc358c2936d208600c49f0572a7b6a"
                   }
                 },
                 "previous_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-                "event_hash": "sha256:f5ad921e85b7e390bccb5062b62775e9ebf2d6e98c1cf38c10c4429bc9f79dbf"
+                "event_hash": "sha256:98e0b5b646d3d0d09ab04a0731889be9d0aff50ef146a4bfde0885d09bf09f16"
               },
               {
                 "sequence": 2,
@@ -4455,7 +4455,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:3cbeaae7a6b9c2b27d2f9ea59f53ea07deaac5eae4426e9b02210524b1fe4397",
+                      "intent_digest": "sha256:f9071cded09b65261f93b469c8bd71dc7bb1c37587b28934926124987a9fe8c9",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -4464,9 +4464,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-80d63d76294f7dcee7bfc44e99fbad41ff9879160e49a45c0d3da0e1dd1a0432",
-                    "evaluated_at": "2026-09-30T04:55:22.679161Z",
-                    "expires_at": "2026-09-30T04:57:22.679161Z",
+                    "decision_id": "decision-8ba65e45bdfb493b4a5e72fec5975a4b66b8e304f5b4147b94feaabeabb8cb1e",
+                    "evaluated_at": "2026-09-30T22:23:49.115497Z",
+                    "expires_at": "2026-09-30T22:25:49.115497Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.within_limit"
@@ -4475,7 +4475,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:3cbeaae7a6b9c2b27d2f9ea59f53ea07deaac5eae4426e9b02210524b1fe4397",
+                      "intent_digest": "sha256:f9071cded09b65261f93b469c8bd71dc7bb1c37587b28934926124987a9fe8c9",
                       "intent_id": "replay",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -4496,10 +4496,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:71ac85d322fe855a403120217eb5c724908c4da3d0c515c97b4e4316fa76df6e",
+                    "semantic_digest": "sha256:a1a3f8deb606b5889c0cbeb5b43e27c201868422297a6c0fd79c9e836172d19f",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:22.679161Z",
+                  "first_seen": "2026-09-30T22:23:49.115497Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -4538,10 +4538,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "replay",
-                    "intent_digest": "sha256:3cbeaae7a6b9c2b27d2f9ea59f53ea07deaac5eae4426e9b02210524b1fe4397",
+                    "intent_digest": "sha256:f9071cded09b65261f93b469c8bd71dc7bb1c37587b28934926124987a9fe8c9",
                     "intent_id": "replay",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:22.679161Z",
+                    "requested_at": "2026-09-30T22:23:49.115497Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -4571,11 +4571,11 @@
                   "request_digest": "sha256:50d0aab6cc44c2a73f7858e569521dbe9a07851385b9631cefc85764f7b3b405",
                   "reservation": {
                     "action_id": "replay",
-                    "decision_digest": "sha256:71ac85d322fe855a403120217eb5c724908c4da3d0c515c97b4e4316fa76df6e",
-                    "expires_at": "2026-09-30T04:55:52.679161Z",
-                    "issued_at": "2026-09-30T04:55:22.679161Z",
+                    "decision_digest": "sha256:a1a3f8deb606b5889c0cbeb5b43e27c201868422297a6c0fd79c9e836172d19f",
+                    "expires_at": "2026-09-30T22:24:19.115497Z",
+                    "issued_at": "2026-09-30T22:23:49.115497Z",
                     "method": "POST",
-                    "nonce": "47ef88f3560e214a4392602545dfd8e19ac10cd11bff6c8a6ccbdde5a599929d",
+                    "nonce": "a935c25649cd69c5314db24b44139ddb5121d80add77a69ce1c1a7e2958357d5",
                     "path": "/purchases",
                     "policy_digest": "sha256:558cf1a9ca441b90fde0b487ccec26e31418060d38f85ed483bdc93109a3a2cf",
                     "purpose": "synthetic-purchase-only",
@@ -4625,11 +4625,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:e7d56f5247d9945b57d3cbd0f01d886f27d119859f4df23698048a525d6102b4"
+                    "snapshot_digest": "sha256:32c052cd7b9c0f58ab1592fe3e43435e93fc358c2936d208600c49f0572a7b6a"
                   }
                 },
-                "previous_hash": "sha256:f5ad921e85b7e390bccb5062b62775e9ebf2d6e98c1cf38c10c4429bc9f79dbf",
-                "event_hash": "sha256:5e242872452e737c5af5aa8fcc07906eb5675425cee5c8fbb3891465053320b4"
+                "previous_hash": "sha256:98e0b5b646d3d0d09ab04a0731889be9d0aff50ef146a4bfde0885d09bf09f16",
+                "event_hash": "sha256:276102a2775b58aa4fed2c835cc63b7862bbd88b7182e7a10e38f5b2720f2256"
               },
               {
                 "sequence": 3,
@@ -4637,14 +4637,14 @@
                 "action_id": "replay",
                 "kind": "reconciliation",
                 "payload": {
-                  "at": "2026-09-30T04:55:22.712187Z",
+                  "at": "2026-09-30T22:23:49.178162Z",
                   "receipt": {
                     "action_id": "replay",
                     "amount_minor": 4200,
-                    "committed_at": "2026-09-30T04:55:22.705481Z",
-                    "evidence_id": "sha256:beeb1342834e8baf39ec1de5b9940e92ecccaabdca49b1a7848b46709ec2317d",
-                    "evidence_mac": "da0dc86f18bfab03341e08d7b3e84b7544f554df14d044db7ce9b6b5fbca41bb",
-                    "nonce": "47ef88f3560e214a4392602545dfd8e19ac10cd11bff6c8a6ccbdde5a599929d",
+                    "committed_at": "2026-09-30T22:23:49.165293Z",
+                    "evidence_id": "sha256:004b557548e1f62ce342a9cfa142d1ed15bde2c678c01eb61d4748dd48e922bd",
+                    "evidence_mac": "f35966bfc1980c9ab94ba0e12321d247b1f83980be61e4f63ff849167a268f03",
+                    "nonce": "a935c25649cd69c5314db24b44139ddb5121d80add77a69ce1c1a7e2958357d5",
                     "request_digest": "sha256:50d0aab6cc44c2a73f7858e569521dbe9a07851385b9631cefc85764f7b3b405",
                     "schema_version": "1",
                     "scope": {
@@ -4656,8 +4656,8 @@
                   },
                   "verified": true
                 },
-                "previous_hash": "sha256:5e242872452e737c5af5aa8fcc07906eb5675425cee5c8fbb3891465053320b4",
-                "event_hash": "sha256:cc24f156a2b5ddf32a0b901b4e91d756888d821ba98c24a7e48b0b579c2fec5d"
+                "previous_hash": "sha256:276102a2775b58aa4fed2c835cc63b7862bbd88b7182e7a10e38f5b2720f2256",
+                "event_hash": "sha256:55f90f1c217433bb92853f291c3becd2cc75af27126fc3286fa6d968d355c279"
               },
               {
                 "sequence": 4,
@@ -4695,7 +4695,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:3cbeaae7a6b9c2b27d2f9ea59f53ea07deaac5eae4426e9b02210524b1fe4397",
+                      "intent_digest": "sha256:f9071cded09b65261f93b469c8bd71dc7bb1c37587b28934926124987a9fe8c9",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -4704,9 +4704,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-7000fa603464c77d6466de92da21a10d349c988e4e50efae0dd78f4e7f6f67c9",
-                    "evaluated_at": "2026-09-30T04:55:22.721876Z",
-                    "expires_at": "2026-09-30T04:57:22.721876Z",
+                    "decision_id": "decision-804922f50921579015d8e182174d39501abf1872c8ea4314cf7dbc29031e9328",
+                    "evaluated_at": "2026-09-30T22:23:49.192944Z",
+                    "expires_at": "2026-09-30T22:25:49.192944Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.within_limit"
@@ -4715,7 +4715,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:3cbeaae7a6b9c2b27d2f9ea59f53ea07deaac5eae4426e9b02210524b1fe4397",
+                      "intent_digest": "sha256:f9071cded09b65261f93b469c8bd71dc7bb1c37587b28934926124987a9fe8c9",
                       "intent_id": "replay",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -4736,10 +4736,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:d284e7ab081d4381a239c0592ae0e9d09c6619d5db45e30117a32da0b2c1efef",
+                    "semantic_digest": "sha256:af871cb8a0853abe24d33d7e5c404bb6f754e410a97c31aa02a99edc2af204d4",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:22.679161Z",
+                  "first_seen": "2026-09-30T22:23:49.115497Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -4778,10 +4778,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "replay",
-                    "intent_digest": "sha256:3cbeaae7a6b9c2b27d2f9ea59f53ea07deaac5eae4426e9b02210524b1fe4397",
+                    "intent_digest": "sha256:f9071cded09b65261f93b469c8bd71dc7bb1c37587b28934926124987a9fe8c9",
                     "intent_id": "replay",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:22.679161Z",
+                    "requested_at": "2026-09-30T22:23:49.115497Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -4811,11 +4811,11 @@
                   "request_digest": "sha256:50d0aab6cc44c2a73f7858e569521dbe9a07851385b9631cefc85764f7b3b405",
                   "reservation": {
                     "action_id": "replay",
-                    "decision_digest": "sha256:71ac85d322fe855a403120217eb5c724908c4da3d0c515c97b4e4316fa76df6e",
-                    "expires_at": "2026-09-30T04:55:52.679161Z",
-                    "issued_at": "2026-09-30T04:55:22.679161Z",
+                    "decision_digest": "sha256:a1a3f8deb606b5889c0cbeb5b43e27c201868422297a6c0fd79c9e836172d19f",
+                    "expires_at": "2026-09-30T22:24:19.115497Z",
+                    "issued_at": "2026-09-30T22:23:49.115497Z",
                     "method": "POST",
-                    "nonce": "47ef88f3560e214a4392602545dfd8e19ac10cd11bff6c8a6ccbdde5a599929d",
+                    "nonce": "a935c25649cd69c5314db24b44139ddb5121d80add77a69ce1c1a7e2958357d5",
                     "path": "/purchases",
                     "policy_digest": "sha256:558cf1a9ca441b90fde0b487ccec26e31418060d38f85ed483bdc93109a3a2cf",
                     "purpose": "synthetic-purchase-only",
@@ -4865,11 +4865,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:3e405c9e41293f56503463358a584996d612407255a9a0bb1d718c10827bf5ab"
+                    "snapshot_digest": "sha256:29d6112fa40803053a7489c3471da76e701f05faa3bc1d2fa50a0418ed96d55a"
                   }
                 },
-                "previous_hash": "sha256:cc24f156a2b5ddf32a0b901b4e91d756888d821ba98c24a7e48b0b579c2fec5d",
-                "event_hash": "sha256:56e67025852bc6f2dcc5a8cfca2448d430e570a38105154911dbd24c658ad6cc"
+                "previous_hash": "sha256:55f90f1c217433bb92853f291c3becd2cc75af27126fc3286fa6d968d355c279",
+                "event_hash": "sha256:66bfb05a147820b874b13a9fac51f16c8739b4cc77b1ecadc053b98290546fdf"
               },
               {
                 "sequence": 5,
@@ -4877,11 +4877,11 @@
                 "action_id": "replay",
                 "kind": "denied",
                 "payload": {
-                  "at": "2026-09-30T04:55:22.721876Z",
+                  "at": "2026-09-30T22:23:49.192944Z",
                   "reason": "action_already_reserved"
                 },
-                "previous_hash": "sha256:56e67025852bc6f2dcc5a8cfca2448d430e570a38105154911dbd24c658ad6cc",
-                "event_hash": "sha256:f983e012b45ee5b68486d73ac8b46d3f5eb5d58a4493d613517a3dc3ad828e90"
+                "previous_hash": "sha256:66bfb05a147820b874b13a9fac51f16c8739b4cc77b1ecadc053b98290546fdf",
+                "event_hash": "sha256:1ada02d48ebd02c081ca29c20285198a96b8e48ed8746765c53f5ea090219d16"
               }
             ],
             "ledger_chain_valid": true,
@@ -4928,9 +4928,9 @@
               {
                 "action_id": "missing-proof",
                 "amount_minor": 4200,
-                "committed_at": "2026-09-30T04:55:23.056823Z",
+                "committed_at": "2026-09-30T22:23:49.483421Z",
                 "evidence_id": "sha256:a504a8061025a70886828b8bbf8523b27cdd6152edfb99cf886e8ca856d2b6b8",
-                "evidence_mac": "dcbb35a00a5f318d25465cfb7a48dfe31785bed93beeab546c95035e055334a9",
+                "evidence_mac": "4d67c29dd9e77f3b91385c672fc02827168ef9bd7eadfd94727115914feabf79",
                 "nonce": "unguarded-synthetic-baseline",
                 "request_digest": "sha256:75dc60ca7dd6834a7d3eea85bb0738a1d58a199dd9e5b2fbebf3a15244bd523a",
                 "schema_version": "1",
@@ -4962,9 +4962,9 @@
               "request_digest": "sha256:75dc60ca7dd6834a7d3eea85bb0738a1d58a199dd9e5b2fbebf3a15244bd523a",
               "nonce": "unguarded-synthetic-baseline",
               "amount_minor": 4200,
-              "committed_at": "2026-09-30T04:55:23.056823Z",
+              "committed_at": "2026-09-30T22:23:49.483421Z",
               "evidence_id": "sha256:a504a8061025a70886828b8bbf8523b27cdd6152edfb99cf886e8ca856d2b6b8",
-              "evidence_mac": "dcbb35a00a5f318d25465cfb7a48dfe31785bed93beeab546c95035e055334a9"
+              "evidence_mac": "4d67c29dd9e77f3b91385c672fc02827168ef9bd7eadfd94727115914feabf79"
             },
             "transport": "direct Python call",
             "target_idempotency": true,
@@ -4982,7 +4982,7 @@
           "events": [],
           "evidence": {
             "policy": "integrations/openshell/policy-native.yaml",
-            "note": "Native policy is body-aware. No native outcome is inferred here."
+            "note": "Pinned v0.1.2 native REST rules match method, path and query, not this purchase JSON body. GraphQL, MCP and JSON-RPC inspection are separate protocol features. No native outcome is inferred here."
           }
         },
         {
@@ -5007,10 +5007,10 @@
               {
                 "action_id": "missing-proof",
                 "amount_minor": 4200,
-                "committed_at": "2026-09-30T04:55:23.101992Z",
-                "evidence_id": "sha256:046371297746deb4d2f6b2c39bb43237a947c84ee6b6255f8961d8fa0952c838",
-                "evidence_mac": "e6f7adf40d1eca19cfdbce69ec8c6af83e9f28341dc55682d1863851596f17c3",
-                "nonce": "15b3a3e1827e82a61a9b9b7d7e9bdfd458158a6f190f9a988a1616f2bccc35bd",
+                "committed_at": "2026-09-30T22:23:49.516923Z",
+                "evidence_id": "sha256:3af4811fc62ba312666544295a7a40cede7e903cf69cdfe5fc2ce1464103eabe",
+                "evidence_mac": "dd540d544008236f94b44f7149d76ae5484eec06a66bfb5ebfb588dd90fecd16",
+                "nonce": "0519b92ee0313b40d34bf6745525740ecb8c9ac7821636f411571d6f7d8c95d9",
                 "request_digest": "sha256:75dc60ca7dd6834a7d3eea85bb0738a1d58a199dd9e5b2fbebf3a15244bd523a",
                 "schema_version": "1",
                 "scope": {
@@ -5045,7 +5045,7 @@
             "reason": "completion_unverified",
             "forwarded": true,
             "reconciled": false,
-            "rpc_elapsed_ms": 21.732,
+            "rpc_elapsed_ms": 24.117,
             "target_receipt": {
               "schema_version": "1",
               "synthetic_only": true,
@@ -5056,11 +5056,11 @@
                 "sandbox_id": "scripted-agent"
               },
               "request_digest": "sha256:75dc60ca7dd6834a7d3eea85bb0738a1d58a199dd9e5b2fbebf3a15244bd523a",
-              "nonce": "15b3a3e1827e82a61a9b9b7d7e9bdfd458158a6f190f9a988a1616f2bccc35bd",
+              "nonce": "0519b92ee0313b40d34bf6745525740ecb8c9ac7821636f411571d6f7d8c95d9",
               "amount_minor": 4200,
-              "committed_at": "2026-09-30T04:55:23.101992Z",
-              "evidence_id": "sha256:046371297746deb4d2f6b2c39bb43237a947c84ee6b6255f8961d8fa0952c838",
-              "evidence_mac": "e6f7adf40d1eca19cfdbce69ec8c6af83e9f28341dc55682d1863851596f17c3"
+              "committed_at": "2026-09-30T22:23:49.516923Z",
+              "evidence_id": "sha256:3af4811fc62ba312666544295a7a40cede7e903cf69cdfe5fc2ce1464103eabe",
+              "evidence_mac": "dd540d544008236f94b44f7149d76ae5484eec06a66bfb5ebfb588dd90fecd16"
             },
             "ledger_events": [
               {
@@ -5099,7 +5099,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:0e29f08903e5811432a755ea60497fd987ec72c3ca28cf4add2e089def6e68fb",
+                      "intent_digest": "sha256:3e105ca8111189687f99397e7f215805b43c3917a8868275ec6ebfc2145e328b",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -5108,9 +5108,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-f35044575248dfc009b39332a898e83652752f0a4d2b3ffd5108ef8b7853468d",
-                    "evaluated_at": "2026-09-30T04:55:23.063184Z",
-                    "expires_at": "2026-09-30T04:57:23.063184Z",
+                    "decision_id": "decision-b294d21d8076003274791fe0e039d46d2a551419f7f167cf177ab4ce13adcab0",
+                    "evaluated_at": "2026-09-30T22:23:49.491639Z",
+                    "expires_at": "2026-09-30T22:25:49.491639Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.within_limit"
@@ -5119,7 +5119,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:0e29f08903e5811432a755ea60497fd987ec72c3ca28cf4add2e089def6e68fb",
+                      "intent_digest": "sha256:3e105ca8111189687f99397e7f215805b43c3917a8868275ec6ebfc2145e328b",
                       "intent_id": "missing-proof",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -5140,10 +5140,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:a6401352c3b1bf8c4dfcb837ead654b1232ea7f6c1965c9e4c2708d0dac3e6c5",
+                    "semantic_digest": "sha256:1966931cb80b03ede09a36a67411bd73ed223534c364ea21dd66e8d247bb9000",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:23.063184Z",
+                  "first_seen": "2026-09-30T22:23:49.491639Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -5182,10 +5182,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "missing-proof",
-                    "intent_digest": "sha256:0e29f08903e5811432a755ea60497fd987ec72c3ca28cf4add2e089def6e68fb",
+                    "intent_digest": "sha256:3e105ca8111189687f99397e7f215805b43c3917a8868275ec6ebfc2145e328b",
                     "intent_id": "missing-proof",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:23.063184Z",
+                    "requested_at": "2026-09-30T22:23:49.491639Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -5252,11 +5252,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:6f3075ec3d544308f8ce3b13b0e4e5e2d77e3e9fc1e99900076e688d5d60885d"
+                    "snapshot_digest": "sha256:cb888f317207371509ed7bffe368d24bc09475bae86138eff4aed1ea703f331a"
                   }
                 },
                 "previous_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-                "event_hash": "sha256:a61e162202e5a59c5e50298e794a164a0e8216c6b884a6f6b8068f418c90676f"
+                "event_hash": "sha256:9f1cf5c051a688533dadbbd7371583edb9c7a294b7637ac25aa06a53bfd56a6b"
               },
               {
                 "sequence": 2,
@@ -5294,7 +5294,7 @@
                         "name": "controlspec.core",
                         "version": "0.1.0"
                       },
-                      "intent_digest": "sha256:0e29f08903e5811432a755ea60497fd987ec72c3ca28cf4add2e089def6e68fb",
+                      "intent_digest": "sha256:3e105ca8111189687f99397e7f215805b43c3917a8868275ec6ebfc2145e328b",
                       "resource_ref": {
                         "namespace": "controlspec.synthetic.purchase",
                         "resource_id": "demo-store",
@@ -5303,9 +5303,9 @@
                       }
                     },
                     "conditions": [],
-                    "decision_id": "decision-f35044575248dfc009b39332a898e83652752f0a4d2b3ffd5108ef8b7853468d",
-                    "evaluated_at": "2026-09-30T04:55:23.063184Z",
-                    "expires_at": "2026-09-30T04:57:23.063184Z",
+                    "decision_id": "decision-b294d21d8076003274791fe0e039d46d2a551419f7f167cf177ab4ce13adcab0",
+                    "evaluated_at": "2026-09-30T22:23:49.491639Z",
+                    "expires_at": "2026-09-30T22:25:49.491639Z",
                     "explanation_codes": [
                       "controlspec.core.allow",
                       "controlspec.synthetic.within_limit"
@@ -5314,7 +5314,7 @@
                       "controlspec.conformance.non_authoritative": true
                     },
                     "intent_ref": {
-                      "intent_digest": "sha256:0e29f08903e5811432a755ea60497fd987ec72c3ca28cf4add2e089def6e68fb",
+                      "intent_digest": "sha256:3e105ca8111189687f99397e7f215805b43c3917a8868275ec6ebfc2145e328b",
                       "intent_id": "missing-proof",
                       "namespace": "controlspec.synthetic.purchase"
                     },
@@ -5335,10 +5335,10 @@
                     },
                     "schema": "controlspec/v0/decision",
                     "schema_version": "0.1.0",
-                    "semantic_digest": "sha256:a6401352c3b1bf8c4dfcb837ead654b1232ea7f6c1965c9e4c2708d0dac3e6c5",
+                    "semantic_digest": "sha256:1966931cb80b03ede09a36a67411bd73ed223534c364ea21dd66e8d247bb9000",
                     "verdict": "allow"
                   },
-                  "first_seen": "2026-09-30T04:55:23.063184Z",
+                  "first_seen": "2026-09-30T22:23:49.491639Z",
                   "intent": {
                     "action": {
                       "domain_action": "controlspec.synthetic.purchase",
@@ -5377,10 +5377,10 @@
                     "evidence_refs": [],
                     "extensions": {},
                     "idempotency_key": "missing-proof",
-                    "intent_digest": "sha256:0e29f08903e5811432a755ea60497fd987ec72c3ca28cf4add2e089def6e68fb",
+                    "intent_digest": "sha256:3e105ca8111189687f99397e7f215805b43c3917a8868275ec6ebfc2145e328b",
                     "intent_id": "missing-proof",
                     "namespace": "controlspec.synthetic.purchase",
-                    "requested_at": "2026-09-30T04:55:23.063184Z",
+                    "requested_at": "2026-09-30T22:23:49.491639Z",
                     "requested_route": null,
                     "resource": {
                       "attributes": {},
@@ -5410,11 +5410,11 @@
                   "request_digest": "sha256:75dc60ca7dd6834a7d3eea85bb0738a1d58a199dd9e5b2fbebf3a15244bd523a",
                   "reservation": {
                     "action_id": "missing-proof",
-                    "decision_digest": "sha256:a6401352c3b1bf8c4dfcb837ead654b1232ea7f6c1965c9e4c2708d0dac3e6c5",
-                    "expires_at": "2026-09-30T04:55:53.063184Z",
-                    "issued_at": "2026-09-30T04:55:23.063184Z",
+                    "decision_digest": "sha256:1966931cb80b03ede09a36a67411bd73ed223534c364ea21dd66e8d247bb9000",
+                    "expires_at": "2026-09-30T22:24:19.491639Z",
+                    "issued_at": "2026-09-30T22:23:49.491639Z",
                     "method": "POST",
-                    "nonce": "15b3a3e1827e82a61a9b9b7d7e9bdfd458158a6f190f9a988a1616f2bccc35bd",
+                    "nonce": "0519b92ee0313b40d34bf6745525740ecb8c9ac7821636f411571d6f7d8c95d9",
                     "path": "/purchases",
                     "policy_digest": "sha256:558cf1a9ca441b90fde0b487ccec26e31418060d38f85ed483bdc93109a3a2cf",
                     "purpose": "synthetic-purchase-only",
@@ -5464,11 +5464,11 @@
                       "target_ref": null
                     },
                     "final_verdict": "allow",
-                    "snapshot_digest": "sha256:6f3075ec3d544308f8ce3b13b0e4e5e2d77e3e9fc1e99900076e688d5d60885d"
+                    "snapshot_digest": "sha256:cb888f317207371509ed7bffe368d24bc09475bae86138eff4aed1ea703f331a"
                   }
                 },
-                "previous_hash": "sha256:a61e162202e5a59c5e50298e794a164a0e8216c6b884a6f6b8068f418c90676f",
-                "event_hash": "sha256:e88c7461a40f9e6864cfc2721e1e01317aee5961113a309d3796ab3086a59d5b"
+                "previous_hash": "sha256:9f1cf5c051a688533dadbbd7371583edb9c7a294b7637ac25aa06a53bfd56a6b",
+                "event_hash": "sha256:24fc09e4ef7d38a4aa3d145cc0e8151813edcb31b99ffb5790d3b2d19759a586"
               },
               {
                 "sequence": 3,
@@ -5476,12 +5476,12 @@
                 "action_id": "missing-proof",
                 "kind": "reconciliation",
                 "payload": {
-                  "at": "2026-09-30T04:55:23.108675Z",
+                  "at": "2026-09-30T22:23:49.526413Z",
                   "receipt": null,
                   "verified": false
                 },
-                "previous_hash": "sha256:e88c7461a40f9e6864cfc2721e1e01317aee5961113a309d3796ab3086a59d5b",
-                "event_hash": "sha256:d02eaa9cc43c6bfd4062e8a4f97753206518113346f09674f499c832f9ad867a"
+                "previous_hash": "sha256:24fc09e4ef7d38a4aa3d145cc0e8151813edcb31b99ffb5790d3b2d19759a586",
+                "event_hash": "sha256:51db6741c4306fabd14f3b730c0e06ace146948819d4154fbef7cd4025960695"
               }
             ],
             "ledger_chain_valid": true,
@@ -5528,9 +5528,9 @@
               {
                 "action_id": "outage",
                 "amount_minor": 4200,
-                "committed_at": "2026-09-30T04:55:23.422044Z",
+                "committed_at": "2026-09-30T22:23:49.893577Z",
                 "evidence_id": "sha256:17bcf1327693dc70da1a30bd30ee2c1f7b7317ba9dfd3461640f3107eff05f67",
-                "evidence_mac": "24751a4fab8ea74e3f4769f448f36b5e8d300d7741b0a4383cfee6f6df7f7371",
+                "evidence_mac": "1b6471383ccb2ff405f2cc438b7e0c4644cd2afad8e856e4d4d4aab36a3e224b",
                 "nonce": "unguarded-synthetic-baseline",
                 "request_digest": "sha256:82134943e43abb6e61b199a603ced423a37e1975ea6052609769da638c64c386",
                 "schema_version": "1",
@@ -5562,9 +5562,9 @@
               "request_digest": "sha256:82134943e43abb6e61b199a603ced423a37e1975ea6052609769da638c64c386",
               "nonce": "unguarded-synthetic-baseline",
               "amount_minor": 4200,
-              "committed_at": "2026-09-30T04:55:23.422044Z",
+              "committed_at": "2026-09-30T22:23:49.893577Z",
               "evidence_id": "sha256:17bcf1327693dc70da1a30bd30ee2c1f7b7317ba9dfd3461640f3107eff05f67",
-              "evidence_mac": "24751a4fab8ea74e3f4769f448f36b5e8d300d7741b0a4383cfee6f6df7f7371"
+              "evidence_mac": "1b6471383ccb2ff405f2cc438b7e0c4644cd2afad8e856e4d4d4aab36a3e224b"
             },
             "transport": "direct Python call",
             "target_idempotency": true,
@@ -5582,7 +5582,7 @@
           "events": [],
           "evidence": {
             "policy": "integrations/openshell/policy-native.yaml",
-            "note": "Native policy is body-aware. No native outcome is inferred here."
+            "note": "Pinned v0.1.2 native REST rules match method, path and query, not this purchase JSON body. GraphQL, MCP and JSON-RPC inspection are separate protocol features. No native outcome is inferred here."
           }
         },
         {
@@ -5673,9 +5673,9 @@
               {
                 "action_id": "direct",
                 "amount_minor": 4200,
-                "committed_at": "2026-09-30T04:55:25.704798Z",
+                "committed_at": "2026-09-30T22:23:52.195737Z",
                 "evidence_id": "sha256:c279855e06fe3556eb8bdf3a86b8d6936364976249708be7e620b97f2f863747",
-                "evidence_mac": "8fdb6deeec9ae1e6998a5166a07b5653cd601101470964b588e0423a95e23343",
+                "evidence_mac": "42afe8512644054eff81b9a4f2c38f03d7c4b9277b1990fd7e2e2f7c0dbac487",
                 "nonce": "unguarded-synthetic-baseline",
                 "request_digest": "sha256:da697bb82f7b6596f86cebcb2cb84285f768da65170e70624b510776d3868a88",
                 "schema_version": "1",
@@ -5707,9 +5707,9 @@
               "request_digest": "sha256:da697bb82f7b6596f86cebcb2cb84285f768da65170e70624b510776d3868a88",
               "nonce": "unguarded-synthetic-baseline",
               "amount_minor": 4200,
-              "committed_at": "2026-09-30T04:55:25.704798Z",
+              "committed_at": "2026-09-30T22:23:52.195737Z",
               "evidence_id": "sha256:c279855e06fe3556eb8bdf3a86b8d6936364976249708be7e620b97f2f863747",
-              "evidence_mac": "8fdb6deeec9ae1e6998a5166a07b5653cd601101470964b588e0423a95e23343"
+              "evidence_mac": "42afe8512644054eff81b9a4f2c38f03d7c4b9277b1990fd7e2e2f7c0dbac487"
             },
             "transport": "direct Python call",
             "target_idempotency": true,
@@ -5727,7 +5727,7 @@
           "events": [],
           "evidence": {
             "policy": "integrations/openshell/policy-native.yaml",
-            "note": "Native policy is body-aware. No native outcome is inferred here."
+            "note": "Pinned v0.1.2 native REST rules match method, path and query, not this purchase JSON body. GraphQL, MCP and JSON-RPC inspection are separate protocol features. No native outcome is inferred here."
           }
         },
         {

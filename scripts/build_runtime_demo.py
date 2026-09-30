@@ -41,9 +41,7 @@ def build(input_path: Path, template_path: Path, output_path: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--input", type=Path, default=ROOT / "demo/space/runtime-observations.json"
-    )
+    parser.add_argument("--input", type=Path, default=ROOT / "demo/space/runtime-observations.json")
     parser.add_argument("--template", type=Path, default=ROOT / "demo/runtime-template.html")
     parser.add_argument("--output", type=Path, default=ROOT / "demo/space/runtime.html")
     args = parser.parse_args()

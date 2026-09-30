@@ -1,0 +1,10 @@
+{
+  "upstream": "https://github.com/NVIDIA/OpenShell",
+  "release": "v0.1.2",
+  "sha256": {
+    "LICENSE": "c4be3acebe12527d7de689933d98329b4065f8c50cd929d0365584eafe6c20dd",
+    "extension.proto": "60f28ee9dc846d41152f4db7e82a439c78d024786efaceb464900d1d1ad129ad",
+    "supervisor_middleware.proto": "bee96ac940303d8a7530e6e2283a98077bb428a05ef610b51d018ea18377bebd"
+  },
+  "commit": "6648bd0c290efbc41ba131ee9831ee45cd431f94"
+}

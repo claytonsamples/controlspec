@@ -10,9 +10,9 @@ affected and distinguish proposed behavior from behavior you observed.
 Use Python 3.13 and uv. From the repository root:
 
 ```sh
-uv sync --project backend --locked --extra dev
+uv sync --project backend --locked --all-extras
 cd backend
-uv run --locked --extra dev python -m pytest tests -p no:cacheprovider
+uv run --locked --all-extras python -m pytest tests -p no:cacheprovider
 ```
 
 The lockfile is part of the reproducible environment. Dependency changes should
@@ -40,9 +40,12 @@ into proof of execution, introduce a hidden bypass, or add automatic retries for
 potential external effects. New framework examples must explain their limits;
 an agent-side wrapper alone cannot prevent direct target access.
 
-Authentication, tenant isolation, human-owned policy publication, durable evidence,
-and production target adapters are planned work, not capabilities supplied by this
-preview. Discuss their contracts and failure handling before adding them.
+The optional OpenShell example adds authenticated protocol calls, a local test
+ledger and a ticket-verifying synthetic target. These are experimental demo
+components. Production tenant identity, human-owned policy publication, evidence
+infrastructure and external target adapters remain planned work. Discuss their
+contracts and failure handling before adding them. Do not call a protocol fixture
+a verified OpenShell runtime; retain actual effective-policy and target evidence.
 
 Never include credentials, private organizational policies or personal data in
 issues, fixtures, logs or pull requests. Use synthetic examples. For a suspected

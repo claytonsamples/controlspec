@@ -35,7 +35,7 @@ def main() -> None:
     template = (ROOT / "demo/template.html").read_text(encoding="utf-8")
     assert template.count("__CONTROL_SPEC_DATA__") == 1
     output = template.replace("__CONTROL_SPEC_DATA__", wire)
-    target = ROOT / "demo/space/index.html"
+    target = ROOT / "demo/space/reference-demo.html"
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(output, encoding="utf-8", newline="\n")
     (ROOT / "demo/space/observations.json").write_text(

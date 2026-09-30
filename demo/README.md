@@ -1,8 +1,14 @@
-# Static Hugging Face examples
+# Static Hugging Face action lab
 
 Live: https://huggingface.co/spaces/claytonsamples/controlspec
 
-The static Space displays seven recorded outputs from the real Python reference
+The Space homepage replays nine authenticated protocol/synthetic-target scenes.
+Reproduce it with `scripts/build_openshell_demo.py` after installing all extras;
+see [the integration guide](../integrations/openshell/README.md). Native OpenShell
+runtime results are explicitly not run. `action-demo.html` preserves the prior
+six-scene comparison from `scripts/build_action_demo.py`.
+
+The separate `reference-demo.html` displays seven recorded outputs from the Python reference
 API. The browser chooses among records; it contains no alternate evaluator and
 does not authorize or execute actions. The changed-intent toggle shows the
 recorded negative recheck for the $42 grocery case. All reference evaluations use
@@ -17,6 +23,7 @@ uv run --project backend --locked python -m pytest backend/tests/controlspec/tes
 ```
 
 The generator runs the validated personal and SMB scenario journeys, records the
-source commit and embeds the resulting data into template.html. Upload the three
-files in space/ to the Hugging Face static Space root. No credentials belong in
+source commit and embeds the resulting data into reference-demo.html without
+overwriting the action-lab homepage. Upload the files in space/ to the Hugging
+Face static Space root. No credentials belong in
 this folder or the source repository.

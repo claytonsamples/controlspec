@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "controlspec-reference"
-version = "0.1.1.dev1"
+version = "0.1.2.dev1"
 description = "Experimental portable controls for agent actions"
 requires-python = ">=3.13"
 license = "Apache-2.0"
@@ -18,11 +18,22 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
+  "grpcio-tools==1.78.0",
   "httpx2==2.12.0",
   "jsonschema>=4.25,<5",
   "mypy>=1.17,<2",
   "pytest>=8.4,<9",
   "ruff>=0.12,<1",
+  "types-grpcio>=1.84.0.20260928",
+  "types-protobuf>=7.35.1.20260906",
+]
+openshell = [
+    "grpcio==1.78.0",
+    "protobuf>=6.31.1,<7",
+    "pyjwt[crypto]>=2.10,<3",
+]
+smolagents = [
+    "smolagents>=1.26,<1.27",
 ]
 
 [tool.hatch.build.targets.wheel]

@@ -1,0 +1,2681 @@
+{
+  "schema": "controlspec.action-demo.v1",
+  "mode": "recorded_reference_outputs",
+  "static": true,
+  "non_authoritative": true,
+  "may_authorize_external_effect": false,
+  "external_actions_executed": false,
+  "real_llm_run": false,
+  "production_evidence": false,
+  "reference_time": "2026-08-20T12:00:00.000000Z",
+  "source_commit": "e30ac3657bdc75e2ec268b88429d762a7b4b70a8",
+  "provenance": {
+    "harness_sha256": "sha256:59cae93a5ebcdb588f1f7c1ea74b60e23531a90cad85b69f4fc6c3536cf34c0c",
+    "template_sha256": "sha256:7d6ea841f57fb777daf802fb97d29715883e8293339731b05eb73c25647decd9",
+    "observer_sha256": "sha256:732bc7a252bd8b1a50f70aa9840a5c85a45787bb5670298d625dea58d0f9de6e",
+    "source_commit_note": "Base Git commit; explicit hashes identify demo working files.",
+    "reference_inputs_sha256": {
+      "examples/controlspec/personal-agent-spending/requests/groceries-142.json": "sha256:83d5b210e9ddb10e20a36d6381f5638987eff7a421436b3aff2b2339a2ce35dd",
+      "examples/controlspec/personal-agent-spending/requests/groceries-42-changed-intent.json": "sha256:482b8d05c088c453dc44890064917d6df67aa47e25d374b77a486d06e5fda510",
+      "examples/controlspec/personal-agent-spending/requests/groceries-42.json": "sha256:2f3af3e062d43ba28728504661e8d1eef1f7f2d520a8e3ba0f4e8ad9065b4dd6",
+      "examples/controlspec/personal-agent-spending/requests/recurring-999.json": "sha256:eeceddbbaf99a328eea016c7a7873c032873435abfb106a91bc9d4899752f77a",
+      "examples/controlspec/personal-agent-spending/scenarios.json": "sha256:b50a3f4b51618cad64c7b28a2c7330b1b5af3b383b81d52eead2e49607fa16ae",
+      "examples/controlspec/smb-sales-controls/requests/discount-15.json": "sha256:1515589b2f067afa303eb9b55335e94047add62a5b35bb42512fc3860fb3d235",
+      "examples/controlspec/smb-sales-controls/requests/discount-8.json": "sha256:8fce043ddeccf6e4b4614bc0f9c19b6aee2a58e9e79ec4fd4bcfaa1b4853889c",
+      "examples/controlspec/smb-sales-controls/requests/draft.json": "sha256:35e2e13e2b930d22de235342f088e572a2136b6d18177f101178d9bef16fa47e",
+      "examples/controlspec/smb-sales-controls/requests/smb-discount-15-direct-self-approval.json": "sha256:425256c9c57f680f202836a42a2cda7034a2b7f1f3dc61379b9eb00b9be7651f",
+      "examples/controlspec/smb-sales-controls/scenarios.json": "sha256:82aaa7c15d015cece46a6a8fed9e165545b344812224789c7011af4ff7feaccd"
+    }
+  },
+  "scope": "Scripted intents; real reference decisions; simulated targets; recorded playback.",
+  "domains": [
+    {
+      "domain": "personal",
+      "release_id": "v0.1.1",
+      "catalog_digest": "sha256:07e00e11176752146d402c31269d3c89dbe1f8ae200c98a91f7e4f34f7888322",
+      "scenarios": [
+        {
+          "scenario_id": "groceries-42",
+          "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+          "pack_catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+          "verdict": "allow",
+          "route_kind": "continue",
+          "route_id": "continue",
+          "recheck_valid": true,
+          "changed_recheck_valid": false,
+          "receipt_status": "incomplete",
+          "missing_evidence_count": 1,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        },
+        {
+          "scenario_id": "groceries-142",
+          "intent_digest": "sha256:5b0a007d31cec073c4a6c8731e192c15cc7de7e0a0c4d96b64d4b23210afd1c0",
+          "pack_catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+          "verdict": "require_approval",
+          "route_kind": "ask_user",
+          "route_id": "ask-before-purchase",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        },
+        {
+          "scenario_id": "recurring-999",
+          "intent_digest": "sha256:bc82299648aa586ad4cb8da960d413c5cfbeaca046e58912a359714b7d0ec801",
+          "pack_catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+          "verdict": "require_approval",
+          "route_kind": "ask_user",
+          "route_id": "ask-before-recurring-purchase",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        }
+      ],
+      "machine_summary": {
+        "status": "ok",
+        "scope": "local_reference_examples",
+        "domain": "personal",
+        "release_id": "v0.1.1",
+        "catalog_digest": "sha256:07e00e11176752146d402c31269d3c89dbe1f8ae200c98a91f7e4f34f7888322",
+        "observed": [
+          {
+            "id": "groceries-42",
+            "verdict": "allow",
+            "recheck_valid": true,
+            "receipt_status": "incomplete",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          },
+          {
+            "id": "groceries-142",
+            "verdict": "require_approval",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          },
+          {
+            "id": "recurring-999",
+            "verdict": "require_approval",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          }
+        ],
+        "scenario_count": 3,
+        "probe_count": 0,
+        "operations": [
+          "GET packs",
+          "GET packs/{id}",
+          "GET controls",
+          "GET controls/{id}",
+          "POST decide",
+          "POST recheck",
+          "POST receipts"
+        ],
+        "external_actions_executed": false,
+        "receipts_stored": false
+      }
+    },
+    {
+      "domain": "smb",
+      "release_id": "v0.1.1",
+      "catalog_digest": "sha256:07e00e11176752146d402c31269d3c89dbe1f8ae200c98a91f7e4f34f7888322",
+      "scenarios": [
+        {
+          "scenario_id": "draft",
+          "intent_digest": "sha256:c97b00a3ce7f1e71a27f90bab783f4490f1fe09286f137abaa5cf2cf2882b64d",
+          "pack_catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+          "verdict": "allow",
+          "route_kind": "continue",
+          "route_id": "continue-draft",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        },
+        {
+          "scenario_id": "discount-8",
+          "intent_digest": "sha256:be0d497159b6110a72d0a6bea0c2db21f82202f40e6217ef586ae1f51bbac7d0",
+          "pack_catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+          "verdict": "allow_with_conditions",
+          "route_kind": "continue",
+          "route_id": "continue-within-limit",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        },
+        {
+          "scenario_id": "discount-15",
+          "intent_digest": "sha256:ec4f4dee20b67ee8dd0b264dcbf60f185eda92d48fa48bbf2ed54f0ff090e5d4",
+          "pack_catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+          "verdict": "require_approval",
+          "route_kind": "continue",
+          "route_id": "continue",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        },
+        {
+          "scenario_id": "smb-discount-15-direct-self-approval",
+          "intent_digest": "sha256:c28c5920136a243b8256f8baaa59709217a8f7043e95dcec06013aaee3d1bf1a",
+          "pack_catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+          "verdict": "block",
+          "route_kind": "block",
+          "route_id": "fail-closed-block",
+          "recheck_valid": true,
+          "changed_recheck_valid": null,
+          "receipt_status": "failed",
+          "missing_evidence_count": 0,
+          "verified_evidence_count": 0,
+          "assessment_basis": "caller_report_only",
+          "stored": false,
+          "durable": false,
+          "route_substitution_rejected": true
+        }
+      ],
+      "machine_summary": {
+        "status": "ok",
+        "scope": "local_reference_examples",
+        "domain": "smb",
+        "release_id": "v0.1.1",
+        "catalog_digest": "sha256:07e00e11176752146d402c31269d3c89dbe1f8ae200c98a91f7e4f34f7888322",
+        "observed": [
+          {
+            "id": "draft",
+            "verdict": "allow",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          },
+          {
+            "id": "discount-8",
+            "verdict": "allow_with_conditions",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          },
+          {
+            "id": "discount-15",
+            "verdict": "require_approval",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          },
+          {
+            "id": "smb-discount-15-direct-self-approval",
+            "verdict": "block",
+            "recheck_valid": true,
+            "receipt_status": "failed",
+            "non_authoritative": true,
+            "deterministic_repeat": true,
+            "route_substitution_rejected": true
+          }
+        ],
+        "scenario_count": 4,
+        "probe_count": 0,
+        "operations": [
+          "GET packs",
+          "GET packs/{id}",
+          "GET controls",
+          "GET controls/{id}",
+          "POST decide",
+          "POST recheck",
+          "POST receipts"
+        ],
+        "external_actions_executed": false,
+        "receipts_stored": false
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "overspend",
+      "title": "The $142 purchase",
+      "description": "A purchase exceeds the example spending limit.",
+      "domain": "personal",
+      "scenario_id": "groceries-142",
+      "changed": false,
+      "evidence_available": true,
+      "observation": {
+        "scenario_id": "groceries-142",
+        "intent_digest": "sha256:5b0a007d31cec073c4a6c8731e192c15cc7de7e0a0c4d96b64d4b23210afd1c0",
+        "pack_catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+        "verdict": "require_approval",
+        "route_kind": "ask_user",
+        "route_id": "ask-before-purchase",
+        "recheck_valid": true,
+        "changed_recheck_valid": null,
+        "receipt_status": "failed",
+        "missing_evidence_count": 0,
+        "verified_evidence_count": 0,
+        "assessment_basis": "caller_report_only",
+        "stored": false,
+        "durable": false,
+        "route_substitution_rejected": true
+      },
+      "original_intent": {
+        "action": {
+          "domain_action": "personal.purchase",
+          "requested_effect": {
+            "personal.agent.spending.effect": "personal.purchase"
+          },
+          "type": "commit"
+        },
+        "actor": {
+          "actor_id": "personal.agent.spending-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "personal.agent.spending",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "personal.spending.recurring": false,
+          "personal.spending.total_minor_units": 14200
+        },
+        "context_digest": "sha256:7d8d852b72578640619bd7115084a64be00c80b24467a31b01623cb61ec95621",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "groceries-142",
+        "intent_digest": "sha256:5b0a007d31cec073c4a6c8731e192c15cc7de7e0a0c4d96b64d4b23210afd1c0",
+        "intent_id": "groceries-142",
+        "namespace": "personal.agent.spending",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "personal.agent.spending",
+          "resource_id": "personal.agent.spending-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "personal.cart",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "proposed_intent": {
+        "action": {
+          "domain_action": "personal.purchase",
+          "requested_effect": {
+            "personal.agent.spending.effect": "personal.purchase"
+          },
+          "type": "commit"
+        },
+        "actor": {
+          "actor_id": "personal.agent.spending-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "personal.agent.spending",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "personal.spending.recurring": false,
+          "personal.spending.total_minor_units": 14200
+        },
+        "context_digest": "sha256:7d8d852b72578640619bd7115084a64be00c80b24467a31b01623cb61ec95621",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "groceries-142",
+        "intent_digest": "sha256:5b0a007d31cec073c4a6c8731e192c15cc7de7e0a0c4d96b64d4b23210afd1c0",
+        "intent_id": "groceries-142",
+        "namespace": "personal.agent.spending",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "personal.agent.spending",
+          "resource_id": "personal.agent.spending-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "personal.cart",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "source": {
+        "request": "examples/controlspec/personal-agent-spending/requests/groceries-142.json",
+        "reference_test": {
+          "path": "backend/tests/api/test_controlspec_reference_api_examples.py",
+          "revision": "a6d0c2685a62eb9e21eef49355ed20687bdf9563",
+          "symbol": "test_personal_agent_examples_execute_portably_through_http"
+        },
+        "selected_pack": {
+          "catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+          "kind": "pack",
+          "semantic_digest": "sha256:682c677a946588ed7c7313ed0e36c77af8213d77dd82b9979d7d7b8454d29291"
+        },
+        "explanation_codes": [
+          "controlspec.core.approval.required",
+          "personal.spending.approval_required"
+        ],
+        "explanation_basis": "reviewed fixture; observe validates exact API match"
+      },
+      "initial_state": {
+        "balance_minor_units": 50000,
+        "quote_total_minor_units": 100000,
+        "discount_basis_points": 0
+      },
+      "lanes": {
+        "without": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 35800,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "intent": {
+            "action": {
+              "domain_action": "personal.purchase",
+              "requested_effect": {
+                "personal.agent.spending.effect": "personal.purchase"
+              },
+              "type": "commit"
+            },
+            "actor": {
+              "actor_id": "personal.agent.spending-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "personal.agent.spending",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "personal.spending.recurring": false,
+              "personal.spending.total_minor_units": 14200
+            },
+            "context_digest": "sha256:7d8d852b72578640619bd7115084a64be00c80b24467a31b01623cb61ec95621",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "groceries-142",
+            "intent_digest": "sha256:5b0a007d31cec073c4a6c8731e192c15cc7de7e0a0c4d96b64d4b23210afd1c0",
+            "intent_id": "groceries-142",
+            "namespace": "personal.agent.spending",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "personal.agent.spending",
+              "resource_id": "personal.agent.spending-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "personal.cart",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "dispatch",
+              "message": "Comparison lane dispatches directly; this control layer is absent.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "No ControlSpec binding recheck in this comparison lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Fake target changed. No external action occurred.",
+              "state": {
+                "balance_minor_units": 35800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Sandbox action observed.",
+              "state": {
+                "balance_minor_units": 35800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            }
+          ],
+          "mutated": true,
+          "target_evidence": [
+            {
+              "kind": "sandbox_target_event",
+              "scope": "fake_target_only",
+              "intent_digest": "sha256:5b0a007d31cec073c4a6c8731e192c15cc7de7e0a0c4d96b64d4b23210afd1c0",
+              "before": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              },
+              "after": {
+                "balance_minor_units": 35800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              },
+              "production_evidence": false
+            }
+          ],
+          "completion": "Sandbox action observed."
+        },
+        "controlled": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "intent": {
+            "action": {
+              "domain_action": "personal.purchase",
+              "requested_effect": {
+                "personal.agent.spending.effect": "personal.purchase"
+              },
+              "type": "commit"
+            },
+            "actor": {
+              "actor_id": "personal.agent.spending-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "personal.agent.spending",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "personal.spending.recurring": false,
+              "personal.spending.total_minor_units": 14200
+            },
+            "context_digest": "sha256:7d8d852b72578640619bd7115084a64be00c80b24467a31b01623cb61ec95621",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "groceries-142",
+            "intent_digest": "sha256:5b0a007d31cec073c4a6c8731e192c15cc7de7e0a0c4d96b64d4b23210afd1c0",
+            "intent_id": "groceries-142",
+            "namespace": "personal.agent.spending",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "personal.agent.spending",
+              "resource_id": "personal.agent.spending-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "personal.cart",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "decision",
+              "message": "Real reference decision: require_approval.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "Binding valid for proposed action: true.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Dispatch held; fake target unchanged.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Reference receipt: failed; verified evidence: 0. Sandbox events do not upgrade this receipt.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            }
+          ],
+          "mutated": false,
+          "target_evidence": [],
+          "completion": "Action held; fake target unchanged."
+        }
+      }
+    },
+    {
+      "id": "discount",
+      "title": "The 15% discount",
+      "description": "A sales agent proposes an offer needing approval.",
+      "domain": "smb",
+      "scenario_id": "discount-15",
+      "changed": false,
+      "evidence_available": true,
+      "observation": {
+        "scenario_id": "discount-15",
+        "intent_digest": "sha256:ec4f4dee20b67ee8dd0b264dcbf60f185eda92d48fa48bbf2ed54f0ff090e5d4",
+        "pack_catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+        "verdict": "require_approval",
+        "route_kind": "continue",
+        "route_id": "continue",
+        "recheck_valid": true,
+        "changed_recheck_valid": null,
+        "receipt_status": "failed",
+        "missing_evidence_count": 0,
+        "verified_evidence_count": 0,
+        "assessment_basis": "caller_report_only",
+        "stored": false,
+        "durable": false,
+        "route_substitution_rejected": true
+      },
+      "original_intent": {
+        "action": {
+          "domain_action": "smb.sales.offer_discount",
+          "requested_effect": {
+            "smb.sales.controls.effect": "smb.sales.offer_discount"
+          },
+          "type": "communicate"
+        },
+        "actor": {
+          "actor_id": "smb.sales.controls-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "smb.sales.controls",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "smb.sales.discount_basis_points": 1500
+        },
+        "context_digest": "sha256:9ef70d85099b9abaf8649f6cfb0f943daff79d62e71c9b33321fa56ccfa09982",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "discount-15",
+        "intent_digest": "sha256:ec4f4dee20b67ee8dd0b264dcbf60f185eda92d48fa48bbf2ed54f0ff090e5d4",
+        "intent_id": "discount-15",
+        "namespace": "smb.sales.controls",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "smb.sales.controls",
+          "resource_id": "smb.sales.controls-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "smb.customer_email",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "proposed_intent": {
+        "action": {
+          "domain_action": "smb.sales.offer_discount",
+          "requested_effect": {
+            "smb.sales.controls.effect": "smb.sales.offer_discount"
+          },
+          "type": "communicate"
+        },
+        "actor": {
+          "actor_id": "smb.sales.controls-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "smb.sales.controls",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "smb.sales.discount_basis_points": 1500
+        },
+        "context_digest": "sha256:9ef70d85099b9abaf8649f6cfb0f943daff79d62e71c9b33321fa56ccfa09982",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "discount-15",
+        "intent_digest": "sha256:ec4f4dee20b67ee8dd0b264dcbf60f185eda92d48fa48bbf2ed54f0ff090e5d4",
+        "intent_id": "discount-15",
+        "namespace": "smb.sales.controls",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "smb.sales.controls",
+          "resource_id": "smb.sales.controls-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "smb.customer_email",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "source": {
+        "request": "examples/controlspec/smb-sales-controls/requests/discount-15.json",
+        "reference_test": {
+          "path": "backend/tests/api/test_controlspec_reference_api_examples.py",
+          "revision": "a6d0c2685a62eb9e21eef49355ed20687bdf9563",
+          "symbol": "test_smb_sales_examples_execute_portably_through_http"
+        },
+        "selected_pack": {
+          "catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+          "kind": "pack",
+          "semantic_digest": "sha256:2dac49ef9705353c556d200cf908a4d4405bdf8a36c68f2f8926628cdfc346bd"
+        },
+        "explanation_codes": [
+          "controlspec.core.approval.required",
+          "smb.sales.discount_controlled",
+          "smb.sales.manager_required"
+        ],
+        "explanation_basis": "reviewed fixture; observe validates exact API match"
+      },
+      "initial_state": {
+        "balance_minor_units": 50000,
+        "quote_total_minor_units": 100000,
+        "discount_basis_points": 0
+      },
+      "lanes": {
+        "without": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 85000,
+            "discount_basis_points": 1500
+          },
+          "intent": {
+            "action": {
+              "domain_action": "smb.sales.offer_discount",
+              "requested_effect": {
+                "smb.sales.controls.effect": "smb.sales.offer_discount"
+              },
+              "type": "communicate"
+            },
+            "actor": {
+              "actor_id": "smb.sales.controls-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "smb.sales.controls",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "smb.sales.discount_basis_points": 1500
+            },
+            "context_digest": "sha256:9ef70d85099b9abaf8649f6cfb0f943daff79d62e71c9b33321fa56ccfa09982",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "discount-15",
+            "intent_digest": "sha256:ec4f4dee20b67ee8dd0b264dcbf60f185eda92d48fa48bbf2ed54f0ff090e5d4",
+            "intent_id": "discount-15",
+            "namespace": "smb.sales.controls",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "smb.sales.controls",
+              "resource_id": "smb.sales.controls-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "smb.customer_email",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "dispatch",
+              "message": "Comparison lane dispatches directly; this control layer is absent.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "No ControlSpec binding recheck in this comparison lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Fake target changed. No external action occurred.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 85000,
+                "discount_basis_points": 1500
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Sandbox action observed.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 85000,
+                "discount_basis_points": 1500
+              }
+            }
+          ],
+          "mutated": true,
+          "target_evidence": [
+            {
+              "kind": "sandbox_target_event",
+              "scope": "fake_target_only",
+              "intent_digest": "sha256:ec4f4dee20b67ee8dd0b264dcbf60f185eda92d48fa48bbf2ed54f0ff090e5d4",
+              "before": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              },
+              "after": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 85000,
+                "discount_basis_points": 1500
+              },
+              "production_evidence": false
+            }
+          ],
+          "completion": "Sandbox action observed."
+        },
+        "controlled": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "intent": {
+            "action": {
+              "domain_action": "smb.sales.offer_discount",
+              "requested_effect": {
+                "smb.sales.controls.effect": "smb.sales.offer_discount"
+              },
+              "type": "communicate"
+            },
+            "actor": {
+              "actor_id": "smb.sales.controls-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "smb.sales.controls",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "smb.sales.discount_basis_points": 1500
+            },
+            "context_digest": "sha256:9ef70d85099b9abaf8649f6cfb0f943daff79d62e71c9b33321fa56ccfa09982",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "discount-15",
+            "intent_digest": "sha256:ec4f4dee20b67ee8dd0b264dcbf60f185eda92d48fa48bbf2ed54f0ff090e5d4",
+            "intent_id": "discount-15",
+            "namespace": "smb.sales.controls",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "smb.sales.controls",
+              "resource_id": "smb.sales.controls-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "smb.customer_email",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "decision",
+              "message": "Real reference decision: require_approval.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "Binding valid for proposed action: true.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Dispatch held; fake target unchanged.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Reference receipt: failed; verified evidence: 0. Sandbox events do not upgrade this receipt.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            }
+          ],
+          "mutated": false,
+          "target_evidence": [],
+          "completion": "Action held; fake target unchanged."
+        }
+      }
+    },
+    {
+      "id": "self-approval",
+      "title": "The agent approves itself",
+      "description": "The same proposed 15% offer includes direct self-approval.",
+      "domain": "smb",
+      "scenario_id": "smb-discount-15-direct-self-approval",
+      "changed": false,
+      "evidence_available": true,
+      "observation": {
+        "scenario_id": "smb-discount-15-direct-self-approval",
+        "intent_digest": "sha256:c28c5920136a243b8256f8baaa59709217a8f7043e95dcec06013aaee3d1bf1a",
+        "pack_catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+        "verdict": "block",
+        "route_kind": "block",
+        "route_id": "fail-closed-block",
+        "recheck_valid": true,
+        "changed_recheck_valid": null,
+        "receipt_status": "failed",
+        "missing_evidence_count": 0,
+        "verified_evidence_count": 0,
+        "assessment_basis": "caller_report_only",
+        "stored": false,
+        "durable": false,
+        "route_substitution_rejected": true
+      },
+      "original_intent": {
+        "action": {
+          "domain_action": "smb.sales.offer_discount",
+          "requested_effect": {
+            "smb.sales.controls.effect": "smb.sales.offer_discount"
+          },
+          "type": "communicate"
+        },
+        "actor": {
+          "actor_id": "smb.sales.controls-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "smb.sales.controls",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "smb.sales.discount_basis_points": 1500
+        },
+        "context_digest": "sha256:9ef70d85099b9abaf8649f6cfb0f943daff79d62e71c9b33321fa56ccfa09982",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "discount-self-approval",
+        "intent_digest": "sha256:c28c5920136a243b8256f8baaa59709217a8f7043e95dcec06013aaee3d1bf1a",
+        "intent_id": "discount-self-approval",
+        "namespace": "smb.sales.controls",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "smb.sales.controls",
+          "resource_id": "smb.sales.controls-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "smb.customer_email",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "proposed_intent": {
+        "action": {
+          "domain_action": "smb.sales.offer_discount",
+          "requested_effect": {
+            "smb.sales.controls.effect": "smb.sales.offer_discount"
+          },
+          "type": "communicate"
+        },
+        "actor": {
+          "actor_id": "smb.sales.controls-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "smb.sales.controls",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "smb.sales.discount_basis_points": 1500
+        },
+        "context_digest": "sha256:9ef70d85099b9abaf8649f6cfb0f943daff79d62e71c9b33321fa56ccfa09982",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "discount-self-approval",
+        "intent_digest": "sha256:c28c5920136a243b8256f8baaa59709217a8f7043e95dcec06013aaee3d1bf1a",
+        "intent_id": "discount-self-approval",
+        "namespace": "smb.sales.controls",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "smb.sales.controls",
+          "resource_id": "smb.sales.controls-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "smb.customer_email",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "source": {
+        "request": "examples/controlspec/smb-sales-controls/requests/smb-discount-15-direct-self-approval.json",
+        "reference_test": {
+          "path": "backend/src/assurance/controlspec/reference_catalog_data/v0_1_1/scenarios/smb-discount-15-direct-self-approval.json",
+          "revision": "a6d0c2685a62eb9e21eef49355ed20687bdf9563",
+          "symbol": "intent/selection/reference_time"
+        },
+        "selected_pack": {
+          "catalog_id": "smb.sales.controls:sales-baseline@0.1.0",
+          "kind": "pack",
+          "semantic_digest": "sha256:2dac49ef9705353c556d200cf908a4d4405bdf8a36c68f2f8926628cdfc346bd"
+        },
+        "explanation_codes": [
+          "controlspec.core.approval.independence_failed",
+          "smb.sales.discount_controlled",
+          "smb.sales.manager_required"
+        ],
+        "explanation_basis": "reviewed fixture; observe validates exact API match"
+      },
+      "initial_state": {
+        "balance_minor_units": 50000,
+        "quote_total_minor_units": 100000,
+        "discount_basis_points": 0
+      },
+      "lanes": {
+        "without": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 85000,
+            "discount_basis_points": 1500
+          },
+          "intent": {
+            "action": {
+              "domain_action": "smb.sales.offer_discount",
+              "requested_effect": {
+                "smb.sales.controls.effect": "smb.sales.offer_discount"
+              },
+              "type": "communicate"
+            },
+            "actor": {
+              "actor_id": "smb.sales.controls-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "smb.sales.controls",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "smb.sales.discount_basis_points": 1500
+            },
+            "context_digest": "sha256:9ef70d85099b9abaf8649f6cfb0f943daff79d62e71c9b33321fa56ccfa09982",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "discount-self-approval",
+            "intent_digest": "sha256:c28c5920136a243b8256f8baaa59709217a8f7043e95dcec06013aaee3d1bf1a",
+            "intent_id": "discount-self-approval",
+            "namespace": "smb.sales.controls",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "smb.sales.controls",
+              "resource_id": "smb.sales.controls-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "smb.customer_email",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "dispatch",
+              "message": "Comparison lane dispatches directly; this control layer is absent.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "No ControlSpec binding recheck in this comparison lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Fake target changed. No external action occurred.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 85000,
+                "discount_basis_points": 1500
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Sandbox action observed.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 85000,
+                "discount_basis_points": 1500
+              }
+            }
+          ],
+          "mutated": true,
+          "target_evidence": [
+            {
+              "kind": "sandbox_target_event",
+              "scope": "fake_target_only",
+              "intent_digest": "sha256:c28c5920136a243b8256f8baaa59709217a8f7043e95dcec06013aaee3d1bf1a",
+              "before": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              },
+              "after": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 85000,
+                "discount_basis_points": 1500
+              },
+              "production_evidence": false
+            }
+          ],
+          "completion": "Sandbox action observed."
+        },
+        "controlled": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "intent": {
+            "action": {
+              "domain_action": "smb.sales.offer_discount",
+              "requested_effect": {
+                "smb.sales.controls.effect": "smb.sales.offer_discount"
+              },
+              "type": "communicate"
+            },
+            "actor": {
+              "actor_id": "smb.sales.controls-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "smb.sales.controls",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "smb.sales.discount_basis_points": 1500
+            },
+            "context_digest": "sha256:9ef70d85099b9abaf8649f6cfb0f943daff79d62e71c9b33321fa56ccfa09982",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "discount-self-approval",
+            "intent_digest": "sha256:c28c5920136a243b8256f8baaa59709217a8f7043e95dcec06013aaee3d1bf1a",
+            "intent_id": "discount-self-approval",
+            "namespace": "smb.sales.controls",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "smb.sales.controls",
+              "resource_id": "smb.sales.controls-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "smb.customer_email",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "decision",
+              "message": "Real reference decision: block.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "Binding valid for proposed action: true.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Dispatch held; fake target unchanged.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Reference receipt: failed; verified evidence: 0. Sandbox events do not upgrade this receipt.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            }
+          ],
+          "mutated": false,
+          "target_evidence": [],
+          "completion": "Action held; fake target unchanged."
+        }
+      }
+    },
+    {
+      "id": "changed-binding",
+      "title": "$42 becomes $43",
+      "description": "The exact action changes after its $42 decision. Reusing that decision fails.",
+      "domain": "personal",
+      "scenario_id": "groceries-42",
+      "changed": true,
+      "evidence_available": true,
+      "observation": {
+        "scenario_id": "groceries-42",
+        "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+        "pack_catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+        "verdict": "allow",
+        "route_kind": "continue",
+        "route_id": "continue",
+        "recheck_valid": true,
+        "changed_recheck_valid": false,
+        "receipt_status": "incomplete",
+        "missing_evidence_count": 1,
+        "verified_evidence_count": 0,
+        "assessment_basis": "caller_report_only",
+        "stored": false,
+        "durable": false,
+        "route_substitution_rejected": true
+      },
+      "original_intent": {
+        "action": {
+          "domain_action": "personal.purchase",
+          "requested_effect": {
+            "personal.agent.spending.effect": "personal.purchase"
+          },
+          "type": "commit"
+        },
+        "actor": {
+          "actor_id": "personal.agent.spending-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "personal.agent.spending",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "personal.spending.recurring": false,
+          "personal.spending.total_minor_units": 4200
+        },
+        "context_digest": "sha256:dfa417e39a090e49ef9b50cda7e6396ef951cde9696490f7ff5bb28961cc72cb",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "groceries-42",
+        "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+        "intent_id": "groceries-42",
+        "namespace": "personal.agent.spending",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "personal.agent.spending",
+          "resource_id": "personal.agent.spending-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "personal.cart",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "proposed_intent": {
+        "action": {
+          "domain_action": "personal.purchase",
+          "requested_effect": {
+            "personal.agent.spending.effect": "personal.purchase"
+          },
+          "type": "commit"
+        },
+        "actor": {
+          "actor_id": "personal.agent.spending-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "personal.agent.spending",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "personal.spending.recurring": false,
+          "personal.spending.total_minor_units": 4300
+        },
+        "context_digest": "sha256:8dff65808208414a1e0918b6d2549c75decee5ea0dfce4e28a1594df2a1b845f",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "groceries-42",
+        "intent_digest": "sha256:251fff20bf91e75d47b48b2bdce71bb8e41d14f9d5eda519d06d035f694d8d89",
+        "intent_id": "groceries-42",
+        "namespace": "personal.agent.spending",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "personal.agent.spending",
+          "resource_id": "personal.agent.spending-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "personal.cart",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "source": {
+        "request": "examples/controlspec/personal-agent-spending/requests/groceries-42.json",
+        "reference_test": {
+          "path": "backend/tests/api/test_controlspec_reference_api_examples.py",
+          "revision": "a6d0c2685a62eb9e21eef49355ed20687bdf9563",
+          "symbol": "test_personal_agent_examples_execute_portably_through_http"
+        },
+        "selected_pack": {
+          "catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+          "kind": "pack",
+          "semantic_digest": "sha256:682c677a946588ed7c7313ed0e36c77af8213d77dd82b9979d7d7b8454d29291"
+        },
+        "explanation_codes": [
+          "controlspec.core.allow",
+          "personal.spending.within_boundary"
+        ],
+        "explanation_basis": "reviewed fixture; observe validates exact API match"
+      },
+      "initial_state": {
+        "balance_minor_units": 50000,
+        "quote_total_minor_units": 100000,
+        "discount_basis_points": 0
+      },
+      "lanes": {
+        "without": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 45700,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "intent": {
+            "action": {
+              "domain_action": "personal.purchase",
+              "requested_effect": {
+                "personal.agent.spending.effect": "personal.purchase"
+              },
+              "type": "commit"
+            },
+            "actor": {
+              "actor_id": "personal.agent.spending-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "personal.agent.spending",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "personal.spending.recurring": false,
+              "personal.spending.total_minor_units": 4300
+            },
+            "context_digest": "sha256:8dff65808208414a1e0918b6d2549c75decee5ea0dfce4e28a1594df2a1b845f",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "groceries-42",
+            "intent_digest": "sha256:251fff20bf91e75d47b48b2bdce71bb8e41d14f9d5eda519d06d035f694d8d89",
+            "intent_id": "groceries-42",
+            "namespace": "personal.agent.spending",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "personal.agent.spending",
+              "resource_id": "personal.agent.spending-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "personal.cart",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "dispatch",
+              "message": "Comparison lane dispatches directly; this control layer is absent.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "No ControlSpec binding recheck in this comparison lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Fake target changed. No external action occurred.",
+              "state": {
+                "balance_minor_units": 45700,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Sandbox action observed.",
+              "state": {
+                "balance_minor_units": 45700,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            }
+          ],
+          "mutated": true,
+          "target_evidence": [
+            {
+              "kind": "sandbox_target_event",
+              "scope": "fake_target_only",
+              "intent_digest": "sha256:251fff20bf91e75d47b48b2bdce71bb8e41d14f9d5eda519d06d035f694d8d89",
+              "before": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              },
+              "after": {
+                "balance_minor_units": 45700,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              },
+              "production_evidence": false
+            }
+          ],
+          "completion": "Sandbox action observed."
+        },
+        "controlled": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "intent": {
+            "action": {
+              "domain_action": "personal.purchase",
+              "requested_effect": {
+                "personal.agent.spending.effect": "personal.purchase"
+              },
+              "type": "commit"
+            },
+            "actor": {
+              "actor_id": "personal.agent.spending-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "personal.agent.spending",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "personal.spending.recurring": false,
+              "personal.spending.total_minor_units": 4300
+            },
+            "context_digest": "sha256:8dff65808208414a1e0918b6d2549c75decee5ea0dfce4e28a1594df2a1b845f",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "groceries-42",
+            "intent_digest": "sha256:251fff20bf91e75d47b48b2bdce71bb8e41d14f9d5eda519d06d035f694d8d89",
+            "intent_id": "groceries-42",
+            "namespace": "personal.agent.spending",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "personal.agent.spending",
+              "resource_id": "personal.agent.spending-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "personal.cart",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "decision",
+              "message": "Real reference decision: allow.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "Binding valid for proposed action: false.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Dispatch held; fake target unchanged.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Reference receipt: incomplete; verified evidence: 0. Sandbox events do not upgrade this receipt.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            }
+          ],
+          "mutated": false,
+          "target_evidence": [],
+          "completion": "Action held; fake target unchanged."
+        }
+      }
+    },
+    {
+      "id": "missing-proof",
+      "title": "Done is only a claim",
+      "description": "A fake purchase runs, but target evidence is withheld from both lanes.",
+      "domain": "personal",
+      "scenario_id": "groceries-42",
+      "changed": false,
+      "evidence_available": false,
+      "observation": {
+        "scenario_id": "groceries-42",
+        "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+        "pack_catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+        "verdict": "allow",
+        "route_kind": "continue",
+        "route_id": "continue",
+        "recheck_valid": true,
+        "changed_recheck_valid": false,
+        "receipt_status": "incomplete",
+        "missing_evidence_count": 1,
+        "verified_evidence_count": 0,
+        "assessment_basis": "caller_report_only",
+        "stored": false,
+        "durable": false,
+        "route_substitution_rejected": true
+      },
+      "original_intent": {
+        "action": {
+          "domain_action": "personal.purchase",
+          "requested_effect": {
+            "personal.agent.spending.effect": "personal.purchase"
+          },
+          "type": "commit"
+        },
+        "actor": {
+          "actor_id": "personal.agent.spending-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "personal.agent.spending",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "personal.spending.recurring": false,
+          "personal.spending.total_minor_units": 4200
+        },
+        "context_digest": "sha256:dfa417e39a090e49ef9b50cda7e6396ef951cde9696490f7ff5bb28961cc72cb",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "groceries-42",
+        "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+        "intent_id": "groceries-42",
+        "namespace": "personal.agent.spending",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "personal.agent.spending",
+          "resource_id": "personal.agent.spending-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "personal.cart",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "proposed_intent": {
+        "action": {
+          "domain_action": "personal.purchase",
+          "requested_effect": {
+            "personal.agent.spending.effect": "personal.purchase"
+          },
+          "type": "commit"
+        },
+        "actor": {
+          "actor_id": "personal.agent.spending-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "personal.agent.spending",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "personal.spending.recurring": false,
+          "personal.spending.total_minor_units": 4200
+        },
+        "context_digest": "sha256:dfa417e39a090e49ef9b50cda7e6396ef951cde9696490f7ff5bb28961cc72cb",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "groceries-42",
+        "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+        "intent_id": "groceries-42",
+        "namespace": "personal.agent.spending",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "personal.agent.spending",
+          "resource_id": "personal.agent.spending-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "personal.cart",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "source": {
+        "request": "examples/controlspec/personal-agent-spending/requests/groceries-42.json",
+        "reference_test": {
+          "path": "backend/tests/api/test_controlspec_reference_api_examples.py",
+          "revision": "a6d0c2685a62eb9e21eef49355ed20687bdf9563",
+          "symbol": "test_personal_agent_examples_execute_portably_through_http"
+        },
+        "selected_pack": {
+          "catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+          "kind": "pack",
+          "semantic_digest": "sha256:682c677a946588ed7c7313ed0e36c77af8213d77dd82b9979d7d7b8454d29291"
+        },
+        "explanation_codes": [
+          "controlspec.core.allow",
+          "personal.spending.within_boundary"
+        ],
+        "explanation_basis": "reviewed fixture; observe validates exact API match"
+      },
+      "initial_state": {
+        "balance_minor_units": 50000,
+        "quote_total_minor_units": 100000,
+        "discount_basis_points": 0
+      },
+      "lanes": {
+        "without": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 45800,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "intent": {
+            "action": {
+              "domain_action": "personal.purchase",
+              "requested_effect": {
+                "personal.agent.spending.effect": "personal.purchase"
+              },
+              "type": "commit"
+            },
+            "actor": {
+              "actor_id": "personal.agent.spending-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "personal.agent.spending",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "personal.spending.recurring": false,
+              "personal.spending.total_minor_units": 4200
+            },
+            "context_digest": "sha256:dfa417e39a090e49ef9b50cda7e6396ef951cde9696490f7ff5bb28961cc72cb",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "groceries-42",
+            "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+            "intent_id": "groceries-42",
+            "namespace": "personal.agent.spending",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "personal.agent.spending",
+              "resource_id": "personal.agent.spending-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "personal.cart",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "dispatch",
+              "message": "Comparison lane dispatches directly; this control layer is absent.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "No ControlSpec binding recheck in this comparison lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Fake target changed. No external action occurred.",
+              "state": {
+                "balance_minor_units": 45800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Caller reports done; target proof is absent.",
+              "state": {
+                "balance_minor_units": 45800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            }
+          ],
+          "mutated": true,
+          "target_evidence": [],
+          "completion": "Caller reports done; target proof is absent."
+        },
+        "controlled": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 45800,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "intent": {
+            "action": {
+              "domain_action": "personal.purchase",
+              "requested_effect": {
+                "personal.agent.spending.effect": "personal.purchase"
+              },
+              "type": "commit"
+            },
+            "actor": {
+              "actor_id": "personal.agent.spending-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "personal.agent.spending",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "personal.spending.recurring": false,
+              "personal.spending.total_minor_units": 4200
+            },
+            "context_digest": "sha256:dfa417e39a090e49ef9b50cda7e6396ef951cde9696490f7ff5bb28961cc72cb",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "groceries-42",
+            "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+            "intent_id": "groceries-42",
+            "namespace": "personal.agent.spending",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "personal.agent.spending",
+              "resource_id": "personal.agent.spending-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "personal.cart",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "decision",
+              "message": "Real reference decision: allow.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "Binding valid for proposed action: true.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Fake target changed. No external action occurred.",
+              "state": {
+                "balance_minor_units": 45800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Reference receipt: incomplete; verified evidence: 0. Sandbox events do not upgrade this receipt.",
+              "state": {
+                "balance_minor_units": 45800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            }
+          ],
+          "mutated": true,
+          "target_evidence": [],
+          "completion": "Completion unverified; no sandbox target evidence received."
+        }
+      }
+    },
+    {
+      "id": "allowed",
+      "title": "The $42 purchase proceeds",
+      "description": "An allowed, unchanged action reaches the fake target. Sandbox evidence is visible.",
+      "domain": "personal",
+      "scenario_id": "groceries-42",
+      "changed": false,
+      "evidence_available": true,
+      "observation": {
+        "scenario_id": "groceries-42",
+        "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+        "pack_catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+        "verdict": "allow",
+        "route_kind": "continue",
+        "route_id": "continue",
+        "recheck_valid": true,
+        "changed_recheck_valid": false,
+        "receipt_status": "incomplete",
+        "missing_evidence_count": 1,
+        "verified_evidence_count": 0,
+        "assessment_basis": "caller_report_only",
+        "stored": false,
+        "durable": false,
+        "route_substitution_rejected": true
+      },
+      "original_intent": {
+        "action": {
+          "domain_action": "personal.purchase",
+          "requested_effect": {
+            "personal.agent.spending.effect": "personal.purchase"
+          },
+          "type": "commit"
+        },
+        "actor": {
+          "actor_id": "personal.agent.spending-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "personal.agent.spending",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "personal.spending.recurring": false,
+          "personal.spending.total_minor_units": 4200
+        },
+        "context_digest": "sha256:dfa417e39a090e49ef9b50cda7e6396ef951cde9696490f7ff5bb28961cc72cb",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "groceries-42",
+        "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+        "intent_id": "groceries-42",
+        "namespace": "personal.agent.spending",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "personal.agent.spending",
+          "resource_id": "personal.agent.spending-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "personal.cart",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "proposed_intent": {
+        "action": {
+          "domain_action": "personal.purchase",
+          "requested_effect": {
+            "personal.agent.spending.effect": "personal.purchase"
+          },
+          "type": "commit"
+        },
+        "actor": {
+          "actor_id": "personal.agent.spending-agent",
+          "attributes": {},
+          "extensions": {},
+          "lineage_refs": [],
+          "namespace": "personal.agent.spending",
+          "owner_ref": null,
+          "schema": "controlspec/v0/actor",
+          "schema_version": "0.1.0",
+          "type": "agent",
+          "version": "1"
+        },
+        "context": {
+          "personal.spending.recurring": false,
+          "personal.spending.total_minor_units": 4200
+        },
+        "context_digest": "sha256:dfa417e39a090e49ef9b50cda7e6396ef951cde9696490f7ff5bb28961cc72cb",
+        "cost": null,
+        "evidence_refs": [],
+        "extensions": {},
+        "idempotency_key": "groceries-42",
+        "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+        "intent_id": "groceries-42",
+        "namespace": "personal.agent.spending",
+        "requested_at": "2026-08-20T12:00:00.000000Z",
+        "requested_route": null,
+        "resource": {
+          "attributes": {},
+          "business_id": null,
+          "display_name": null,
+          "extensions": {},
+          "namespace": "personal.agent.spending",
+          "resource_id": "personal.agent.spending-resource",
+          "schema": "controlspec/v0/resource",
+          "schema_version": "0.1.0",
+          "type": "personal.cart",
+          "version": "1"
+        },
+        "retry_count": 0,
+        "schema": "controlspec/v0/action-intent",
+        "schema_version": "0.1.0"
+      },
+      "source": {
+        "request": "examples/controlspec/personal-agent-spending/requests/groceries-42.json",
+        "reference_test": {
+          "path": "backend/tests/api/test_controlspec_reference_api_examples.py",
+          "revision": "a6d0c2685a62eb9e21eef49355ed20687bdf9563",
+          "symbol": "test_personal_agent_examples_execute_portably_through_http"
+        },
+        "selected_pack": {
+          "catalog_id": "personal.agent.spending:spending-baseline@0.1.0",
+          "kind": "pack",
+          "semantic_digest": "sha256:682c677a946588ed7c7313ed0e36c77af8213d77dd82b9979d7d7b8454d29291"
+        },
+        "explanation_codes": [
+          "controlspec.core.allow",
+          "personal.spending.within_boundary"
+        ],
+        "explanation_basis": "reviewed fixture; observe validates exact API match"
+      },
+      "initial_state": {
+        "balance_minor_units": 50000,
+        "quote_total_minor_units": 100000,
+        "discount_basis_points": 0
+      },
+      "lanes": {
+        "without": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 45800,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "intent": {
+            "action": {
+              "domain_action": "personal.purchase",
+              "requested_effect": {
+                "personal.agent.spending.effect": "personal.purchase"
+              },
+              "type": "commit"
+            },
+            "actor": {
+              "actor_id": "personal.agent.spending-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "personal.agent.spending",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "personal.spending.recurring": false,
+              "personal.spending.total_minor_units": 4200
+            },
+            "context_digest": "sha256:dfa417e39a090e49ef9b50cda7e6396ef951cde9696490f7ff5bb28961cc72cb",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "groceries-42",
+            "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+            "intent_id": "groceries-42",
+            "namespace": "personal.agent.spending",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "personal.agent.spending",
+              "resource_id": "personal.agent.spending-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "personal.cart",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "dispatch",
+              "message": "Comparison lane dispatches directly; this control layer is absent.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "No ControlSpec binding recheck in this comparison lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Fake target changed. No external action occurred.",
+              "state": {
+                "balance_minor_units": 45800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Sandbox action observed.",
+              "state": {
+                "balance_minor_units": 45800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            }
+          ],
+          "mutated": true,
+          "target_evidence": [
+            {
+              "kind": "sandbox_target_event",
+              "scope": "fake_target_only",
+              "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+              "before": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              },
+              "after": {
+                "balance_minor_units": 45800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              },
+              "production_evidence": false
+            }
+          ],
+          "completion": "Sandbox action observed."
+        },
+        "controlled": {
+          "initial_state": {
+            "balance_minor_units": 50000,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "final_state": {
+            "balance_minor_units": 45800,
+            "quote_total_minor_units": 100000,
+            "discount_basis_points": 0
+          },
+          "intent": {
+            "action": {
+              "domain_action": "personal.purchase",
+              "requested_effect": {
+                "personal.agent.spending.effect": "personal.purchase"
+              },
+              "type": "commit"
+            },
+            "actor": {
+              "actor_id": "personal.agent.spending-agent",
+              "attributes": {},
+              "extensions": {},
+              "lineage_refs": [],
+              "namespace": "personal.agent.spending",
+              "owner_ref": null,
+              "schema": "controlspec/v0/actor",
+              "schema_version": "0.1.0",
+              "type": "agent",
+              "version": "1"
+            },
+            "context": {
+              "personal.spending.recurring": false,
+              "personal.spending.total_minor_units": 4200
+            },
+            "context_digest": "sha256:dfa417e39a090e49ef9b50cda7e6396ef951cde9696490f7ff5bb28961cc72cb",
+            "cost": null,
+            "evidence_refs": [],
+            "extensions": {},
+            "idempotency_key": "groceries-42",
+            "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+            "intent_id": "groceries-42",
+            "namespace": "personal.agent.spending",
+            "requested_at": "2026-08-20T12:00:00.000000Z",
+            "requested_route": null,
+            "resource": {
+              "attributes": {},
+              "business_id": null,
+              "display_name": null,
+              "extensions": {},
+              "namespace": "personal.agent.spending",
+              "resource_id": "personal.agent.spending-resource",
+              "schema": "controlspec/v0/resource",
+              "schema_version": "0.1.0",
+              "type": "personal.cart",
+              "version": "1"
+            },
+            "retry_count": 0,
+            "schema": "controlspec/v0/action-intent",
+            "schema_version": "0.1.0"
+          },
+          "events": [
+            {
+              "step": 0,
+              "kind": "proposed",
+              "message": "Identical scripted intent received by an isolated fake target lane.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 1,
+              "kind": "decision",
+              "message": "Real reference decision: allow.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 2,
+              "kind": "recheck",
+              "message": "Binding valid for proposed action: true.",
+              "state": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 3,
+              "kind": "target",
+              "message": "Fake target changed. No external action occurred.",
+              "state": {
+                "balance_minor_units": 45800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            },
+            {
+              "step": 4,
+              "kind": "receipt",
+              "message": "Reference receipt: incomplete; verified evidence: 0. Sandbox events do not upgrade this receipt.",
+              "state": {
+                "balance_minor_units": 45800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              }
+            }
+          ],
+          "mutated": true,
+          "target_evidence": [
+            {
+              "kind": "sandbox_target_event",
+              "scope": "fake_target_only",
+              "intent_digest": "sha256:eae71621e734dcf7b654a778562900935637da3b62384ac8a06802ede2d1c16d",
+              "before": {
+                "balance_minor_units": 50000,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              },
+              "after": {
+                "balance_minor_units": 45800,
+                "quote_total_minor_units": 100000,
+                "discount_basis_points": 0
+              },
+              "production_evidence": false
+            }
+          ],
+          "completion": "Sandbox action observed; reference completion remains unverified."
+        }
+      }
+    }
+  ]
+}

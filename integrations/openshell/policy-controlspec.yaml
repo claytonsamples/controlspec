@@ -1,0 +1,27 @@
+# Same native boundary plus one final request middleware. No later body mutator.
+# Keep the gateway policy-writing credential outside the sandbox.
+version: 1
+network_middlewares:
+  controlspec-purchases:
+    name: ControlSpec synthetic purchases
+    middleware: controlspec-demo
+    order: 100
+    config:
+      profile: synthetic-purchases-v1
+    on_error: fail_closed
+    endpoints:
+      include:
+        - host.openshell.internal
+network_policies:
+  synthetic-purchase:
+    name: Synthetic purchases
+    endpoints:
+      - host: host.openshell.internal
+        port: 18081
+        protocol: rest
+        rules:
+          - allow:
+              method: POST
+              path: /purchases
+    binaries:
+      - path: /usr/bin/curl

@@ -36,7 +36,7 @@ def test_generated_page_embeds_exact_data_and_discloses_static_boundary():
     data = json.loads((ROOT / "demo/space/observations.json").read_text(encoding="utf-8"))
     wire = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
     template = (ROOT / "demo/template.html").read_text(encoding="utf-8")
-    page = (ROOT / "demo/space/index.html").read_text(encoding="utf-8")
+    page = (ROOT / "demo/space/reference-demo.html").read_text(encoding="utf-8")
     assert page == template.replace("__CONTROL_SPEC_DATA__", wire)
     assert "This static page does not evaluate new policies or execute actions." in page
     assert "recorded_reference_outputs" in page

@@ -18,7 +18,19 @@ jobs:
           python-version: "3.13"
       - uses: astral-sh/setup-uv@v6
       - name: Install locked development environment
-        run: uv sync --project backend --locked --extra dev
+        run: uv sync --project backend --locked --all-extras
       - name: Run reference tests
         working-directory: backend
-        run: uv run --locked --extra dev python -m pytest tests -p no:cacheprovider
+        run: uv run --locked --all-extras python -m pytest tests -p no:cacheprovider
+      - name: Check integration lint
+        working-directory: backend
+        run: >-
+          uv run --locked --all-extras ruff check --config pyproject.toml
+          src/assurance/controlspec/openshell_demo
+          tests/controlspec/test_openshell_engine.py
+          tests/controlspec/test_openshell_middleware.py
+          tests/controlspec/test_openshell_recording.py
+          ../scripts/build_openshell_demo.py --exclude '*_pb2*'
+      - name: Check reference and integration types
+        working-directory: backend
+        run: uv run --locked --all-extras mypy --package assurance --exclude 'openshell_demo/proto'

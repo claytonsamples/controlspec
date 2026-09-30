@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Inspect recorded ControlSpec action controls through an experimental NVIDIA OpenShell middleware integration. Scripted inputs, synthetic targets, inspectable evidence.">
+<title>ControlSpec + OpenShell — Before an agent acts.</title>
+<style>
+:root{color-scheme:dark;--bg:#0d1310;--panel:#151e18;--line:#334338;--text:#f0f3e9;--muted:#b0bdaf;--lime:#cdfa8b;--orange:#ffc09b;--blue:#aecfff;--dim:#6e8272}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,a,summary{touch-action:manipulation}a{color:inherit;text-underline-offset:4px}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:5px}button:disabled{opacity:.5;cursor:default}header,main,footer{max-width:1440px;margin:auto;padding-left:48px;padding-right:48px}header{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-size:22px;font-weight:720;letter-spacing:-.8px}.brand-mark{width:23px;height:25px;border:2px solid var(--lime);border-radius:4px 4px 12px 12px;display:inline-grid;place-items:center}.brand-mark:after{content:"";width:6px;height:6px;background:var(--lime);border-radius:50%}.links{display:flex;gap:23px;align-items:center;font-size:12px;flex-wrap:wrap}.links a{text-decoration:none}.links a:hover{text-decoration:underline}.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:end;padding:47px 0 32px}.eyebrow{font:700 10px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;text-transform:uppercase;letter-spacing:1.7px;color:var(--lime)}h1{font-size:clamp(45px,5.2vw,78px);line-height:1.01;letter-spacing:-3.5px;font-weight:550;margin:17px 0 0}h1 span{color:var(--lime)}.hero-copy{padding-bottom:3px;max-width:470px}.hero-copy p{font-size:16px;color:var(--muted);margin:0 0 18px}.hero-copy strong{font-weight:550;color:var(--text)}.experiment{display:inline-flex;gap:9px;align-items:center;font:11px ui-monospace,monospace;color:var(--muted)}.experiment:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime)}.boundary{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line);border-radius:11px;overflow:hidden}.boundary-item{padding:15px 21px;display:flex;align-items:center;gap:14px;position:relative}.boundary-item+.boundary-item{border-left:1px solid var(--line)}.boundary-number{color:var(--dim);font:12px ui-monospace,monospace}.boundary-item b{font-weight:550;display:block;font-size:13px}.boundary-item small{color:var(--muted);display:block;font-size:11px}.boundary-item:nth-child(2){background:#cdfa8b08}.boundary-item:nth-child(2) b{color:var(--lime)}.boundary-arrow{margin-left:auto;color:var(--dim)}.disclosure{display:flex;gap:13px;padding:18px 0 0;align-items:start;color:var(--muted);font-size:12px}.disclosure .tag{flex-shrink:0;border:1px solid var(--line);padding:3px 7px;border-radius:4px;color:var(--text);font:10px/1.5 ui-monospace,monospace;text-transform:uppercase}.disclosure p{margin:0}.disclosure strong{font-weight:600;color:var(--text)}.lab-top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin:37px 0 13px}.lab-top h2{font-size:13px;font-weight:550;margin:0;letter-spacing:.2px}.lab-top span{color:var(--muted);font:11px ui-monospace,monospace}.scenes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:19px}.scenes button{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:6px;padding:8px 12px;font-size:12px;min-height:39px;text-align:left}.scenes button[aria-pressed=true]{color:#162013;background:var(--lime);border-color:var(--lime)}.scenes button span{font:10px ui-monospace,monospace;opacity:.7;margin-right:8px}.stage{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}.scene-head{padding:24px 27px;display:flex;gap:20px;justify-content:space-between}.scene-head h3{font-size:25px;line-height:1.25;letter-spacing:-.6px;font-weight:550;margin:5px 0 8px}.scene-head p{color:var(--muted);font-size:13px;margin:0;max-width:780px}.scene-counter{font:11px ui-monospace,monospace;color:var(--muted);white-space:nowrap;padding-top:5px}.request{margin:0 27px 22px;padding:10px 13px;background:#0d1510;border:1px solid var(--line);border-radius:5px;font:11px/1.7 ui-monospace,monospace;color:var(--muted)}.request summary{cursor:pointer;color:var(--text);overflow-wrap:anywhere}.request pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0 0}.phases{display:flex;gap:13px;padding:14px 27px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#101812}.phases span{flex:1;border-top:2px solid var(--line);padding-top:8px;color:var(--muted);font:10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.6px}.phases span.active{border-color:var(--lime);color:var(--lime)}.lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.lane{padding:24px 25px;min-width:0}.lane+.lane{border-left:1px solid var(--line)}.lane.combined{background:linear-gradient(150deg,#cdfa8b08,transparent 80%)}.lane.unavailable{background:repeating-linear-gradient(135deg,transparent,transparent 12px,#b0bdaf03 12px,#b0bdaf03 13px)}.lane-title{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:650}.marker{width:7px;height:7px;flex-shrink:0;background:var(--orange);border-radius:50%}.native .marker{background:var(--blue)}.combined .marker{background:var(--lime)}.lane-sub{color:var(--muted);font-size:11px;min-height:35px;margin:7px 0 18px}.state-label{font:10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}.value{font-size:40px;line-height:1.35;letter-spacing:-1.7px;font-weight:450;font-variant-numeric:tabular-nums;margin:3px 0}.unavailable .value{color:var(--dim)}.state-caption{font-size:11px;color:var(--muted);min-height:36px;overflow-wrap:anywhere}.status{display:inline-flex;max-width:100%;border:1px solid var(--line);border-radius:4px;padding:5px 8px;font:10px/1.5 ui-monospace,monospace;letter-spacing:.4px;text-transform:uppercase;color:var(--muted);margin:18px 0 10px;overflow-wrap:anywhere}.status.revealed{color:var(--text);border-color:#6e8272}.combined .status.revealed{color:var(--lime);border-color:#6c874d;background:#cdfa8b06}.reason{min-height:64px;font-size:12px;color:var(--muted);margin:0;overflow-wrap:anywhere}.evidence-summary{border-top:1px solid var(--line);margin-top:16px;padding-top:13px;font-size:11px;color:var(--muted);min-height:63px;overflow-wrap:anywhere}.evidence-summary b{font-weight:600;color:var(--text);display:block;margin-bottom:5px}.controls{display:flex;align-items:center;flex-wrap:wrap;gap:9px;padding:17px 27px;background:#101812;border-top:1px solid var(--line)}.controls button{border:1px solid var(--line);border-radius:6px;padding:10px 14px;background:transparent;color:var(--text);font-size:12px;min-height:40px}.controls .primary{background:var(--lime);color:#172014;border-color:var(--lime);font-weight:650;min-width:143px}.progress-text{color:var(--muted);font:10px ui-monospace,monospace;margin-left:auto}.takeaway{display:flex;gap:15px;align-items:start;margin:21px 0 30px}.takeaway .arrow{font-size:22px;color:var(--lime);line-height:1.2}.takeaway p{margin:0;font-size:14px;max-width:920px}.takeaway small{display:block;margin-top:6px;font-size:11px;color:var(--muted)}.audit{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:38px;padding-top:25px}.audit h2{font-size:16px;font-weight:550;letter-spacing:-.2px;margin:0 0 13px}.facts{margin:0;font-size:11px;display:grid;grid-template-columns:110px 1fr;gap:10px 12px}.facts dt{color:var(--muted)}.facts dd{margin:0;overflow-wrap:anywhere}.facts .mono{font-family:ui-monospace,monospace}.runtime-status{color:var(--orange)}.runtime-status.passed{color:var(--lime)}.limitations{color:var(--muted);font-size:12px;padding-left:17px;margin:0}.limitations li+li{margin-top:8px}.trace{border:1px solid var(--line);border-radius:8px;margin:27px 0 25px}.trace summary{padding:16px 19px;font-size:13px;cursor:pointer}.trace-body{padding:0 19px 19px}.trace p{color:var(--muted);font-size:11px;margin:0 0 12px}.trace pre{background:#080f0b;padding:18px;border-radius:5px;max-height:480px;overflow:auto;font:11px/1.65 ui-monospace,monospace;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}.trace-download{display:inline-block;font-size:12px;margin-top:14px}.contribute{display:flex;justify-content:space-between;gap:24px;align-items:center;padding:5px 0 31px}.contribute p{color:var(--muted);font-size:12px;max-width:720px;margin:0}.contribute a{white-space:nowrap;font-size:12px;color:var(--lime)}footer{border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;padding-top:21px;padding-bottom:28px;font-size:11px;color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.empty{padding:30px;border:1px solid var(--line);border-radius:10px;margin:25px 0;color:var(--muted)}[hidden]{display:none!important}
+@media(min-width:1450px){.hero{padding-top:60px;padding-bottom:42px}}
+@media(max-width:1050px){header,main,footer{padding-left:28px;padding-right:28px}.hero{gap:30px}.lane{padding:22px 18px}.value{font-size:34px}.lane-title{font-size:12px}.audit{gap:25px}.boundary-item{padding:14px}.boundary-arrow{display:none}}
+@media(max-width:760px){header,main,footer{padding-left:19px;padding-right:19px}header{padding-top:18px;padding-bottom:18px;min-height:75px;flex-wrap:wrap;gap:14px}.brand{font-size:21px}.links{gap:18px;font-size:11px}.hero{grid-template-columns:1fr;padding-top:32px;gap:22px}h1{letter-spacing:-2.2px;font-size:clamp(44px,10vw,68px)}.hero-copy{max-width:560px}.hero-copy p{font-size:14px}.boundary{grid-template-columns:1fr}.boundary-item{padding:12px 17px}.boundary-item+.boundary-item{border-left:0;border-top:1px solid var(--line)}.boundary-item small{font-size:11px}.boundary-number{min-width:19px}.boundary-arrow{display:block;transform:rotate(90deg)}.boundary-item:last-child .boundary-arrow{display:none}.disclosure{font-size:11px;gap:10px}.lab-top{margin-top:28px}.lab-top span{font-size:10px}.scenes{gap:6px}.scenes button{padding:8px 10px;font-size:11px}.scene-head{padding:21px 18px;gap:10px}.scene-head h3{font-size:23px}.scene-head p{font-size:12px}.request{margin:0 18px 20px;font-size:10px}.phases{padding:13px 18px;gap:8px}.phases span{font-size:9px;letter-spacing:0}.lanes{grid-template-columns:1fr}.lane{padding:22px 19px}.lane+.lane{border-left:0;border-top:1px solid var(--line)}.lane-title{font-size:14px}.lane-sub{min-height:0;margin-bottom:17px}.value{font-size:39px}.state-caption{min-height:0}.reason{min-height:0}.evidence-summary{min-height:0}.controls{padding:16px 18px}.progress-text{width:100%;margin:4px 0 0}.takeaway{margin-bottom:25px}.takeaway p{font-size:13px}.audit{grid-template-columns:1fr;gap:26px}.facts{grid-template-columns:100px 1fr}.contribute{flex-direction:column;align-items:start;gap:15px}footer{flex-direction:column;gap:9px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="https://github.com/claytonsamples/controlspec"><span class="brand-mark" aria-hidden="true"></span>ControlSpec</a><nav class="links" aria-label="Project links"><a href="https://github.com/claytonsamples/controlspec/tree/main/integrations/openshell">Integration &amp; source ↗</a><a href="action-demo.html">Action lab</a><a href="reference-demo.html">Reference explorer</a></nav></header>
+<main>
+<section class="hero"><div><div class="eyebrow">ControlSpec + OpenShell / Experimental integration</div><h1>Before an<br>agent <span>acts.</span></h1></div><div class="hero-copy"><p>A permitted connection is one part of the decision. <strong>Inspect the exact action, its approval, and the evidence it leaves behind.</strong></p><div class="experiment">Open-source controls. Inspectable results.</div></div></section>
+<div class="boundary" aria-label="Three complementary boundaries"><div class="boundary-item"><span class="boundary-number">01</span><div><b>Network boundary</b><small>OpenShell policy and request routing</small></div><span class="boundary-arrow" aria-hidden="true">→</span></div><div class="boundary-item"><span class="boundary-number">02</span><div><b>Exact-action control</b><small>ControlSpec decision, binding, and approval</small></div><span class="boundary-arrow" aria-hidden="true">→</span></div><div class="boundary-item"><span class="boundary-number">03</span><div><b>Target evidence</b><small>Synthetic effect and recorded receipt</small></div></div></div>
+<div class="disclosure"><span class="tag">Recorded lab</span><p><strong>This page replays recordings.</strong> Scripted inputs exercise the real ControlSpec evaluator through an authenticated gRPC fixture and a synthetic service. No live agent or real transactions run in this browser. Test operator approvals are simulated.</p></div>
+<div id="load-error" class="empty" role="alert" hidden>Recorded evidence could not be loaded. No outcomes are displayed. The downloadable trace and source remain available for inspection.</div>
+<div id="replay">
+<div class="lab-top"><h2>One request. Three control paths.</h2><span id="scene-total"></span></div>
+<nav class="scenes" id="scenes" aria-label="Select a recorded scenario"></nav>
+<section class="stage" aria-label="Recorded three-path comparison">
+<div class="scene-head"><div><div class="eyebrow">Synthetic purchase service</div><h3 id="scene-title"></h3><p id="scene-description"></p></div><span class="scene-counter" id="scene-counter"></span></div>
+<details class="request"><summary id="request-summary">Inspect the exact scripted request</summary><pre id="request-json"></pre></details>
+<div class="phases" aria-label="Replay phases"><span>01 · Intent</span><span>02 · Decision</span><span>03 · Effect</span><span>04 · Evidence</span></div>
+<div class="lanes" id="lanes"></div>
+<div class="controls"><button type="button" class="primary" id="play">Run this scenario</button><button type="button" id="step">Next step →</button><button type="button" id="reset">↺ Reset</button><span class="progress-text" id="progress"></span></div>
+</section>
+<div class="takeaway"><span class="arrow" aria-hidden="true">↳</span><div><p id="takeaway"></p><small>Each path reports its own observed state. An unavailable run is not a pass, a denial, or a zero.</small></div></div>
+</div>
+<section class="audit" aria-label="Verification and limitations"><div><h2>What was actually verified</h2><dl class="facts"><dt>OpenShell pin</dt><dd id="upstream-version"></dd><dt>Runtime run</dt><dd class="runtime-status" id="runtime-status"></dd><dt>Runtime detail</dt><dd id="runtime-detail"></dd><dt>Verification</dt><dd id="verification"></dd><dt>Source revision</dt><dd class="mono" id="source-revision"></dd><dt>Recorded</dt><dd id="generated-at"></dd></dl></div><div><h2>Read the boundaries, too.</h2><ul class="limitations" id="limitations"></ul></div></section>
+<details class="trace"><summary>Inspect the selected scenario’s raw trace</summary><div class="trace-body"><p>Requests, decisions, target state, and available evidence are displayed as recorded. The full download includes provenance and every scenario.</p><pre id="trace"></pre><a class="trace-download" href="openshell-traces.json" download>Download all recorded traces ↓</a></div></details>
+<div class="contribute"><p>This is a bounded experimental complement to NVIDIA OpenShell, with no implied endorsement. OpenShell itself supports body-aware controls; the value of this example is its explicit action binding, approval path, and evidence. Inspect the configuration before comparing outcomes.</p><a href="https://github.com/claytonsamples/controlspec/issues">Challenge the boundary ↗</a></div>
+<div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
+</main>
+<footer><span>ControlSpec · Experimental open-source reference layer</span><span>Risk in → Route out → Evidence back</span></footer>
+<noscript><p style="padding:20px">JavaScript is required for recorded playback. <a href="openshell-traces.json">Read the complete JSON trace</a> or <a href="https://github.com/claytonsamples/controlspec/tree/main/integrations/openshell">inspect the integration source</a>.</p></noscript>
+<script id="openshell-data" type="application/json">__OPENSHELL_DATA__</script>
+<script>
+'use strict';
+(() => {
+ const $=id=>document.getElementById(id);
+ const asText=value=>typeof value==='string'?value:value===undefined||value===null?'Not recorded':JSON.stringify(value);
+ const isCount=value=>Number.isSafeInteger(value)&&value>=0;
+ const money=value=>isCount(value)?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(value/100):'Not recorded';
+ const labels={unguarded:'Unguarded target',native:'OpenShell native',combined:'OpenShell + ControlSpec'};
+ const phaseNames=['Intent','Decision','Effect','Evidence'];
+ let data;
+ try {data=JSON.parse($('openshell-data').textContent);if(data.schema_version!=='1'||!Array.isArray(data.scenes))throw new Error('Unsupported report');}
+ catch {$('load-error').hidden=false;$('replay').hidden=true;return;}
+ const scenes=data.scenes;
+ let current=0,phase=0,timer=null;
+ $('upstream-version').textContent=asText(data.upstream?.version)+' · '+asText(data.upstream?.commit);
+ const runtimePassed=data.runtime?.status==='passed';
+ $('runtime-status').textContent=runtimePassed?'Passed — recorded runtime run':'Not run — runtime enforcement unverified';
+ $('runtime-status').classList.toggle('passed',runtimePassed);
+ $('runtime-detail').textContent=asText(data.runtime?.detail);
+ $('verification').textContent=asText(data.verification?.detail);
+ $('source-revision').textContent=asText(data.source_revision);
+ $('generated-at').textContent=asText(data.generated_at);
+ const limitations=Array.isArray(data.limitations)?data.limitations:[];
+ for(const limitation of limitations){const item=document.createElement('li');item.textContent=asText(limitation);$('limitations').append(item);}
+ if(!limitations.length){const item=document.createElement('li');item.textContent='No limitations were supplied in this report. Inspect the source before relying on an outcome.';$('limitations').append(item);}
+ $('scene-total').textContent=scenes.length+' recorded scenario'+(scenes.length===1?'':'s');
+ if(!scenes.length){$('load-error').textContent='No recorded scenarios are available in this report. No comparison outcomes are displayed.';$('load-error').hidden=false;$('replay').hidden=true;$('trace').textContent=JSON.stringify(data,null,2);return;}
+ scenes.forEach((scene,index)=>{const button=document.createElement('button');button.type='button';const n=document.createElement('span');n.textContent=String(index+1).padStart(2,'0');button.append(n,document.createTextNode(asText(scene.title)));button.addEventListener('click',()=>{pause();current=index;phase=0;render();});$('scenes').append(button);});
+ for(const id of Object.keys(labels)){
+  const lane=document.createElement('article');lane.className='lane '+id;lane.id='lane-'+id;
+  lane.innerHTML='<div class="lane-title"><span class="marker" aria-hidden="true"></span><span class="lane-name"></span></div><p class="lane-sub"></p><div class="state-label">Synthetic target · spent</div><div class="value"></div><div class="state-caption"></div><div class="status"></div><p class="reason"></p><div class="evidence-summary"><b></b><span></span></div>';
+  lane.querySelector('.lane-name').textContent=id==='combined'&&!runtimePassed?'ControlSpec protocol fixture':labels[id];$('lanes').append(lane);
+ }
+ function pause(){if(timer!==null)clearInterval(timer);timer=null;}
+ function render(){
+  const scene=scenes[current];
+  $('scene-title').textContent=asText(scene.title);$('scene-description').textContent=asText(scene.description);
+  $('scene-counter').textContent=String(current+1).padStart(2,'0')+' / '+String(scenes.length).padStart(2,'0');
+  $('request-json').textContent=JSON.stringify(scene.request??null,null,2);
+  $('request-summary').textContent='Exact scripted request'+(isCount(scene.request?.amount_minor)?' · '+money(scene.request.amount_minor):'')+' · inspect JSON';
+  [...$('scenes').children].forEach((button,index)=>button.setAttribute('aria-pressed',String(index===current)));
+  document.querySelectorAll('.phases span').forEach((item,index)=>{item.classList.toggle('active',index<=phase);if(index===phase)item.setAttribute('aria-current','step');else item.removeAttribute('aria-current');});
+  for(const id of Object.keys(labels)){
+   const element=$('lane-'+id),lane=Array.isArray(scene.lanes)?scene.lanes.find(item=>item.id===id):null;
+   const observed=lane?.status==='observed';
+   element.classList.toggle('unavailable',!observed);
+   element.querySelector('.lane-sub').textContent=id==='unguarded'?'Direct call to a separate synthetic target':id==='native'?'Native policy path · inspect the effective configuration':runtimePassed?'Middleware path · inspect runtime evidence':'Authenticated gRPC fixture · runtime not verified';
+   const state=phase>=2?lane?.after:lane?.before;
+   element.querySelector('.value').textContent=observed?money(state?.spent_minor):'—';
+   element.querySelector('.state-caption').textContent=!observed?'No target state is asserted.':(isCount(state?.purchase_count)?state.purchase_count+' recorded purchase'+(state.purchase_count===1?'':'s'):'Purchase count not recorded')+' · '+(phase>=2?'after request':'before request');
+   const status=element.querySelector('.status');status.classList.toggle('revealed',observed&&phase>=1);
+   status.textContent=!observed?'Not run':phase===0?'Recorded input':asText(lane.outcome).replaceAll('_',' ');
+   element.querySelector('.reason').textContent=!observed?asText(lane?.reason??'This comparison path has not been run. No result is inferred.'):phase===0?'Replay the recorded decision, then inspect its effect at the synthetic target.':asText(lane.reason);
+   const evidenceTitle=element.querySelector('.evidence-summary b'),evidenceText=element.querySelector('.evidence-summary span');
+   if(!observed){evidenceTitle.textContent='Evidence unavailable';evidenceText.textContent='An unavailable path cannot support a comparison claim.';}
+   else if(phase<3){evidenceTitle.textContent='Evidence appears at step 04';evidenceText.textContent='A decision alone does not prove an action completed.';}
+   else {
+    const events=Array.isArray(lane.events)?lane.events:[];
+    const hasEvidence=lane.evidence!==null&&lane.evidence!==undefined&&typeof lane.evidence==='object'&&Object.keys(lane.evidence).length>0;
+    evidenceTitle.textContent=hasEvidence?'Recorded evidence · inspect raw trace':'No evidence object recorded';
+    evidenceText.textContent=events.length?events.map(event=>asText(event.message)).join(' · '):'No event messages were recorded for this path.';
+   }
+  }
+  $('takeaway').textContent=phase===3?asText(scene.takeaway):'Follow the request from intent to evidence. The final step reveals the recorded takeaway.';
+  $('trace').textContent=JSON.stringify(scene,null,2);
+  $('progress').textContent='Step '+(phase+1)+' / 4 · '+phaseNames[phase]+' · recorded playback';
+  $('step').disabled=phase===3;
+  $('play').textContent=timer!==null?'Pause replay':phase===3?'↺ Replay scenario':phase===0?'Run this scenario':'Resume replay';
+  $('announcement').textContent=asText(scene.title)+'. '+phaseNames[phase]+', step '+(phase+1)+' of 4.';
+ }
+ function advance(){if(phase<3)phase++;if(phase===3)pause();render();}
+ $('play').addEventListener('click',()=>{if(timer!==null){pause();render();return;}if(phase===3)phase=0;timer=setInterval(advance,2200);render();});
+ $('step').addEventListener('click',()=>{pause();advance();});
+ $('reset').addEventListener('click',()=>{pause();phase=0;render();});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden&&timer!==null){pause();render();}});
+ render();
+})();
+</script>
+</body>
+</html>

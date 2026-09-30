@@ -1,0 +1,16 @@
+# Synthetic target only. Native OpenShell already restricts host, port, path, and binary.
+# No claim that these native controls are absent without ControlSpec.
+version: 1
+network_policies:
+  synthetic-purchase:
+    name: Synthetic purchases
+    endpoints:
+      - host: host.openshell.internal
+        port: 18081
+        protocol: rest
+        rules:
+          - allow:
+              method: POST
+              path: /purchases
+    binaries:
+      - path: /usr/bin/curl

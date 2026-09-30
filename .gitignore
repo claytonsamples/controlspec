@@ -9,6 +9,9 @@ build/
 *.egg-info/
 .env
 .env.*
+.demo-state/
+*.secret
+*-key.pem
 *.db
 *.sqlite*
 .DS_Store
